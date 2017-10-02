@@ -10,3 +10,4 @@ GoogleService-Info.plist
 npm-debug.log
 public/libs
 public/scripts-es5
+node_modules
