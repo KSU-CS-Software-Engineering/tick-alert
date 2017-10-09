@@ -70,14 +70,46 @@
                     <view key="view" contentMode="scaleToFill" id="Jjh-wj-rF3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6K-wk-7iH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLQ-U6-uTK">
+                                <rect key="frame" x="162.5" y="546" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="hZ1-H8-Wxf"/>
+                                    <constraint firstAttribute="height" constant="50" id="pzq-r0-FGj"/>
+                                </constraints>
+                                <state key="normal" image="capture">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTapCapture:" destination="1mw-UD-bj6" eventType="touchUpInside" id="YAM-oy-xwX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dLQ-U6-uTK" firstAttribute="centerX" secondItem="Jjh-wj-rF3" secondAttribute="centerX" id="18V-Q0-G3b"/>
+                            <constraint firstItem="J6K-wk-7iH" firstAttribute="leading" secondItem="twz-PN-O3r" secondAttribute="leading" id="4YQ-wT-fEU"/>
+                            <constraint firstItem="J6K-wk-7iH" firstAttribute="trailing" secondItem="twz-PN-O3r" secondAttribute="trailing" id="7E0-GE-8YP"/>
+                            <constraint firstItem="J6K-wk-7iH" firstAttribute="bottom" secondItem="twz-PN-O3r" secondAttribute="bottom" id="7ze-zd-XIu"/>
+                            <constraint firstItem="J6K-wk-7iH" firstAttribute="top" secondItem="Jjh-wj-rF3" secondAttribute="top" id="Bdx-mI-eOT"/>
+                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="22" id="iKu-IW-fmU"/>
+                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="22" id="kmw-mE-cZ5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="twz-PN-O3r"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" image="camera" id="aRx-FG-d6b"/>
+                    <connections>
+                        <outlet property="capturePhotoButton" destination="dLQ-U6-uTK" id="Buy-rS-wkX"/>
+                        <outlet property="previewView" destination="J6K-wk-7iH" id="Gyf-ai-sEp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dO-MG-4XC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="706"/>
+            <point key="canvasLocation" x="253.59999999999999" y="705.69715142428788"/>
         </scene>
         <!--More View Controller-->
         <scene sceneID="fnh-d1-76T">
@@ -168,6 +200,7 @@
     </scenes>
     <resources>
         <image name="camera" width="25" height="25"/>
+        <image name="capture" width="50" height="50"/>
         <image name="nearby" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>
     </resources>
