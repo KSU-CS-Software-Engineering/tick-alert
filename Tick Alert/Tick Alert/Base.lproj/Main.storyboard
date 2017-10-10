@@ -76,10 +76,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLQ-U6-uTK">
-                                <rect key="frame" x="162.5" y="546" width="50" height="50"/>
+                                <rect key="frame" x="147" y="528" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="hZ1-H8-Wxf"/>
-                                    <constraint firstAttribute="height" constant="50" id="pzq-r0-FGj"/>
+                                    <constraint firstAttribute="width" constant="80" id="6xQ-X4-q1c"/>
+                                    <constraint firstAttribute="height" constant="80" id="T1i-Zx-QBy"/>
                                 </constraints>
                                 <state key="normal" image="capture">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -91,13 +91,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dLQ-U6-uTK" firstAttribute="centerX" secondItem="Jjh-wj-rF3" secondAttribute="centerX" id="18V-Q0-G3b"/>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="leading" secondItem="twz-PN-O3r" secondAttribute="leading" id="4YQ-wT-fEU"/>
+                            <constraint firstItem="dLQ-U6-uTK" firstAttribute="centerX" secondItem="Jjh-wj-rF3" secondAttribute="centerX" id="5Ng-KO-AaM"/>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="trailing" secondItem="twz-PN-O3r" secondAttribute="trailing" id="7E0-GE-8YP"/>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="bottom" secondItem="twz-PN-O3r" secondAttribute="bottom" id="7ze-zd-XIu"/>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="top" secondItem="Jjh-wj-rF3" secondAttribute="top" id="Bdx-mI-eOT"/>
-                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="22" id="iKu-IW-fmU"/>
-                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="22" id="kmw-mE-cZ5"/>
+                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="10" id="eRq-lM-Mdi"/>
+                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="10" id="oB3-2x-Gmk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="twz-PN-O3r"/>
                     </view>
@@ -200,7 +200,7 @@
     </scenes>
     <resources>
         <image name="camera" width="25" height="25"/>
-        <image name="capture" width="50" height="50"/>
+        <image name="capture" width="100" height="100"/>
         <image name="nearby" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>
     </resources>
