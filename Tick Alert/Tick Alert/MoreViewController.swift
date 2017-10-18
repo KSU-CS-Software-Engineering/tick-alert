@@ -8,7 +8,23 @@
 
 import UIKit
 
-class MoreViewController: UIViewController {
+class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let cellContent = ["FAQ", "About", "Settings"]
+    
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //number of rows in table
+        return cellContent.count
+    }
+    
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //defining each cell
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        
+        cell.textLabel?.text = cellContent[indexPath.row]
+        
+        return cell
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
