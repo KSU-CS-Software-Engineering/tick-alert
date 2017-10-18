@@ -139,12 +139,16 @@ friendlyPix.Uploader = class {
     // Only process image files.
     if (file.type.match('image.*')) {
       var reader = new FileReader();
-      reader.onload = e => this.displayPicture(e.target.result);
-      // Read in the image file as a data URL.
+      reader.onload = e => {
+       this.displayPicture(e.target.result);
+      }
+        // Read in the image file as a data URL.
       reader.readAsDataURL(file);
       this.disableUploadUi(false);
     }
+   
   }
+
 
   /**
    * Returns a Canvas containing the given image scaled down to the given max dimension.
@@ -215,6 +219,31 @@ friendlyPix.Uploader = class {
     e.preventDefault();
     this.disableUploadUi(true);
     var imageCaption = this.imageCaptionInput.val();
+
+
+/*GPS coordinates*/
+    var long;
+    var lat;
+    var pr;
+    var pic = document.getElementById('newPictureContainer');
+      EXIF.getData(pic, function () {
+
+      long = EXIF.getTag(this, 'GPSLongitude');
+      lat = EXIF.getTag(this, 'GPSLatitude');
+      pr = EXIF.pretty(this);
+    });
+             
+    var toDecimal = function (number) {
+       return number[0].numerator + number[1].numerator /
+           (60 * number[1].denominator) + number[2].numerator / (3600 * number[2].denominator);}
+
+       alert("GPSLongitude*****"+toDecimal(long));
+       alert("GPSLatitude******"+toDecimal(lat));
+
+       console.log("pretty*****"+pr);
+
+/*End GPS coordinates*/
+
 
     this.generateImages().then(pics => {
       // Upload the File upload to Cloud Storage and create new post.

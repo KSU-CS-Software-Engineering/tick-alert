@@ -9,5 +9,8 @@
     "bower": "^1.6.5",
     "firebase-tools": "^3.9.1"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "exif-js": "^2.3.0"
+  }
 }
