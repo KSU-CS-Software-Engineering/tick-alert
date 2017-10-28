@@ -1,2 +1,14 @@
 .DS_Store
-
+*/.idea
+.idea
+gen/
+.DS_Store
+Pods/
+Podfile.lock
+xcuserdata/
+*.xcworkspace/
+GoogleService-Info.plist
+npm-debug.log
+public/libs
+public/scripts-es5
+node_modules
