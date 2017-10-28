@@ -16,6 +16,10 @@ class CameraViewController: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
     
+//    @IBAction func captureButtonPressed(_ sender: Any) {
+//        capturePhotoButton.currentImage = captureButton
+//    }
+    
     @IBAction func onTapCapture(_ sender: Any) {
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
         
