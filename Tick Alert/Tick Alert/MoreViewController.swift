@@ -25,6 +25,16 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch(indexPath.row) {
+            case 0:
+                self.performSegue(withIdentifier: "FAQpage", sender: self)
+                break
+            default:
+                print("cell")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
