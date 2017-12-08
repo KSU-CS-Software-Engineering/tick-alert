@@ -27,10 +27,21 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         switch(indexPath.row) {
             case 0:
-                self.performSegue(withIdentifier: "FAQpage", sender: self)
+                self.performSegue(withIdentifier: "FAQPage", sender: self)
                 break
+        
+            case 1:
+                //self.performSegue(withIdentifier: "AboutPage", sender: self)
+                break
+            
+            case 2:
+                //self.performSegue(withIdentifier: "SettingsPage", sender: self)
+                break
+                
             default:
                 print("cell")
         }

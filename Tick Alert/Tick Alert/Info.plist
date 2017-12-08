@@ -48,6 +48,14 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Tick Alert needs to access the camera to take photos</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Tick Alert needs to access your location to display nearby information</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Tick Alert needs to access your location to display nearby information</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Tick Alert needs to access your location to display nearby information</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Tick Alert needs to access your location to display nearby information</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

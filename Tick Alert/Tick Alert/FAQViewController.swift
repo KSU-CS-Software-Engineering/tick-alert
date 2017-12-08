@@ -1,19 +1,19 @@
 //
-//  RecentsViewController.swift
+//  FAQViewController.swift
 //  Tick Alert
 //
-//  Created by David Freeman on 10/8/17.
+//  Created by David Freeman on 10/30/17.
 //  Copyright © 2017 David Freeman. All rights reserved.
 //
 
 import UIKit
 
-class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["Deer Tick - Manhattan,KS", "American Dog Tick - Kansas City, MO", "Pigeon Tick - New York, NY", "Ornate Cow Tick - Bartlesville, OK", "Deer Tick - Leavenworth, KS", "Ixodes Ricinus - Lincoln, NE", "Nuttalliella - Salem, OR", "Ornate Cow Tick - Orlando, FL", "Pigeon Tick - Long Beach, CA", "American Dog Tick - Springfield, MO"]
+    let cellContent = ["Tick Removal", "Tick Identification", "Avoiding Ticks", "Tick-Borne Diseases", "Tick Distribution", "Preventing Tick Bites"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellContent.count
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,6 +27,7 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 

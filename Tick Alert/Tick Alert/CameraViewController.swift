@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
+    @IBOutlet weak var guideBox: UIImageView!
+    @IBOutlet weak var guideLabel: UILabel!
     @IBOutlet weak var capturePhotoButton: UIButton!
     @IBOutlet weak var previewView: UIView!
     var captureSession: AVCaptureSession?
@@ -34,7 +36,7 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.bringSubview(toFront: capturePhotoButton)
+        
 
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         do {
@@ -57,6 +59,10 @@ class CameraViewController: UIViewController {
         } catch {
             print(error)
         }
+        
+        guideBox.layer.zPosition = 1
+        guideLabel.layer.zPosition = 1
+        capturePhotoButton.layer.zPosition = 1
     }
 
     override func didReceiveMemoryWarning() {
