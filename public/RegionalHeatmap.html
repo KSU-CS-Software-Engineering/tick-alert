@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Import and configure the Firebase SDK -->
+<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+<!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<script src="/__/firebase/4.1.3/firebase.js"></script>
+<script src="/__/firebase/init.js">friendlyPix.firebase = new friendlyPix.Firebase();
+</script>
     <meta charset="utf-8">
+
     <title>Heatmaps</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -104,7 +111,8 @@
       // Heatmap data: 500 Points
       function getPoints() {
         return [
-          new google.maps.LatLng(37.782551, -122.445368),
+          new google.maps.LatLng(12.486211666666666, 41.8898575),
+          /*new google.maps.LatLng(37.782551, -122.445368),
           new google.maps.LatLng(37.782745, -122.444586),
           new google.maps.LatLng(37.782842, -122.443688),
           new google.maps.LatLng(37.782919, -122.442815),
@@ -603,7 +611,7 @@
           new google.maps.LatLng(37.754665, -122.403242),
           new google.maps.LatLng(37.753837, -122.403172),
           new google.maps.LatLng(37.752986, -122.403112),
-          new google.maps.LatLng(37.751266, -122.403355)
+          new google.maps.LatLng(37.751266, -122.403355)*/
         ];
       }
     </script>

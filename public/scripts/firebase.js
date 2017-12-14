@@ -301,11 +301,15 @@ friendlyPix.Firebase = class {
           followedUserPostsRef = followedUserPostsRef.orderByKey().startAt(lastSyncedPostId);
         }
         return followedUserPostsRef.once('value', postData => {
+          var latitude = (postData.val() && postData.val().latitude) || 'Anonymous';
+          console.log(latitude);
           const updates = {};
           if (!postData.val()) {
             return;
           }
+
           Object.keys(postData.val()).forEach(postId => {
+
             if (postId !== lastSyncedPostId) {
               updates[`/feed/${this.auth.currentUser.uid}/${postId}`] = true;
               updates[`/people/${this.auth.currentUser.uid}/following/${followedUid}`] = postId;
@@ -421,10 +425,10 @@ friendlyPix.Firebase = class {
    * Uploads a new Picture to Cloud Storage and adds a new post referencing it.
    * This returns a Promise which completes with the new Post ID.
    */
-  uploadNewPic(pic, thumb, fileName, text) {
+  uploadNewPic(pic, thumb, fileName, text, GPSlat, GPSlong) {
     // Get a reference to where the post will be created.
     const newPostKey = this.database.ref('/posts').push().key;
-
+    //alert(GPSlat);
     // Start the pic file upload to Cloud Storage.
     const picRef = this.storage.ref(`${this.auth.currentUser.uid}/full/${newPostKey}/${fileName}`);
     const metadata = {
@@ -464,8 +468,10 @@ friendlyPix.Firebase = class {
         author: {
           uid: this.auth.currentUser.uid,
           full_name: this.auth.currentUser.displayName,
-          profile_picture: this.auth.currentUser.photoURL
-        }
+          profile_picture: this.auth.currentUser.photoURL,
+        },
+          latitude: JSON.stringify(GPSlat),
+          longtitude: JSON.stringify(GPSlong),
       };
       update[`/people/${this.auth.currentUser.uid}/posts/${newPostKey}`] = true;
       update[`/feed/${this.auth.currentUser.uid}/${newPostKey}`] = true;

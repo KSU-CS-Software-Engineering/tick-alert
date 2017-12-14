@@ -322,7 +322,7 @@ friendlyPix.Post = class {
     friendlyPix.firebase.registerForLikesCount(postId, nbLikes => {
       if (nbLikes > 0) {
         $('.fp-likes', post).show();
-        $('.fp-likes', post).text(nbLikes + ' like' + (nbLikes === 1 ? '' : 's'));
+        $('.fp-likes', post).text(nbLikes + ' verified');// + (nbLikes === 1 ? '' : 's'));
       } else {
         $('.fp-likes', post).hide();
       }
@@ -350,14 +350,14 @@ friendlyPix.Post = class {
               <a href="/post/" class="fp-time">now</a>
             </div>
             <div class="fp-image"></div>
-            <div class="fp-likes">0 likes</div>
+            <div class="fp-likes">0 verified</div>
             <div class="fp-first-comment"></div>
             <div class="fp-morecomments">View more comments...</div>
             <div class="fp-comments"></div>
             <div class="fp-action">
               <span class="fp-like">
-                <div class="fp-not-liked material-icons">favorite_border</div>
-                <div class="fp-liked material-icons">favorite</div>
+                <div class="fp-not-liked material-icons">done</div>
+                <div class="fp-liked material-icons">done_all</div>
               </span>
               <form class="fp-add-comment" action="#">
                 <div class="mdl-textfield mdl-js-textfield">

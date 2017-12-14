@@ -53,6 +53,10 @@ friendlyPix.Router = class {
         page('/post/:postId', pipe(showPost, null, true), pipe(displayPage, {pageId: 'post'}));
         page('/user/:userId', pipe(loadUser, null, true), pipe(displayPage, {pageId: 'user-info'}));
         page('/about', pipe(clearFeed, null, true), pipe(displayPage, {pageId: 'about'}));
+        page('/map', pipe(clearFeed, null, true), pipe(displayPage, {pageId: 'map'}));
+        page('/glossary', pipe(clearFeed, null, true), pipe(displayPage, {pageId: 'glossary'}));
+        page('/faq', pipe(clearFeed, null, true), pipe(displayPage, {pageId: 'faq'}));
+        page('/contact', pipe(clearFeed, null, true), pipe(displayPage, {pageId: 'contact'}));
         page('/add', pipe(displayPage, {pageId: 'add', onlyAuthed: true}));
         page('*', () => page('/'));
 

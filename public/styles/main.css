@@ -173,6 +173,11 @@ a {
 }
 .fp-sign-out {
   display: none;
+  color: white;
+}
+.fp-sign-out-button {
+  font-size: 16px;
+  line-height: 48px;
 }
 .fp-sign-in-button {
   margin-left: 10px;
@@ -652,8 +657,8 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0288D1;
-  background: radial-gradient(circle, #039BE5, #01579b);
+  background-color: rgba(86,128,4);
+  background: radial-gradient(circle, #8E40FF, #421E0B);
   z-index: 10000;
   display: flex;
   justify-content: center;

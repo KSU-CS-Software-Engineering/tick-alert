@@ -226,28 +226,42 @@ friendlyPix.Uploader = class {
     var lat;
     var pr;
     var pic = document.getElementById('newPictureContainer');
+
       EXIF.getData(pic, function () {
 
       long = EXIF.getTag(this, 'GPSLongitude');
       lat = EXIF.getTag(this, 'GPSLatitude');
       pr = EXIF.pretty(this);
+
+      var recentPostsRef = firebase.database().ref('posts').limitToLast(100);
+
     });
              
     var toDecimal = function (number) {
+      if (typeof number == 'undefined') {
+        return 0;
+      }
        return number[0].numerator + number[1].numerator /
            (60 * number[1].denominator) + number[2].numerator / (3600 * number[2].denominator);}
 
-       alert("GPSLongitude*****"+toDecimal(long));
-       alert("GPSLatitude******"+toDecimal(lat));
-
-       console.log("pretty*****"+pr);
+       
 
 /*End GPS coordinates*/
 
 
+
     this.generateImages().then(pics => {
+     // alert("GPSLongitude*****"+toDecimal(long));
+      // alert("GPSLatitude******"+toDecimal(lat));
+
+     //  console.log("pretty*****"+pr);
       // Upload the File upload to Cloud Storage and create new post.
-      friendlyPix.firebase.uploadNewPic(pics.full, pics.thumb, this.currentFile.name, imageCaption)
+
+  
+        long = toDecimal(long);
+        lat = toDecimal(lat);
+
+            friendlyPix.firebase.uploadNewPic(pics.full, pics.thumb, this.currentFile.name, imageCaption, long, lat)
           .then(postId => {
             page(`/user/${this.auth.currentUser.uid}`);
             var data = {
@@ -268,6 +282,8 @@ friendlyPix.Uploader = class {
             this.disableUploadUi(false);
           });
         });
+
+
   }
 
   /**
