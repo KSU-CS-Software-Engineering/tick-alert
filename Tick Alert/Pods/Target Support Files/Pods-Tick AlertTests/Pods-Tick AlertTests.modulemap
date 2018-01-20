@@ -1,0 +1,6 @@
+framework module Pods_Tick_AlertTests {
+  umbrella header "Pods-Tick AlertTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
