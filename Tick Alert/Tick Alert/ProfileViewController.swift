@@ -7,14 +7,39 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, GIDSignInUIDelegate {
     
-
+    @IBOutlet weak var userLocation: UILabel!
+    @IBOutlet weak var userFirstAndLast: UILabel!
+    
+    var ref: DatabaseReference!
+    let userId = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+        
+        // TODO(developer) Configure the sign-in button look/feel
+        // ...
 
-        // Do any additional setup after loading the view.
+        ref = Database.database().reference()
+        self.ref.child("user/\(userId)/username").setValue("greasyw00t")
+        
+        
+        ref.child("user").child("\(userId)").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            print(value)
+            self.userFirstAndLast.text = value?.value(forKey: "name") as! String
+            self.userLocation.text = value?.value(forKey: "location") as! String
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
