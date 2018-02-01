@@ -12,18 +12,18 @@ import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    var ref: DatabaseReference!
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
-            return GIDSignIn.sharedInstance().handle(url,
-                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                     annotation: [:])
+            return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                annotation: [:])
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
         if let error = error {
-            // ...
+            print(error)
             return
         }
         
@@ -32,11 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         Auth.auth().signIn(with: credential) { (user, error) in
             if let error = error {
-                // ...
+                print(error)
                 return
             }
-            // User is signed in
-            // ...
+            // Check to see if userid is in database, and if not add them to it
+            self.ref = Database.database().reference()
+            self.ref.child("user").child((user?.uid)!).child("name").setValue(user?.displayName)
         }
     }
     

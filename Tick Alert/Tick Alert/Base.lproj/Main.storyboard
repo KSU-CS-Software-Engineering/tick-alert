@@ -98,6 +98,7 @@
                     <connections>
                         <outlet property="userFirstAndLast" destination="OY5-WT-7V3" id="glm-fX-bJ2"/>
                         <outlet property="userLocation" destination="7TH-Rs-c8v" id="gnN-c6-bKJ"/>
+                        <outlet property="userProfileImage" destination="ANb-U1-B4x" id="RTF-7b-Y9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

@@ -14,33 +14,41 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var userFirstAndLast: UILabel!
+    @IBOutlet weak var userProfileImage: UIImageView!
     
+    var userId: Int!
     var ref: DatabaseReference!
-    let userId = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Log user into Google
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signInSilently()
         
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
-
-//        ref = Database.database().reference()
-//        self.ref.child("user/\(userId)/username").setValue("jellyw00t")
-//
-//
-//        ref.child("user").child("\(userId)").observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-//            print(value)
-//            self.userFirstAndLast.text = value?.value(forKey: "name") as! String
-//            self.userLocation.text = value?.value(forKey: "location") as! String
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
+        if(Auth.auth().currentUser != nil) {
+            // Get the infomration of the user currently logged in
+            let user = Auth.auth().currentUser
+            let userId = user?.uid
+            
+            // Set name to Google display name
+            self.userFirstAndLast.text = user?.displayName
+            
+            // Set the profile picture to Google profile picture
+            let data = try? Data(contentsOf: (user?.photoURL!)!)
+            userProfileImage.image = UIImage(data: data!)
+            
+            // Get user location from databse
+            ref = Database.database().reference()
+            ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                
+                // Set the location to value in database
+                self.userLocation.text = value?.value(forKey: "location") as? String
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
