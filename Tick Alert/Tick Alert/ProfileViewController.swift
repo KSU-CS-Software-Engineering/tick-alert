@@ -14,9 +14,10 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var userFirstAndLast: UILabel!
+    @IBOutlet weak var userProfileImage: UIImageView!
+    @IBOutlet weak var userBio: UILabel!
     
     var ref: DatabaseReference!
-    let userId = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,23 +25,27 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
-
-//        ref = Database.database().reference()
-//        self.ref.child("user/\(userId)/username").setValue("jellyw00t")
-//
-//
-//        ref.child("user").child("\(userId)").observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-//            print(value)
-//            self.userFirstAndLast.text = value?.value(forKey: "name") as! String
-//            self.userLocation.text = value?.value(forKey: "location") as! String
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
+        if (Auth.auth().currentUser != nil) {
+            let user = Auth.auth().currentUser!
+            userFirstAndLast.text = user.displayName
+            
+            let data = try? Data(contentsOf: (user.photoURL!))
+            userProfileImage.image = UIImage(data: data!)
+            
+            ref = Database.database().reference()
+            ref.child("user").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                
+                self.userLocation.text = value?.value(forKey: "location") as! String
+                self.userBio.text = value?.value(forKey: "bio") as! String
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+        } else {
+            print("Not signed in")
+        }
     }
 
     override func didReceiveMemoryWarning() {
