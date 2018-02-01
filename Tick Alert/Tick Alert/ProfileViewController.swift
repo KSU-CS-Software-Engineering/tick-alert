@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var userFirstAndLast: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
+    @IBOutlet weak var userBio: UILabel!
     
     var userId: Int!
     var ref: DatabaseReference!
@@ -45,6 +46,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
                 
                 // Set the location to value in database
                 self.userLocation.text = value?.value(forKey: "location") as? String
+                self.userBio.text = value?.value(forKey: "bio") as! String
             }) { (error) in
                 print(error.localizedDescription)
             }
