@@ -11,21 +11,30 @@ import Firebase
 import GoogleSignIn
 
 class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var userLocation: UILabel!
+    @IBOutlet weak var userFirstAndLast: UILabel!
+    @IBOutlet weak var userProfileImage: UIImageView!
+    @IBOutlet weak var userBio: UILabel!
+    @IBOutlet var collectionView: UICollectionView!
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+        
         if(Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
             let userId = user?.uid
-            ref = Database.database().reference()
+            let ref = Database.database().reference()
             ref.child("user").child(userId!).child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 let postIds = value?.allKeys
-                self.ref.child("post").child(postIds![indexPath.row] as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                if(postIds == nil) {return}
+                ref.child("post").child("\(postIds![indexPath.row])").observeSingleEvent(of: .value, with: { (snapshot) in
                     let value = snapshot.value as? NSDictionary
+                    
                     let urlString = value?.value(forKey: "imageUrl") as? String
                     let url = URL(string: urlString!)
                     let data = try? Data(contentsOf: url!)
@@ -40,21 +49,44 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         return cell
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        // Log user into Google
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().signIn()
+//
+//        if(Auth.auth().currentUser != nil) {
+//            // Get the infomration of the user currently logged in
+//            let user = Auth.auth().currentUser
+//            let userId = user?.uid
+//
+//            // Set name to Google display name
+//            self.userFirstAndLast.text = user?.displayName
+//
+//            // Set the profile picture to Google profile picture
+//            let data = try? Data(contentsOf: (user?.photoURL)!)
+//            userProfileImage.image = UIImage(data: data!)
+//
+//            // Get user location from databse
+//            ref = Database.database().reference()
+//            ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in
+//                // Get user value
+//                let value = snapshot.value as? NSDictionary
+//
+//                // Set the location to value in database
+//                self.userLocation.text = value?.value(forKey: "location") as? String
+//                self.userBio.text = value?.value(forKey: "bio") as? String
+//            }) { (error) in
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
     
-    @IBOutlet weak var userLocation: UILabel!
-    @IBOutlet weak var userFirstAndLast: UILabel!
-    @IBOutlet weak var userProfileImage: UIImageView!
-    @IBOutlet weak var userBio: UILabel!
-    @IBOutlet var collectionView: UICollectionView!
-    
-    var userId: Int!
-    var ref: DatabaseReference!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Log user into Google
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().signIn()
         
         if(Auth.auth().currentUser != nil) {
             // Get the infomration of the user currently logged in
@@ -69,7 +101,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             userProfileImage.image = UIImage(data: data!)
             
             // Get user location from databse
-            ref = Database.database().reference()
+            let ref = Database.database().reference()
             ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 let value = snapshot.value as? NSDictionary
@@ -81,10 +113,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {

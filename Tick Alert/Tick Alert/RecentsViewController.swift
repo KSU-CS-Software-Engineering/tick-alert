@@ -11,19 +11,7 @@ import Firebase
 
 class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var numberOfPosts = 0
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let ref = Database.database().reference()
-//        ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
-//            self.numberOfPosts = Int(snapshot.childrenCount)
-//            print(self.numberOfPosts)
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-//        print(numberOfPosts)
-//        if(numberOfPosts > 25) {return 25}
-//        else {return numberOfPosts}
         return 3
     }
     

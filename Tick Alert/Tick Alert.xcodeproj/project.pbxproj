@@ -140,12 +140,12 @@
 				0EE375441FE231BF0084321E /* GoogleService-Info.plist */,
 				0E2D40DA1F8AEC9200DD3F37 /* CameraViewController.swift */,
 				0E2D40DC1F8AED1F00DD3F37 /* ProfileViewController.swift */,
+				DF8E173F2024212000AFCC73 /* CollectionViewCell.swift */,
 				0E2D40DE1F8AED2B00DD3F37 /* NearbyViewController.swift */,
 				0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */,
 				0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */,
 				0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */,
 				0E6FB8BD1FA7B1C600C2D3E1 /* FAQViewController.swift */,
-				DF8E173F2024212000AFCC73 /* CollectionViewCell.swift */,
 			);
 			path = "Tick Alert";
 			sourceTree = "<group>";
