@@ -84,7 +84,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Log user into Google
+
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
