@@ -11,8 +11,13 @@ import Firebase
 
 class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var tableView: UITableView!
+    
+    var recentPosts = 0
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if(recentPosts > 25) {return 25}
+        return recentPosts
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,7 +54,12 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let ref = Database.database().reference()
+        ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.recentPosts = Int(snapshot.childrenCount)
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
