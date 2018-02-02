@@ -17,8 +17,10 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
+    var numberOfPosts = 0
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return numberOfPosts
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,6 +47,17 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             print(error.localizedDescription)
         }
         return cell
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(Auth.auth().currentUser == nil) {return}
+        let user = Auth.auth().currentUser
+        let userId = user?.uid
+        let ref = Database.database().reference()
+        ref.child("user/"+userId!+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.numberOfPosts = Int(snapshot.childrenCount)
+            self.collectionView.reloadData()
+        })
     }
     
     override func viewDidLoad() {

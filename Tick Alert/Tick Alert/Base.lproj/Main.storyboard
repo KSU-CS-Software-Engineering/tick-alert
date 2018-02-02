@@ -89,6 +89,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="bx0-64-ok4"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="8jP-oh-icL"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -116,6 +117,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="collectionView" destination="7eg-Eu-SED" id="aoY-5i-Odu"/>
                         <outlet property="userBio" destination="txb-rl-2pM" id="5SR-Zh-Aoj"/>
                         <outlet property="userFirstAndLast" destination="OY5-WT-7V3" id="glm-fX-bJ2"/>
                         <outlet property="userLocation" destination="7TH-Rs-c8v" id="gnN-c6-bKJ"/>
