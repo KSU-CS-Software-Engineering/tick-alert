@@ -22,6 +22,8 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
         
         cell.textLabel?.text = cellContent[indexPath.row]
+//        cell.textLabel?.textColor = UIColor.white
+//        cell.backgroundColor = UIColor.init(red: 88, green: 42, blue: 114, alpha: 1)
         
         return cell
     }

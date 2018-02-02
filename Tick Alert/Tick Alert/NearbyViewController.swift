@@ -9,10 +9,13 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var map: MKMapView!
     var locationManager = CLLocationManager()
+    
+    var pinImage: UIImage!
     
     @IBAction func centerOnLocationButtonPress(_ sender: Any) {
         locationManager.startUpdatingLocation()
@@ -28,24 +31,59 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         locationManager.startUpdatingLocation()
         locationManager.stopUpdatingLocation()
         
-//        let latitude:CLLocationDegrees = 39.175040
-//        let longitude:CLLocationDegrees = -96.569589
-//        let latDelta:CLLocationDegrees = 0.01
-//        let lonDelta:CLLocationDegrees = 0.01
-//        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
-//        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-//        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-//        map.setRegion(region, animated: true)
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = location
-//        annotation.title = "Home"
-//        annotation.subtitle = "is where the heart is"
-//        map.addAnnotation(annotation)
+        let ref = Database.database().reference()
+        ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
+            let numberOfPosts = snapshot.childrenCount
+            
+            for post in 0...numberOfPosts-1 {
+                ref.child("post").child("\(post)").observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    let value = snapshot.value as? NSDictionary
+                    
+                    let urlString = value?.value(forKey: "imageUrl") as? String
+                    let url = URL(string: urlString!)
+                    let data = try? Data(contentsOf: url!)
+                    self.pinImage = UIImage(data: data!)
+                    
+                    let lat = value?.value(forKey: "lat") as? Double
+                    let lon = value?.value(forKey: "lon") as? Double
+                    let title = value?.value(forKey: "type") as? String
+                    let subTitle = value?.value(forKey: "date") as? String
+                    
+                    let pin: MKPointAnnotation = MKPointAnnotation()
+                    pin.coordinate = CLLocationCoordinate2DMake(lat!, lon!)
+                    pin.title = title
+                    pin.subtitle = subTitle
+                    self.map.addAnnotation(pin)
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
         
-        let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(NearbyViewController.action(_:)))
-        uilpgr.minimumPressDuration = 2
-        map.addGestureRecognizer(uilpgr)
+        let annotationIdentifier = "AnnotationIdentifier"
+        var annotationView = map.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        annotationView!.image = pinImage
+        annotationView!.frame.size = CGSize(width: 30, height: 30)
+        return annotationView
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -66,20 +104,6 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
         
         self.map.setRegion(region, animated: true)
-    }
-    
-    @objc func action(_ gestureRecognizer:UIGestureRecognizer) {
-        
-        let touchPoint = gestureRecognizer.location(in: self.map)
-        
-        let newCoordinate:CLLocationCoordinate2D = map.convert(touchPoint, toCoordinateFrom: self.map)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = newCoordinate
-        annotation.title = "New Place"
-        annotation.subtitle = ""
-        
-        map.addAnnotation(annotation)
     }
 
     override func didReceiveMemoryWarning() {
