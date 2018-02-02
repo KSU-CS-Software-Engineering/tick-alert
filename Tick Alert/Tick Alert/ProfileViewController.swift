@@ -47,11 +47,10 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
-    var userId: Int!
     var ref: DatabaseReference!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // Log user into Google
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signInSilently()
@@ -81,10 +80,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
