@@ -7,19 +7,53 @@
 //
 
 import UIKit
+import Firebase
 
 class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["Deer Tick - Manhattan,KS", "American Dog Tick - Kansas City, MO", "Pigeon Tick - New York, NY", "Ornate Cow Tick - Bartlesville, OK", "Deer Tick - Leavenworth, KS", "Ixodes Ricinus - Lincoln, NE", "Nuttalliella - Salem, OR", "Ornate Cow Tick - Orlando, FL", "Pigeon Tick - Long Beach, CA", "American Dog Tick - Springfield, MO"]
+    var numberOfPosts = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellContent.count
+//        let ref = Database.database().reference()
+//        ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
+//            self.numberOfPosts = Int(snapshot.childrenCount)
+//            print(self.numberOfPosts)
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//        print(numberOfPosts)
+//        if(numberOfPosts > 25) {return 25}
+//        else {return numberOfPosts}
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = cellContent[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell", for: indexPath) as! RecentCellViewController
+        
+        let ref = Database.database().reference()
+        ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
+            let numberOfPosts = snapshot.childrenCount
+        
+            let post = numberOfPosts - UInt(indexPath.row) - 1
+            ref.child("post").child("\(post)").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                let value = snapshot.value as? NSDictionary
+                
+                cell.recentTick.text = value?.value(forKey: "type") as? String
+                cell.recentDate.text = value?.value(forKey: "date") as? String
+                cell.recentLocation.text = value?.value(forKey: "location") as? String
+                
+                let urlString = value?.value(forKey: "imageUrl") as? String
+                let url = URL(string: urlString!)
+                let data = try? Data(contentsOf: url!)
+                cell.recentTickImage.image = UIImage(data: data!)
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
         return cell
     }

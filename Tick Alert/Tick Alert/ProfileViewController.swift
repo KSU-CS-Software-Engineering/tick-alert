@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
                 
                 // Set the location to value in database
                 self.userLocation.text = value?.value(forKey: "location") as? String
-                self.userBio.text = value?.value(forKey: "bio") as! String
+                self.userBio.text = value?.value(forKey: "bio") as? String
             }) { (error) in
                 print(error.localizedDescription)
             }
