@@ -10,18 +10,48 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class ProfileViewController: UIViewController, GIDSignInUIDelegate {
+class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+        if(Auth.auth().currentUser != nil) {
+            let user = Auth.auth().currentUser
+            let userId = user?.uid
+            ref = Database.database().reference()
+            ref.child("user").child(userId!).child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let postIds = value?.allKeys
+                self.ref.child("post").child(postIds![indexPath.row] as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    let urlString = value?.value(forKey: "imageUrl") as? String
+                    let url = URL(string: urlString!)
+                    let data = try? Data(contentsOf: url!)
+                    cell.displayContent(image: UIImage(data: data!)!)
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }
+        return cell
+    }
+    
     
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var userFirstAndLast: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var userBio: UILabel!
+    @IBOutlet var collectionView: UICollectionView!
     
     var userId: Int!
     var ref: DatabaseReference!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Log user into Google
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signInSilently()
@@ -52,12 +82,15 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
             }
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
