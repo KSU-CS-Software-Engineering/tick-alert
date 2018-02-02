@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate {
             self.userFirstAndLast.text = user?.displayName
             
             // Set the profile picture to Google profile picture
-            let data = try? Data(contentsOf: (user?.photoURL!)!)
+            let data = try? Data(contentsOf: (user?.photoURL)!)
             userProfileImage.image = UIImage(data: data!)
             
             // Get user location from databse
