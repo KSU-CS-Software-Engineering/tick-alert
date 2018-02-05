@@ -50,48 +50,44 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // Log user into Google
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
         if(Auth.auth().currentUser == nil) {return}
+        
+        // Get the infomration of the user currently logged in
         let user = Auth.auth().currentUser
         let userId = user?.uid
+        
         let ref = Database.database().reference()
         ref.child("user/"+userId!+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
             self.numberOfPosts = Int(snapshot.childrenCount)
             self.collectionView.reloadData()
         })
+        
+        // Set name to Google display name
+        self.userFirstAndLast.text = user?.displayName
+        
+        // Set the profile picture to Google profile picture
+        let data = try? Data(contentsOf: (user?.photoURL)!)
+        userProfileImage.image = UIImage(data: data!)
+        
+        // Get user location from databse
+        ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            // Set the location to value in database
+            self.userLocation.text = value?.value(forKey: "location") as? String
+            self.userBio.text = value?.value(forKey: "bio") as? String
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Log user into Google
 
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
-        
-        if(Auth.auth().currentUser != nil) {
-            // Get the infomration of the user currently logged in
-            let user = Auth.auth().currentUser
-            let userId = user?.uid
-            
-            // Set name to Google display name
-            self.userFirstAndLast.text = user?.displayName
-            
-            // Set the profile picture to Google profile picture
-            let data = try? Data(contentsOf: (user?.photoURL)!)
-            userProfileImage.image = UIImage(data: data!)
-            
-            // Get user location from databse
-            let ref = Database.database().reference()
-            ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                let value = snapshot.value as? NSDictionary
-                
-                // Set the location to value in database
-                self.userLocation.text = value?.value(forKey: "location") as? String
-                self.userBio.text = value?.value(forKey: "bio") as? String
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
