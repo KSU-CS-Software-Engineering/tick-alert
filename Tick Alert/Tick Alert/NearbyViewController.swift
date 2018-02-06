@@ -15,7 +15,7 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet var map: MKMapView!
     var locationManager = CLLocationManager()
     
-    var pinImage: UIImage!
+    var pinImages: [String:UIImage] = [:]
     
     @IBAction func centerOnLocationButtonPress(_ sender: Any) {
         locationManager.startUpdatingLocation()
@@ -40,15 +40,15 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     
                     let value = snapshot.value as? NSDictionary
                     
-                    let urlString = value?.value(forKey: "imageUrl") as? String
-                    let url = URL(string: urlString!)
-                    let data = try? Data(contentsOf: url!)
-                    self.pinImage = UIImage(data: data!)
-                    
                     let lat = value?.value(forKey: "lat") as? Double
                     let lon = value?.value(forKey: "lon") as? Double
                     let title = value?.value(forKey: "type") as? String
                     let subTitle = value?.value(forKey: "date") as? String
+                    
+                    let urlString = value?.value(forKey: "imageUrl") as? String
+                    let url = URL(string: urlString!)
+                    let data = try? Data(contentsOf: url!)
+                    self.pinImages["\(lat!)"+"\(lon!)"] = UIImage(data: data!)
                     
                     let pin: MKPointAnnotation = MKPointAnnotation()
                     pin.coordinate = CLLocationCoordinate2DMake(lat!, lon!)
@@ -81,7 +81,8 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             annotationView!.annotation = annotation
         }
         
-        annotationView!.image = pinImage
+        let imageKey = "\(annotation.coordinate.latitude)"+"\(annotation.coordinate.longitude)"
+        annotationView!.image = pinImages[imageKey]
         annotationView!.frame.size = CGSize(width: 30, height: 30)
         return annotationView
     }
