@@ -51,6 +51,9 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

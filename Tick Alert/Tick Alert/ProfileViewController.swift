@@ -50,6 +50,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
         // Log user into Google
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
@@ -87,7 +88,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func didReceiveMemoryWarning() {

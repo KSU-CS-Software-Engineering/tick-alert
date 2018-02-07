@@ -23,6 +23,8 @@
 		0EE375461FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375471FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE95ABC20239C3F00D7E499 /* RecentCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */; };
+		0EFC9B16202AC37800F6B3EA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC9B15202AC37800F6B3EA /* PostViewController.swift */; };
+		0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */; };
 		1FA873A81971E5141B4D5A7C /* Pods_Tick_Alert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F3878EE4EBE10722877C90 /* Pods_Tick_Alert.framework */; };
 		8907B8715AA2AB649C41EA99 /* Pods_Tick_AlertTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CC48D1BF899855CA2F3EF8 /* Pods_Tick_AlertTests.framework */; };
 		DF8E17402024212000AFCC73 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8E173F2024212000AFCC73 /* CollectionViewCell.swift */; };
@@ -67,6 +69,8 @@
 		0E6FB8BD1FA7B1C600C2D3E1 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		0EE375441FE231BF0084321E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCellViewController.swift; sourceTree = "<group>"; };
+		0EFC9B15202AC37800F6B3EA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCellViewController.swift; sourceTree = "<group>"; };
 		3EAEC1FB3B44B0E61709E49C /* Pods-Tick AlertUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick AlertUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick AlertUITests/Pods-Tick AlertUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE7C511D12F8D922B52C9CA /* Pods-Tick AlertTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick AlertTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick AlertTests/Pods-Tick AlertTests.debug.xcconfig"; sourceTree = "<group>"; };
 		621553C0BBA4E72C708C9E10 /* Pods-Tick Alert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick Alert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick Alert/Pods-Tick Alert.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */,
 				0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */,
 				0E6FB8BD1FA7B1C600C2D3E1 /* FAQViewController.swift */,
+				0EFC9B15202AC37800F6B3EA /* PostViewController.swift */,
+				0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */,
 			);
 			path = "Tick Alert";
 			sourceTree = "<group>";
@@ -540,9 +546,11 @@
 				0EE95ABC20239C3F00D7E499 /* RecentCellViewController.swift in Sources */,
 				DF8E17402024212000AFCC73 /* CollectionViewCell.swift in Sources */,
 				0E2D40DB1F8AEC9200DD3F37 /* CameraViewController.swift in Sources */,
+				0EFC9B16202AC37800F6B3EA /* PostViewController.swift in Sources */,
 				0E2D40DD1F8AED1F00DD3F37 /* ProfileViewController.swift in Sources */,
 				0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */,
 				0E6FB8BE1FA7B1C600C2D3E1 /* FAQViewController.swift in Sources */,
+				0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */,
 				0E2D40A51F8ADEAF00DD3F37 /* AppDelegate.swift in Sources */,
 				0E2D40DF1F8AED2B00DD3F37 /* NearbyViewController.swift in Sources */,
 			);

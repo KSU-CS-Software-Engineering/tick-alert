@@ -106,6 +106,10 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         self.map.setRegion(region, animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
