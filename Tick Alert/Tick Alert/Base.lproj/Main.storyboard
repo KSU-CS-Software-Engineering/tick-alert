@@ -84,7 +84,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="tickImage" destination="u3I-V3-oeC" id="i5X-JI-jVX"/>
-                                            <segue destination="ls5-Ag-A8c" kind="show" id="vOo-qx-zTw"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -206,7 +205,6 @@
                                             <outlet property="recentLocation" destination="Zc0-4r-rLF" id="3oc-8L-9Y4"/>
                                             <outlet property="recentTick" destination="Mck-hr-V8s" id="yeA-wj-GFi"/>
                                             <outlet property="recentTickImage" destination="wPL-Hc-3d9" id="piW-yi-jAv"/>
-                                            <segue destination="ls5-Ag-A8c" kind="show" id="gVN-qk-usc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -256,7 +254,7 @@
         <!--Post-->
         <scene sceneID="xyf-si-SH6">
             <objects>
-                <viewController title="Post" id="ls5-Ag-A8c" customClass="PostViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Post" title="Post" id="ls5-Ag-A8c" customClass="PostViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hdF-eU-7WU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,9 +301,6 @@
                                 <state key="normal" title="Profile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="CL9-ac-IMc" kind="show" id="8by-DH-P3f"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-MW-4xF">
                                 <rect key="frame" x="0.0" y="464" width="375" height="348"/>
@@ -424,6 +419,7 @@
                         <outlet property="poster" destination="o7G-tX-nbi" id="b4k-hj-Hja"/>
                         <outlet property="tableView" destination="Huu-MW-4xF" id="Jrx-8t-SEw"/>
                         <outlet property="tickDescription" destination="7DW-4U-Qpx" id="jIz-pU-tWb"/>
+                        <outlet property="tickImage" destination="DlH-3Z-5eo" id="Bt9-Je-B0h"/>
                         <outlet property="tickType" destination="WXi-e3-pNa" id="qRl-Yt-Klw"/>
                         <segue destination="CL9-ac-IMc" kind="show" id="lgK-SS-wXI"/>
                     </connections>
@@ -717,6 +713,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="8fJ-fa-A38"/>
         <segue reference="gwI-pt-1bj"/>
-        <segue reference="lgK-SS-wXI"/>
     </inferredMetricsTieBreakers>
 </document>

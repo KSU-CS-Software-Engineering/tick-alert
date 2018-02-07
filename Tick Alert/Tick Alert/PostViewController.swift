@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class PostViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
@@ -16,13 +17,27 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var poster: UIButton!
     @IBOutlet var datePosted: UILabel!
     @IBOutlet var tickDescription: UILabel!
+    @IBOutlet var tickImage: UIImageView!
+    
+    var postId = ""
+    var comments = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return comments
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentsCellViewController
+        
+        let ref = Database.database().reference()
+        ref.child("post").child("\(postId)").child("comments").child("\(indexPath.row)").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            cell.commentBody.text = value?.value(forKey: "body") as? String
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
         return cell
     }
@@ -34,8 +49,42 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let ref = Database.database().reference()
+        ref.child("post").child("\(postId)").child("comments").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.comments = Int(snapshot.childrenCount)
+            self.tableView.reloadData()
+        })
+        
+        ref.child("post").child("\(postId)").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            self.tickType.text = value?.value(forKey: "type") as? String
+            self.datePosted.text = value?.value(forKey: "date") as? String
+            self.tickDescription.text = value?.value(forKey: "description") as? String
+            self.poster.setTitle(value?.value(forKey: "posterName") as? String, for: .normal)
+            
+            let urlString = value?.value(forKey: "imageUrl") as? String
+            let url = URL(string: urlString!)
+            let data = try? Data(contentsOf: url!)
+            self.tickImage.image = UIImage(data: data!)
+            
+            let lat = value?.value(forKey: "lat") as? Double
+            let lon = value?.value(forKey: "lon") as? Double
+            let title = value?.value(forKey: "type") as? String
+            let subTitle = value?.value(forKey: "date") as? String
+            let pin: MKPointAnnotation = MKPointAnnotation()
+            pin.coordinate = CLLocationCoordinate2DMake(lat!, lon!)
+            pin.title = title
+            pin.subtitle = subTitle
+            self.mapView.addAnnotation(pin)
+            
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat!, lon!), CLLocationDistance(1000), CLLocationDistance(1000))
+            self.mapView.setRegion(coordinateRegion, animated: true)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {

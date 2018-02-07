@@ -40,6 +40,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
                 let url = URL(string: urlString!)
                 let data = try? Data(contentsOf: url!)
                 cell.displayContent(image: UIImage(data: data!)!)
+                
+                cell.postId = post
             }) { (error) in
                 print(error.localizedDescription)
             }
@@ -47,6 +49,13 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             print(error.localizedDescription)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        postController.postId = "\(cell.postId!)"
+        navigationController?.pushViewController(postController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

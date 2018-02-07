@@ -12,6 +12,8 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var tickImage: UIImageView!
     
+    var postId: Int!
+    
     func displayContent(image: UIImage) {
         tickImage.image = image
     }

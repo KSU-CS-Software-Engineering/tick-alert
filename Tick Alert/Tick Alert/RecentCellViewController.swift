@@ -15,6 +15,8 @@ class RecentCellViewController: UITableViewCell {
     @IBOutlet weak var recentLocation: UILabel!
     @IBOutlet weak var recentDate: UILabel!
     
+    var postId: UInt!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

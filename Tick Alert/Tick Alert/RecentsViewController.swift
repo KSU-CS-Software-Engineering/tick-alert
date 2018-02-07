@@ -37,6 +37,8 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 cell.recentDate.text = value?.value(forKey: "date") as? String
                 cell.recentLocation.text = value?.value(forKey: "location") as? String
                 
+                cell.postId = post
+                
                 let urlString = value?.value(forKey: "imageUrl") as? String
                 let url = URL(string: urlString!)
                 let data = try? Data(contentsOf: url!)
@@ -49,6 +51,13 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+        let cell = tableView.cellForRow(at: indexPath) as! RecentCellViewController
+        postController.postId = "\(cell.postId!)"
+        navigationController?.pushViewController(postController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
