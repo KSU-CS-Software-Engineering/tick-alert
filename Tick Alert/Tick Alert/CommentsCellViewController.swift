@@ -7,19 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class CommentsCellViewController: UITableViewCell {
 
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var commentBody: UILabel!
-    @IBOutlet var upvoteButton: UIButton!
-    @IBOutlet var downvoteButton: UIButton!
-    
-    @IBAction func upvoteButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func downvoteButtonPressed(_ sender: Any) {
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
