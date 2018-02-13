@@ -301,6 +301,9 @@
                                 <state key="normal" title="Profile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="posterButtonPressed:" destination="ls5-Ag-A8c" eventType="touchUpInside" id="Wbj-5P-XQ7"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-MW-4xF">
                                 <rect key="frame" x="0.0" y="464" width="375" height="348"/>

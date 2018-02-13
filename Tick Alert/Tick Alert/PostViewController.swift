@@ -19,6 +19,9 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tickDescription: UILabel!
     @IBOutlet var tickImage: UIImageView!
     
+    @IBAction func posterButtonPressed(_ sender: Any) {
+    }
+    
     var postId = ""
     var comments = 0
     
