@@ -27,6 +27,7 @@
 		0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */; };
 		1FA873A81971E5141B4D5A7C /* Pods_Tick_Alert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F3878EE4EBE10722877C90 /* Pods_Tick_Alert.framework */; };
 		8907B8715AA2AB649C41EA99 /* Pods_Tick_AlertTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CC48D1BF899855CA2F3EF8 /* Pods_Tick_AlertTests.framework */; };
+		DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */; };
 		DF8E17402024212000AFCC73 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8E173F2024212000AFCC73 /* CollectionViewCell.swift */; };
 		F7E858AC7DD27F50FA9D0D6C /* Pods_Tick_AlertUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBCE9B2FABCABC037269ED9 /* Pods_Tick_AlertUITests.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		C0CC48D1BF899855CA2F3EF8 /* Pods_Tick_AlertTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tick_AlertTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F3878EE4EBE10722877C90 /* Pods_Tick_Alert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tick_Alert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBCE9B2FABCABC037269ED9 /* Pods_Tick_AlertUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tick_AlertUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProfileViewController.swift; sourceTree = "<group>"; };
 		DF8E173F2024212000AFCC73 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FBB00A07585204A698A2FC40 /* Pods-Tick AlertTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick AlertTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tick AlertTests/Pods-Tick AlertTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 				0E6FB8BD1FA7B1C600C2D3E1 /* FAQViewController.swift */,
 				0EFC9B15202AC37800F6B3EA /* PostViewController.swift */,
 				0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */,
+				DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */,
 			);
 			path = "Tick Alert";
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				0E2D40DB1F8AEC9200DD3F37 /* CameraViewController.swift in Sources */,
 				0EFC9B16202AC37800F6B3EA /* PostViewController.swift in Sources */,
 				0E2D40DD1F8AED1F00DD3F37 /* ProfileViewController.swift in Sources */,
+				DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */,
 				0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */,
 				0E6FB8BE1FA7B1C600C2D3E1 /* FAQViewController.swift in Sources */,
 				0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */,

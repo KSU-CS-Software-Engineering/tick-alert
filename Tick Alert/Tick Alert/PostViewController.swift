@@ -18,8 +18,12 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var datePosted: UILabel!
     @IBOutlet var tickDescription: UILabel!
     @IBOutlet var tickImage: UIImageView!
+    var posterId = ""
     
     @IBAction func posterButtonPressed(_ sender: Any) {
+        let profileController = self.storyboard?.instantiateViewController(withIdentifier: "DynamicProfile") as! DynamicProfileViewController
+        profileController.profileId = posterId
+        self.navigationController?.pushViewController(profileController, animated: true)
     }
     
     var postId = ""
@@ -67,6 +71,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.datePosted.text = value?.value(forKey: "date") as? String
             self.tickDescription.text = value?.value(forKey: "description") as? String
             self.poster.setTitle(value?.value(forKey: "posterName") as? String, for: .normal)
+            self.posterId = (value?.value(forKey: "poster") as? String)!
             
             let urlString = value?.value(forKey: "imageUrl") as? String
             let url = URL(string: urlString!)
