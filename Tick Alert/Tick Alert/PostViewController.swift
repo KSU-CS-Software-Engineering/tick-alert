@@ -24,6 +24,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var postId = ""
     var comments = 0
+    let ref = Database.database().reference()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments
@@ -48,22 +49,22 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        let ref = Database.database().reference()
         ref.child("post").child("\(postId)").child("comments").observeSingleEvent(of: .value, with: { (snapshot) in
             self.comments = Int(snapshot.childrenCount)
             self.tableView.reloadData()
         })
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         ref.child("post").child("\(postId)").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
             
             self.tickType.text = value?.value(forKey: "type") as? String
+            self.title = self.tickType.text
             self.datePosted.text = value?.value(forKey: "date") as? String
             self.tickDescription.text = value?.value(forKey: "description") as? String
             self.poster.setTitle(value?.value(forKey: "posterName") as? String, for: .normal)
@@ -88,22 +89,14 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
         }) { (error) in
             print(error.localizedDescription)
         }
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
