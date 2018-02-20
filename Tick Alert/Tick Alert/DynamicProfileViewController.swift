@@ -16,6 +16,52 @@ class DynamicProfileViewController: UIViewController {
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet var collectionView: UICollectionView!
+    
+    var numberOfPosts = 0
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return numberOfPosts
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+        if(Auth.auth().currentUser == nil) {return cell}
+        
+        let ref = Database.database().reference()
+        ref.child("user/"+profileId+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.numberOfPosts = Int(snapshot.childrenCount)
+            self.collectionView.reloadData()
+        })
+        
+        ref.child("user/"+profileId+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSArray
+            let post = value?[indexPath.row+1] as! Int
+            ref.child("post").child("\(post)").observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                
+                let urlString = value?.value(forKey: "imageUrl") as? String
+                let url = URL(string: urlString!)
+                let data = try? Data(contentsOf: url!)
+                cell.displayContent(image: UIImage(data: data!)!)
+                
+                cell.postId = post
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        postController.postId = "\(cell.postId!)"
+        navigationController?.pushViewController(postController, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         let ref = Database.database().reference()
@@ -36,7 +82,6 @@ class DynamicProfileViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                print("It worked!")
                 let image = UIImage(data: data!)
                 self.profileImage.image = image
             }
