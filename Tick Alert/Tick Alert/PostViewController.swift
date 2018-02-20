@@ -42,6 +42,15 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let value = snapshot.value as? NSDictionary
             
+            // Set User Profile Picture
+            let picRef = Storage.storage().reference(withPath: "users/\(value!.value(forKey: "poster") as! String).jpg")
+            picRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    cell.profileImage.image = UIImage(data: data!)
+                }
+            }
             cell.commentBody.text = value?.value(forKey: "body") as? String
         }) { (error) in
             print(error.localizedDescription)
