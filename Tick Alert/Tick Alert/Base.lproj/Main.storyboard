@@ -245,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1P-Lz-S2A">
-                                <rect key="frame" x="168" y="64" width="56.666666666666657" height="21"/>
+                                <rect key="frame" x="168" y="108" width="56.666666666666657" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Q7m-ez-Ybt"/>
                                 </constraints>
@@ -254,7 +254,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultaccount" translatesAutoresizingMaskIntoConstraints="NO" id="gDY-cb-24j">
-                                <rect key="frame" x="10" y="54" width="150" height="150"/>
+                                <rect key="frame" x="10" y="98" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="HmL-fZ-yZK"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="JvE-xA-Fz5"/>
@@ -263,7 +263,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbR-Zo-Eyv">
-                                <rect key="frame" x="168" y="93" width="65.666666666666686" height="21"/>
+                                <rect key="frame" x="168" y="137" width="65.666666666666686" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="jdc-B1-WSL"/>
                                 </constraints>
@@ -272,7 +272,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRj-nt-w6t">
-                                <rect key="frame" x="20" y="214" width="335" height="75"/>
+                                <rect key="frame" x="20" y="258" width="335" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Xt6-9w-p4Q"/>
                                 </constraints>
@@ -296,6 +296,7 @@
                         <viewLayoutGuide key="safeArea" id="I5B-g4-nAA"/>
                     </view>
                     <connections>
+                        <outlet property="profileImage" destination="gDY-cb-24j" id="C5U-fq-IjH"/>
                         <outlet property="userBio" destination="ZRj-nt-w6t" id="kmi-BJ-qse"/>
                         <outlet property="userLocation" destination="dbR-Zo-Eyv" id="Ghp-j9-nd8"/>
                         <outlet property="userName" destination="e1P-Lz-S2A" id="nX2-Kx-pqA"/>
@@ -741,6 +742,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8fJ-fa-A38"/>
-        <segue reference="dhu-dq-qdy"/>
+        <segue reference="gwI-pt-1bj"/>
     </inferredMetricsTieBreakers>
 </document>
