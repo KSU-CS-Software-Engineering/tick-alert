@@ -288,7 +288,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="npT-XH-nUv">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="npT-XH-nUv" customClass="CollectionViewCell" customModule="Tick_Alert" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -308,8 +308,15 @@
                                             <constraint firstItem="pvN-IK-DfJ" firstAttribute="top" secondItem="npT-XH-nUv" secondAttribute="top" id="A75-uS-anJ"/>
                                             <constraint firstItem="pvN-IK-DfJ" firstAttribute="leading" secondItem="npT-XH-nUv" secondAttribute="leading" id="oqB-84-ySj"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="tickImage" destination="pvN-IK-DfJ" id="et6-N9-Vcd"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="CL9-ac-IMc" id="KOZ-oV-M37"/>
+                                    <outlet property="delegate" destination="CL9-ac-IMc" id="HZU-Zv-zzi"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.34509803921568627" green="0.16470588235294117" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
