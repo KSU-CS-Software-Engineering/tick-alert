@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class DynamicProfileViewController: UIViewController {
+class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var profileId: String!
     
     @IBOutlet weak var userName: UILabel!
@@ -21,6 +21,7 @@ class DynamicProfileViewController: UIViewController {
     var numberOfPosts = 0
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(numberOfPosts)
         return numberOfPosts
     }
     
@@ -29,11 +30,6 @@ class DynamicProfileViewController: UIViewController {
         if(Auth.auth().currentUser == nil) {return cell}
         
         let ref = Database.database().reference()
-        ref.child("user/"+profileId+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.numberOfPosts = Int(snapshot.childrenCount)
-            self.collectionView.reloadData()
-        })
-        
         ref.child("user/"+profileId+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSArray
             let post = value?[indexPath.row+1] as! Int
@@ -65,6 +61,12 @@ class DynamicProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         let ref = Database.database().reference()
+        
+        ref.child("user/"+profileId+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.numberOfPosts = Int(snapshot.childrenCount)
+            self.collectionView.reloadData()
+        })
+        
         ref.child("user").child(profileId).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             self.userName.text = value?.value(forKey: "name") as? String
