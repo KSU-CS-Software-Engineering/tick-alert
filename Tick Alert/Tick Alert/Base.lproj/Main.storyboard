@@ -411,24 +411,24 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="ymi-Cb-CSm">
                                                     <rect key="frame" x="0.0" y="25" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="5Ra-MT-P4g"/>
-                                                        <constraint firstAttribute="height" constant="50" id="sXO-Tc-kFC"/>
+                                                        <constraint firstAttribute="height" constant="50" id="9ZJ-lu-GwF"/>
+                                                        <constraint firstAttribute="width" constant="50" id="y0c-LR-kGi"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aET-G0-0r6">
-                                                    <rect key="frame" x="60" y="5" width="310" height="89.666666666666671"/>
+                                                    <rect key="frame" x="60" y="5" width="305" height="89.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aET-G0-0r6" firstAttribute="top" secondItem="Xrv-pn-HHE" secondAttribute="top" constant="5" id="Rkp-j2-vE9"/>
-                                                <constraint firstAttribute="trailing" secondItem="aET-G0-0r6" secondAttribute="trailing" constant="5" id="Vk3-17-iaE"/>
-                                                <constraint firstItem="ymi-Cb-CSm" firstAttribute="leading" secondItem="Xrv-pn-HHE" secondAttribute="leading" id="aEK-bd-FNW"/>
-                                                <constraint firstAttribute="bottom" secondItem="aET-G0-0r6" secondAttribute="bottom" constant="5" id="haI-9N-uYN"/>
-                                                <constraint firstItem="aET-G0-0r6" firstAttribute="leading" secondItem="ymi-Cb-CSm" secondAttribute="trailing" constant="10" id="sBg-5w-65t"/>
-                                                <constraint firstItem="ymi-Cb-CSm" firstAttribute="centerY" secondItem="Xrv-pn-HHE" secondAttribute="centerY" id="xWZ-hH-itv"/>
+                                                <constraint firstItem="aET-G0-0r6" firstAttribute="top" secondItem="Xrv-pn-HHE" secondAttribute="top" constant="5" id="716-aq-jDN"/>
+                                                <constraint firstItem="ymi-Cb-CSm" firstAttribute="centerY" secondItem="Xrv-pn-HHE" secondAttribute="centerY" id="Ch5-Bk-gGC"/>
+                                                <constraint firstItem="ymi-Cb-CSm" firstAttribute="leading" secondItem="Xrv-pn-HHE" secondAttribute="leading" id="Uk1-4e-AUr"/>
+                                                <constraint firstItem="aET-G0-0r6" firstAttribute="leading" secondItem="ymi-Cb-CSm" secondAttribute="trailing" constant="10" id="dBK-Sa-m4G"/>
+                                                <constraint firstAttribute="trailing" secondItem="aET-G0-0r6" secondAttribute="trailing" constant="10" id="ifS-0A-uB9"/>
+                                                <constraint firstAttribute="bottom" secondItem="aET-G0-0r6" secondAttribute="bottom" constant="5" id="mbw-Sb-gW2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.34509803921568627" green="0.16470588235294117" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
