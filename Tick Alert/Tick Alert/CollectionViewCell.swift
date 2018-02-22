@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Custom Class for the CollectionView
 class CollectionViewCell: UICollectionViewCell {
     
     //Defines aspects of the cells in profile views
@@ -16,6 +17,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     var postId: Int!
     
+    // Displays the tick image
     func displayContent(image: UIImage) {
         tickImage.image = image
     }

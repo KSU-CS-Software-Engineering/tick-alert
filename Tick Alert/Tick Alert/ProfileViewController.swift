@@ -19,10 +19,12 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     
     var numberOfPosts = 0
     
+    // Returns the number of times a new CollectionViewCell should be created
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfPosts
     }
     
+    // Creates a new CollectionViewCell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         if(Auth.auth().currentUser == nil) {return cell}
@@ -30,6 +32,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         let user = Auth.auth().currentUser
         let userId = user?.uid
         let ref = Database.database().reference()
+        
+        // Populates the CollectionViewCell with the tick image
         ref.child("user/"+userId!+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSArray
             let post = value?[indexPath.row+1] as! Int
@@ -51,6 +55,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         return cell
     }
     
+    // Goes to PostView if a Cell is clicked
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
@@ -58,6 +63,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         navigationController?.pushViewController(postController, animated: true)
     }
     
+    // Populates the View with information from the Firebase database of the logged in user
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         // Log user into Google

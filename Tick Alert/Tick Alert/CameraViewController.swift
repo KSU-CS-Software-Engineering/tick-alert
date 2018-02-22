@@ -18,10 +18,12 @@ class CameraViewController: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
     
+    // TODO: Add functionality to the button being pressed
 //    @IBAction func captureButtonPressed(_ sender: Any) {
 //        capturePhotoButton.currentImage = captureButton
 //    }
     
+    // Captures a photo after the button is pressed
     @IBAction func onTapCapture(_ sender: Any) {
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
         
@@ -34,6 +36,7 @@ class CameraViewController: UIViewController {
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
     
+    // Sets the View up once it is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,17 +72,6 @@ class CameraViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
