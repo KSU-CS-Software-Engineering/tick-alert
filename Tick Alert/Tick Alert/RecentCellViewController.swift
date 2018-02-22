@@ -9,7 +9,8 @@
 import UIKit
 
 class RecentCellViewController: UITableViewCell {
-
+    
+    //Defines aspects of cells in the recent view
     @IBOutlet weak var recentTickImage: UIImageView!
     @IBOutlet weak var recentTick: UILabel!
     @IBOutlet weak var recentLocation: UILabel!

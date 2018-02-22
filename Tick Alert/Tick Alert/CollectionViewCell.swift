@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
+    
+    //Defines aspects of the cells in profile views
     @IBOutlet var tickImage: UIImageView!
     
     var postId: Int!

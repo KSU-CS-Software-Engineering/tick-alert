@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 
 class CommentsCellViewController: UITableViewCell {
-
+    
+    //Defines aspects of the comment cells in post view
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var commentBody: UILabel!
     

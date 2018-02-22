@@ -15,20 +15,24 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var recentPosts = 0
     
+    //Return the number of recent posts - up to 25
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(recentPosts > 25) {return 25}
         return recentPosts
     }
     
+    //Dynamically create each cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell", for: indexPath) as! RecentCellViewController
         
         let ref = Database.database().reference()
+        //Get number of posts from the Database
         ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
             let numberOfPosts = snapshot.childrenCount
         
             let post = numberOfPosts - UInt(indexPath.row) - 1
+            //Get post that matches cell row
             ref.child("post").child("\(post)").observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 let value = snapshot.value as? NSDictionary
@@ -53,11 +57,12 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    //Handle navigation when post is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
-        let cell = tableView.cellForRow(at: indexPath) as! RecentCellViewController
-        postController.postId = "\(cell.postId!)"
-        navigationController?.pushViewController(postController, animated: true)
+        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController //Instantiate post controller
+        let cell = tableView.cellForRow(at: indexPath) as! RecentCellViewController //Get selected cell
+        postController.postId = "\(cell.postId!)" //Use selected sell to pass postID to controller
+        navigationController?.pushViewController(postController, animated: true) //Navigate to post view
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +72,7 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Get the number of posts from the database and reload table
         let ref = Database.database().reference()
         ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
             self.recentPosts = Int(snapshot.childrenCount)

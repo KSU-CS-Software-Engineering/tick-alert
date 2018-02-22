@@ -10,15 +10,16 @@ import UIKit
 
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //Options in the table
     let cellContent = ["FAQ", "About", "Settings"]
     
+    //Return number of rows in the table
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //number of rows in table
         return cellContent.count
     }
     
+    //Dynamically create each row of the table
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //defining each cell
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
         
         cell.textLabel?.text = cellContent[indexPath.row]
@@ -26,6 +27,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    //Handle navigation upon selection of row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         

@@ -18,20 +18,23 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var pinImages: [String:UIImage] = [:]
     var pinIDs: [String:UInt] = [:]
     
+    //This function controls the 'center on current location' button
     @IBAction func centerOnLocationButtonPress(_ sender: Any) {
-        locationManager.startUpdatingLocation()
-        locationManager.stopUpdatingLocation()
+        locationManager.startUpdatingLocation() //Enables user tracking
+        locationManager.stopUpdatingLocation() //Disables user tracking
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //parameters for map view
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.stopUpdatingLocation()
         
+        //get post information from database
         let ref = Database.database().reference()
         ref.child("post").observeSingleEvent(of: .value, with: { (snapshot) in
             let numberOfPosts = snapshot.childrenCount
@@ -66,6 +69,7 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }
     }
     
+    //custom pins(annotations) for the map view with pictures
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if !(annotation is MKPointAnnotation) {
@@ -89,14 +93,16 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         return annotationView
     }
     
+    //This function controls behavor when a pin(annotation) is selected
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        mapView.deselectAnnotation(view.annotation, animated: false)
-        let key = "\(view.annotation!.coordinate.latitude)"+"\(view.annotation!.coordinate.longitude)"
-        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
-        postController.postId = "\(pinIDs[key]!)"
-        navigationController?.pushViewController(postController, animated: true)
+        mapView.deselectAnnotation(view.annotation, animated: false) //immediately deselect annotation
+        let key = "\(view.annotation!.coordinate.latitude)"+"\(view.annotation!.coordinate.longitude)" //generate key from lat and lon
+        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController //instantiate post controller
+        postController.postId = "\(pinIDs[key]!)" //use key to give postId to controller
+        navigationController?.pushViewController(postController, animated: true) //navigate to post view
     }
     
+    //Required function to extend locationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let userLocation:CLLocation = locations[0]
