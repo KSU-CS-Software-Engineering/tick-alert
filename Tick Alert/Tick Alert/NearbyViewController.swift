@@ -16,6 +16,7 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var locationManager = CLLocationManager()
     
     var pinImages: [String:UIImage] = [:]
+    var pinIDs: [String:UInt] = [:]
     
     @IBAction func centerOnLocationButtonPress(_ sender: Any) {
         locationManager.startUpdatingLocation()
@@ -49,6 +50,7 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     let url = URL(string: urlString!)
                     let data = try? Data(contentsOf: url!)
                     self.pinImages["\(lat!)"+"\(lon!)"] = UIImage(data: data!)
+                    self.pinIDs["\(lat!)"+"\(lon!)"] = post
                     
                     let pin: MKPointAnnotation = MKPointAnnotation()
                     pin.coordinate = CLLocationCoordinate2DMake(lat!, lon!)
@@ -85,6 +87,14 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         annotationView!.image = pinImages[imageKey]
         annotationView!.frame.size = CGSize(width: 30, height: 30)
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: false)
+        let key = "\(view.annotation!.coordinate.latitude)"+"\(view.annotation!.coordinate.longitude)"
+        let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+        postController.postId = "\(pinIDs[key]!)"
+        navigationController?.pushViewController(postController, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
