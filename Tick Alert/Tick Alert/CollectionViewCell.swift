@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
+// Custom Class for the CollectionView
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var tickImage: UIImageView!
     
     var postId: Int!
     
+    // Displays the tick image
     func displayContent(image: UIImage) {
         tickImage.image = image
     }

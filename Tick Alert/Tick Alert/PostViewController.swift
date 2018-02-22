@@ -20,6 +20,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tickImage: UIImageView!
     var posterId = ""
     
+    // When the poster's name is pressed, load a DynamicProfileView
     @IBAction func posterButtonPressed(_ sender: Any) {
         let profileController = self.storyboard?.instantiateViewController(withIdentifier: "DynamicProfile") as! DynamicProfileViewController
         profileController.profileId = posterId
@@ -30,10 +31,12 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     var comments = 0
     let ref = Database.database().reference()
     
+    // Returns the number of rows that should be created
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments
     }
     
+    // Creates a new row in the table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentsCellViewController
         
@@ -59,11 +62,12 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    // Defines the size of each row of the table
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
-    
+    // Before the view appears, gets the number of comments a post has
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         
@@ -73,6 +77,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
 
+    // Populate the View with Post information from the Firebase database
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,6 +85,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let value = snapshot.value as? NSDictionary
             
+            // Sets general post information for the given post
             self.tickType.text = value?.value(forKey: "type") as? String
             self.title = self.tickType.text
             self.datePosted.text = value?.value(forKey: "date") as? String
@@ -87,11 +93,13 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.poster.setTitle(value?.value(forKey: "posterName") as? String, for: .normal)
             self.posterId = (value?.value(forKey: "poster") as? String)!
             
+            // Sets image associated with the post
             let urlString = value?.value(forKey: "imageUrl") as? String
             let url = URL(string: urlString!)
             let data = try? Data(contentsOf: url!)
             self.tickImage.image = UIImage(data: data!)
             
+            // Creates required information to display a map view of the post
             let lat = value?.value(forKey: "lat") as? Double
             let lon = value?.value(forKey: "lon") as? Double
             let title = value?.value(forKey: "type") as? String
@@ -108,6 +116,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             print(error.localizedDescription)
         }
         
+        // Sets all rows to this height
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
     }

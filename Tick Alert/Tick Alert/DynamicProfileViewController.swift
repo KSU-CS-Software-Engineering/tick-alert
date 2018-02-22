@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+// Similar to the ProfileView, but has a navigation bar and can be populated by an user's data
 class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var profileId: String!
     
@@ -20,15 +21,17 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
     
     var numberOfPosts = 0
     
+    // Returns the number of times a new CollectionViewCell should be created
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(numberOfPosts)
         return numberOfPosts
     }
     
+    // Creates a new CollectionViewCell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         if(Auth.auth().currentUser == nil) {return cell}
         
+        // Populates CollectionViewCell with the picture of the tick
         let ref = Database.database().reference()
         ref.child("user/"+profileId+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSArray
@@ -51,6 +54,7 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
         return cell
     }
     
+    // Goes to PostView if a Cell is clicked
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
@@ -58,15 +62,18 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
         navigationController?.pushViewController(postController, animated: true)
     }
     
+    // Populates the View with information from the Firebase database of the given user
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         let ref = Database.database().reference()
         
+        // Sets number of posts by the given user
         ref.child("user/"+profileId+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
             self.numberOfPosts = Int(snapshot.childrenCount)
             self.collectionView.reloadData()
         })
         
+        // Sets the name, location, and bio of the given user
         ref.child("user").child(profileId).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             self.userName.text = value?.value(forKey: "name") as? String
