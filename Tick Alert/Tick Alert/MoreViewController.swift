@@ -38,9 +38,13 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
                 break
         
             case 1:
+                let aboutController = storyboard?.instantiateViewController(withIdentifier: "About") as! AboutViewController //instantiate About controller
+                navigationController?.pushViewController(aboutController, animated: true) //navigate to About view
                 break
             
             case 2:
+                let settingsController = storyboard?.instantiateViewController(withIdentifier: "Settings") as! SettingsViewController //instantiate Settings controller
+                navigationController?.pushViewController(settingsController, animated: true) //navigate to Settings view
                 break
                 
             default:

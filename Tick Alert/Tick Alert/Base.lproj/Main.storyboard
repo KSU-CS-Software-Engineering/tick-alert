@@ -234,10 +234,10 @@
             </objects>
             <point key="canvasLocation" x="-399.19999999999999" y="705.66502463054189"/>
         </scene>
-        <!--DynamicProfile-->
+        <!--Dynamic Profile View Controller-->
         <scene sceneID="Tqy-ec-mGm">
             <objects>
-                <viewController storyboardIdentifier="DynamicProfile" title="DynamicProfile" id="CL9-ac-IMc" customClass="DynamicProfileViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DynamicProfile" id="CL9-ac-IMc" customClass="DynamicProfileViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jQd-rE-CEK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -349,10 +349,10 @@
             </objects>
             <point key="canvasLocation" x="-1074.4000000000001" y="1423.8916256157636"/>
         </scene>
-        <!--Post-->
+        <!--Post View Controller-->
         <scene sceneID="xyf-si-SH6">
             <objects>
-                <viewController storyboardIdentifier="Post" title="Post" id="ls5-Ag-A8c" customClass="PostViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Post" id="ls5-Ag-A8c" customClass="PostViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hdF-eU-7WU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -642,11 +642,43 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <segue destination="9E2-gO-D1t" kind="show" id="hfR-xd-d0S"/>
+                        <segue destination="lBB-Es-Fdb" kind="show" id="DVt-PJ-mtQ"/>
+                        <segue destination="N1K-vh-sss" kind="show" id="Mhe-cx-K6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZB2-7K-jY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1589.5999999999999" y="705.69715142428788"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="Gtg-nC-TbF">
+            <objects>
+                <viewController storyboardIdentifier="About" title="About" id="lBB-Es-Fdb" customClass="AboutViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Beo-Bn-cja">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WrP-QQ-843"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6NH-nb-F57" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2377" y="706"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="tAe-Ff-Sms">
+            <objects>
+                <viewController storyboardIdentifier="Settings" title="Settings" id="N1K-vh-sss" customClass="SettingsViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zKL-ie-q6o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Iwr-gj-30B"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="77H-cW-z79" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2377" y="1425"/>
         </scene>
         <!--FAQ-->
         <scene sceneID="nWi-I8-Xdj">
@@ -674,7 +706,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpQ-bP-8Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="1425"/>
+            <point key="canvasLocation" x="2377" y="-38"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="BaT-nd-Buu">
