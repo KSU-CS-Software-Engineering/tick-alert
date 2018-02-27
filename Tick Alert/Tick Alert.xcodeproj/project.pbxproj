@@ -21,6 +21,7 @@
 		0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10C2045B98700C5870A /* FAQViewController.swift */; };
 		0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10E2045C10C00C5870A /* AboutViewController.swift */; };
 		0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */; };
+		0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1142045C34200C5870A /* QuestionViewController.swift */; };
 		0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375461FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375471FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
@@ -72,6 +73,7 @@
 		0EBDA10C2045B98700C5870A /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		0EBDA10E2045C10C00C5870A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0EBDA1142045C34200C5870A /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		0EE375441FE231BF0084321E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCellViewController.swift; sourceTree = "<group>"; };
 		0EFC9B15202AC37800F6B3EA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				0EBDA10C2045B98700C5870A /* FAQViewController.swift */,
 				0EBDA10E2045C10C00C5870A /* AboutViewController.swift */,
 				0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */,
+				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
 			);
 			path = "Tick Alert";
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */,
 				0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */,
 				0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */,
+				0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */,
 				0E2D40A51F8ADEAF00DD3F37 /* AppDelegate.swift in Sources */,
 				0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */,
 				0E2D40DF1F8AED2B00DD3F37 /* NearbyViewController.swift in Sources */,

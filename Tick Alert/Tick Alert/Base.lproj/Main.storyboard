@@ -703,10 +703,28 @@
                             <outlet property="delegate" destination="9E2-gO-D1t" id="tqo-X1-jyn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="DyR-s5-tt2" kind="show" id="fuN-Ve-aYC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpQ-bP-8Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2377" y="-38"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="H7D-Kb-WPH">
+            <objects>
+                <viewController storyboardIdentifier="Question" id="DyR-s5-tt2" customClass="QuestionViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VRl-LB-XJk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="I5h-h9-tSa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P75-f1-Hu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3143" y="-38"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="BaT-nd-Buu">
