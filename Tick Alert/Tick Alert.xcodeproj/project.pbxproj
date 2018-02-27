@@ -22,6 +22,7 @@
 		0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10E2045C10C00C5870A /* AboutViewController.swift */; };
 		0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */; };
 		0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1142045C34200C5870A /* QuestionViewController.swift */; };
+		0EBDA1172046253900C5870A /* removal-ab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EBDA1162046253900C5870A /* removal-ab.jpg */; };
 		0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375461FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375471FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
@@ -74,6 +75,7 @@
 		0EBDA10E2045C10C00C5870A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0EBDA1142045C34200C5870A /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		0EBDA1162046253900C5870A /* removal-ab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "removal-ab.jpg"; path = "../../../../../../../Downloads/removal-ab.jpg"; sourceTree = "<group>"; };
 		0EE375441FE231BF0084321E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCellViewController.swift; sourceTree = "<group>"; };
 		0EFC9B15202AC37800F6B3EA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				0EBDA10E2045C10C00C5870A /* AboutViewController.swift */,
 				0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */,
 				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
+				0EBDA1162046253900C5870A /* removal-ab.jpg */,
 			);
 			path = "Tick Alert";
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			files = (
 				0E2D40B11F8ADEAF00DD3F37 /* LaunchScreen.storyboard in Resources */,
 				0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */,
+				0EBDA1172046253900C5870A /* removal-ab.jpg in Resources */,
 				0E2D40AE1F8ADEAF00DD3F37 /* Assets.xcassets in Resources */,
 				0E2D40AC1F8ADEAF00DD3F37 /* Main.storyboard in Resources */,
 			);
