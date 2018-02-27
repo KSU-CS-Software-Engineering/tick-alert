@@ -33,6 +33,8 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         switch(indexPath.row) {
             case 0:
+                let faqController = storyboard?.instantiateViewController(withIdentifier: "FAQ") as! FAQViewController //instantiate FAQ controller
+                navigationController?.pushViewController(faqController, animated: true) //navigate to FAQ view
                 break
         
             case 1:

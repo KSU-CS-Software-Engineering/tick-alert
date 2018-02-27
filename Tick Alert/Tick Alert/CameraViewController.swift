@@ -76,15 +76,13 @@ class CameraViewController: UIViewController {
 }
 
 extension CameraViewController : AVCapturePhotoCaptureDelegate {
-    func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-        guard error == nil,
-            let photoSampleBuffer = photoSampleBuffer else {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if error == nil {
                 print("Error capturing photo: \(String(describing: error))")
                 return
         }
         
-        guard let imageData =
-            AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer) else {
+        guard let imageData = photo.fileDataRepresentation() else {
                 return
         }
         // Initialise a UIImage with our image data

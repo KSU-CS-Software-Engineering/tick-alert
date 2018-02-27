@@ -503,10 +503,10 @@
             </objects>
             <point key="canvasLocation" x="-399.19999999999999" y="1424.6305418719212"/>
         </scene>
-        <!--View Controller-->
+        <!--Upload-->
         <scene sceneID="tOL-3a-Dcl">
             <objects>
-                <viewController id="SLO-lV-vvb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Upload" title="Upload" id="SLO-lV-vvb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Drw-B6-Bj5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -648,10 +648,10 @@
             </objects>
             <point key="canvasLocation" x="1589.5999999999999" y="705.69715142428788"/>
         </scene>
-        <!--Table View Controller-->
+        <!--FAQ-->
         <scene sceneID="nWi-I8-Xdj">
             <objects>
-                <tableViewController id="9E2-gO-D1t" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FAQ" title="FAQ" id="9E2-gO-D1t" customClass="FAQViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NOC-Aq-HEg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
