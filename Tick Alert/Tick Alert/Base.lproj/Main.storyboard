@@ -588,6 +588,17 @@
                                             <action selector="helpButtonPressed:" destination="1mw-UD-bj6" eventType="touchUpInside" id="p37-0b-VUT"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSC-ch-prt">
+                                        <rect key="frame" x="146" y="647" width="82" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82" id="FQv-Z9-WmQ"/>
+                                            <constraint firstAttribute="width" constant="82" id="jPt-sz-ANG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="capture"/>
+                                        <connections>
+                                            <action selector="capturePhoto:" destination="1mw-UD-bj6" eventType="touchUpInside" id="5Gh-b3-44B"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -595,34 +606,19 @@
                                     <constraint firstItem="Hfb-LJ-Vr6" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="Efy-Su-XAy"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="top" secondItem="Hfb-LJ-Vr6" secondAttribute="bottom" constant="40" id="GRJ-1h-Xjv"/>
                                     <constraint firstItem="Ugt-yk-0WQ" firstAttribute="top" secondItem="J6K-wk-7iH" secondAttribute="top" constant="52" id="R1u-sK-nAx"/>
+                                    <constraint firstItem="qSC-ch-prt" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="dG6-An-1bb"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="jz0-7a-Ydu"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="centerY" secondItem="J6K-wk-7iH" secondAttribute="centerY" id="kuF-h2-vSB"/>
+                                    <constraint firstAttribute="bottom" secondItem="qSC-ch-prt" secondAttribute="bottom" id="r84-wT-ke9"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLQ-U6-uTK">
-                                <rect key="frame" x="147" y="639" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="6xQ-X4-q1c"/>
-                                    <constraint firstAttribute="height" constant="80" id="T1i-Zx-QBy"/>
-                                </constraints>
-                                <state key="normal" image="capture">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="captureButtonPressed:" destination="1mw-UD-bj6" eventType="touchDown" id="965-IF-l9q"/>
-                                    <action selector="onTapCapture:" destination="1mw-UD-bj6" eventType="touchUpInside" id="YAM-oy-xwX"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="leading" secondItem="twz-PN-O3r" secondAttribute="leading" id="4YQ-wT-fEU"/>
-                            <constraint firstItem="dLQ-U6-uTK" firstAttribute="centerX" secondItem="Jjh-wj-rF3" secondAttribute="centerX" id="5Ng-KO-AaM"/>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="trailing" secondItem="twz-PN-O3r" secondAttribute="trailing" id="7E0-GE-8YP"/>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="bottom" secondItem="twz-PN-O3r" secondAttribute="bottom" id="7ze-zd-XIu"/>
                             <constraint firstItem="J6K-wk-7iH" firstAttribute="top" secondItem="Jjh-wj-rF3" secondAttribute="top" id="Bdx-mI-eOT"/>
-                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="10" id="eRq-lM-Mdi"/>
-                            <constraint firstItem="twz-PN-O3r" firstAttribute="bottom" secondItem="dLQ-U6-uTK" secondAttribute="bottom" constant="10" id="oB3-2x-Gmk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="twz-PN-O3r"/>
                     </view>
@@ -630,7 +626,7 @@
                     <navigationItem key="navigationItem" id="gTC-N4-1gl"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="capturePhotoButton" destination="dLQ-U6-uTK" id="Buy-rS-wkX"/>
+                        <outlet property="captureButton" destination="qSC-ch-prt" id="uZi-Ia-yIX"/>
                         <outlet property="guideBox" destination="scF-FR-awS" id="iAf-eI-4Yh"/>
                         <outlet property="guideLabel" destination="Hfb-LJ-Vr6" id="ypV-hF-hhH"/>
                         <outlet property="helpButton" destination="Ugt-yk-0WQ" id="RFM-V2-d0F"/>

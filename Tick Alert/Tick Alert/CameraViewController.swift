@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
+    @IBOutlet var captureButton: UIButton!
     @IBOutlet var helpButton: UIButton!
     @IBOutlet weak var guideBox: UIImageView!
     @IBOutlet weak var guideLabel: UILabel!
-    @IBOutlet weak var capturePhotoButton: UIButton!
     @IBOutlet weak var previewView: UIView!
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -23,13 +23,9 @@ class CameraViewController: UIViewController {
         let tipsController = storyboard?.instantiateViewController(withIdentifier: "CameraTips") as! CameraTipsViewController
         navigationController?.pushViewController(tipsController, animated: true)
     }
-    // TODO: Add functionality to the button being pressed
-//    @IBAction func captureButtonPressed(_ sender: Any) {
-//        capturePhotoButton.currentImage = captureButton
-//    }
     
     // Captures a photo after the button is pressed
-    @IBAction func onTapCapture(_ sender: Any) {
+    @IBAction func capturePhoto(_ sender: Any) {
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
         
         let photoSettings = AVCapturePhotoSettings()
@@ -41,10 +37,13 @@ class CameraViewController: UIViewController {
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     // Sets the View up once it is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         do {
@@ -70,7 +69,7 @@ class CameraViewController: UIViewController {
         
         guideBox.layer.zPosition = 1
         guideLabel.layer.zPosition = 1
-        capturePhotoButton.layer.zPosition = 1
+        captureButton.layer.zPosition = 1
         helpButton.layer.zPosition = 1
     }
 
@@ -83,14 +82,12 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if error == nil {
+        if error != nil {
                 print("Error capturing photo: \(String(describing: error))")
                 return
         }
         
-        guard let imageData = photo.fileDataRepresentation() else {
-                return
-        }
+        guard let imageData = photo.fileDataRepresentation() else {return}
         // Initialise a UIImage with our image data
         let capturedImage = UIImage.init(data: imageData , scale: 1.0)
         if let image = capturedImage {
