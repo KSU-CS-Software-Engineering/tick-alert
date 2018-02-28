@@ -18,6 +18,7 @@
 		0E2D40DF1F8AED2B00DD3F37 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40DE1F8AED2B00DD3F37 /* NearbyViewController.swift */; };
 		0E2D40E11F8AED3500DD3F37 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */; };
 		0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */; };
+		0E5D595F20464AA000595A38 /* CameraTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D595E20464AA000595A38 /* CameraTipsViewController.swift */; };
 		0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10C2045B98700C5870A /* FAQViewController.swift */; };
 		0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10E2045C10C00C5870A /* AboutViewController.swift */; };
 		0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */; };
@@ -71,6 +72,7 @@
 		0E2D40DE1F8AED2B00DD3F37 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsViewController.swift; sourceTree = "<group>"; };
+		0E5D595E20464AA000595A38 /* CameraTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTipsViewController.swift; sourceTree = "<group>"; };
 		0EBDA10C2045B98700C5870A /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		0EBDA10E2045C10C00C5870A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				0EBDA10E2045C10C00C5870A /* AboutViewController.swift */,
 				0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */,
 				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
+				0E5D595E20464AA000595A38 /* CameraTipsViewController.swift */,
 				0EBDA1162046253900C5870A /* removal-ab.jpg */,
 			);
 			path = "Tick Alert";
@@ -559,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E2D40E11F8AED3500DD3F37 /* MoreViewController.swift in Sources */,
+				0E5D595F20464AA000595A38 /* CameraTipsViewController.swift in Sources */,
 				0EE95ABC20239C3F00D7E499 /* RecentCellViewController.swift in Sources */,
 				DF8E17402024212000AFCC73 /* CollectionViewCell.swift in Sources */,
 				0E2D40DB1F8AEC9200DD3F37 /* CameraViewController.swift in Sources */,

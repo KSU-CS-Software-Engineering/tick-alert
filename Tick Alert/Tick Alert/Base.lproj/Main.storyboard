@@ -365,7 +365,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXi-e3-pNa">
-                                <rect key="frame" x="160" y="98" width="205" height="21"/>
+                                <rect key="frame" x="0.0" y="98" width="205" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="dWf-OU-tce"/>
                                 </constraints>
@@ -374,7 +374,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DW-4U-Qpx">
-                                <rect key="frame" x="10" y="248" width="355" height="100"/>
+                                <rect key="frame" x="0.0" y="248" width="355" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="xoA-1Z-1K6"/>
                                 </constraints>
@@ -392,7 +392,7 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7G-tX-nbi">
-                                <rect key="frame" x="160" y="129" width="205" height="21"/>
+                                <rect key="frame" x="0.0" y="129" width="205" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bbs-Zv-5Rh"/>
                                 </constraints>
@@ -452,7 +452,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-km-xY3">
-                                <rect key="frame" x="160" y="160" width="205" height="21"/>
+                                <rect key="frame" x="0.0" y="160" width="205" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bnN-CK-nLv"/>
                                 </constraints>
@@ -518,6 +518,37 @@
             </objects>
             <point key="canvasLocation" x="254" y="1425"/>
         </scene>
+        <!--Camera Tips-->
+        <scene sceneID="w0l-JQ-c7p">
+            <objects>
+                <viewController storyboardIdentifier="CameraTips" title="Camera Tips" id="5Tr-EY-jUI" customClass="CameraTipsViewController" customModule="Tick_Alert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i0s-rM-toh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Take The Best Photo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBL-IG-o4f">
+                                <rect key="frame" x="16" y="44" width="343" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ldo-PA-wfM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.34509803919999998" green="0.1647058824" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XBL-IG-o4f" firstAttribute="top" secondItem="K69-M5-q2g" secondAttribute="top" id="PNn-Eb-rd4"/>
+                            <constraint firstItem="K69-M5-q2g" firstAttribute="trailing" secondItem="XBL-IG-o4f" secondAttribute="trailing" constant="16" id="Rbd-qQ-rLm"/>
+                            <constraint firstItem="XBL-IG-o4f" firstAttribute="leading" secondItem="K69-M5-q2g" secondAttribute="leading" constant="16" id="xVE-E4-cVL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K69-M5-q2g"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWU-xY-LZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="253.59999999999999" y="2089.655172413793"/>
+        </scene>
         <!--Camera-->
         <scene sceneID="BI9-xA-mWk">
             <objects>
@@ -546,11 +577,24 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugt-yk-0WQ">
+                                        <rect key="frame" x="317" y="52" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ZER-mz-b14"/>
+                                            <constraint firstAttribute="width" constant="50" id="qjk-cE-Fv5"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="question"/>
+                                        <connections>
+                                            <action selector="helpButtonPressed:" destination="1mw-UD-bj6" eventType="touchUpInside" id="p37-0b-VUT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ugt-yk-0WQ" secondAttribute="trailing" constant="8" id="CRd-9N-dLK"/>
                                     <constraint firstItem="Hfb-LJ-Vr6" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="Efy-Su-XAy"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="top" secondItem="Hfb-LJ-Vr6" secondAttribute="bottom" constant="40" id="GRJ-1h-Xjv"/>
+                                    <constraint firstItem="Ugt-yk-0WQ" firstAttribute="top" secondItem="J6K-wk-7iH" secondAttribute="top" constant="52" id="R1u-sK-nAx"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="jz0-7a-Ydu"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="centerY" secondItem="J6K-wk-7iH" secondAttribute="centerY" id="kuF-h2-vSB"/>
                                 </constraints>
@@ -589,13 +633,15 @@
                         <outlet property="capturePhotoButton" destination="dLQ-U6-uTK" id="Buy-rS-wkX"/>
                         <outlet property="guideBox" destination="scF-FR-awS" id="iAf-eI-4Yh"/>
                         <outlet property="guideLabel" destination="Hfb-LJ-Vr6" id="ypV-hF-hhH"/>
+                        <outlet property="helpButton" destination="Ugt-yk-0WQ" id="RFM-V2-d0F"/>
                         <outlet property="previewView" destination="J6K-wk-7iH" id="Gyf-ai-sEp"/>
                         <segue destination="SLO-lV-vvb" kind="show" id="P1F-JT-e4p"/>
+                        <segue destination="5Tr-EY-jUI" kind="show" id="l7U-NG-lXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dO-MG-4XC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253.59999999999999" y="705.69715142428788"/>
+            <point key="canvasLocation" x="253.59999999999999" y="705.66502463054189"/>
         </scene>
         <!--More-->
         <scene sceneID="fnh-d1-76T">
@@ -869,6 +915,7 @@
         <image name="capture" width="100" height="100"/>
         <image name="nearby" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>
+        <image name="question" width="250" height="250"/>
         <image name="target" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>

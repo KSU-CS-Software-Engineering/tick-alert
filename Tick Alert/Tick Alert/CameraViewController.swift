@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
+    @IBOutlet var helpButton: UIButton!
     @IBOutlet weak var guideBox: UIImageView!
     @IBOutlet weak var guideLabel: UILabel!
     @IBOutlet weak var capturePhotoButton: UIButton!
@@ -18,6 +19,10 @@ class CameraViewController: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
     
+    @IBAction func helpButtonPressed(_ sender: Any) {
+        let tipsController = storyboard?.instantiateViewController(withIdentifier: "CameraTips") as! CameraTipsViewController
+        navigationController?.pushViewController(tipsController, animated: true)
+    }
     // TODO: Add functionality to the button being pressed
 //    @IBAction func captureButtonPressed(_ sender: Any) {
 //        capturePhotoButton.currentImage = captureButton
@@ -66,6 +71,7 @@ class CameraViewController: UIViewController {
         guideBox.layer.zPosition = 1
         guideLabel.layer.zPosition = 1
         capturePhotoButton.layer.zPosition = 1
+        helpButton.layer.zPosition = 1
     }
 
     override func didReceiveMemoryWarning() {
