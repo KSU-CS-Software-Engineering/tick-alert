@@ -20,6 +20,9 @@
 		0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */; };
 		0E5D595F20464AA000595A38 /* CameraTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D595E20464AA000595A38 /* CameraTipsViewController.swift */; };
 		0E5D59612046549B00595A38 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D59602046549B00595A38 /* UploadViewController.swift */; };
+		0EB5A32B2047DDB5002CE020 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5A32A2047DDB5002CE020 /* DescriptionViewController.swift */; };
+		0EB5A32D2047DDC4002CE020 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5A32C2047DDC4002CE020 /* LocationViewController.swift */; };
+		0EB5A32F2047DDCF002CE020 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5A32E2047DDCF002CE020 /* PreviewViewController.swift */; };
 		0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10C2045B98700C5870A /* FAQViewController.swift */; };
 		0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10E2045C10C00C5870A /* AboutViewController.swift */; };
 		0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */; };
@@ -75,6 +78,9 @@
 		0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsViewController.swift; sourceTree = "<group>"; };
 		0E5D595E20464AA000595A38 /* CameraTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTipsViewController.swift; sourceTree = "<group>"; };
 		0E5D59602046549B00595A38 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		0EB5A32A2047DDB5002CE020 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		0EB5A32C2047DDC4002CE020 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		0EB5A32E2047DDCF002CE020 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		0EBDA10C2045B98700C5870A /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		0EBDA10E2045C10C00C5870A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
 				0E5D595E20464AA000595A38 /* CameraTipsViewController.swift */,
 				0E5D59602046549B00595A38 /* UploadViewController.swift */,
+				0EB5A32A2047DDB5002CE020 /* DescriptionViewController.swift */,
+				0EB5A32C2047DDC4002CE020 /* LocationViewController.swift */,
+				0EB5A32E2047DDCF002CE020 /* PreviewViewController.swift */,
 				0EBDA1162046253900C5870A /* removal-ab.jpg */,
 			);
 			path = "Tick Alert";
@@ -567,10 +576,12 @@
 				0E2D40E11F8AED3500DD3F37 /* MoreViewController.swift in Sources */,
 				0E5D59612046549B00595A38 /* UploadViewController.swift in Sources */,
 				0E5D595F20464AA000595A38 /* CameraTipsViewController.swift in Sources */,
+				0EB5A32F2047DDCF002CE020 /* PreviewViewController.swift in Sources */,
 				0EE95ABC20239C3F00D7E499 /* RecentCellViewController.swift in Sources */,
 				DF8E17402024212000AFCC73 /* CollectionViewCell.swift in Sources */,
 				0E2D40DB1F8AEC9200DD3F37 /* CameraViewController.swift in Sources */,
 				0EFC9B16202AC37800F6B3EA /* PostViewController.swift in Sources */,
+				0EB5A32D2047DDC4002CE020 /* LocationViewController.swift in Sources */,
 				0E2D40DD1F8AED1F00DD3F37 /* ProfileViewController.swift in Sources */,
 				DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */,
 				0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */,
@@ -579,6 +590,7 @@
 				0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */,
 				0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */,
 				0E2D40A51F8ADEAF00DD3F37 /* AppDelegate.swift in Sources */,
+				0EB5A32B2047DDB5002CE020 /* DescriptionViewController.swift in Sources */,
 				0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */,
 				0E2D40DF1F8AED2B00DD3F37 /* NearbyViewController.swift in Sources */,
 			);

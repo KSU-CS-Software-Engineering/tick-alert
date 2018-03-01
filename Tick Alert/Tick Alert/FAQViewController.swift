@@ -30,38 +30,7 @@ class FAQViewController: UITableViewController {
     //Handle navigation upon selection of row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let questionController = storyboard?.instantiateViewController(withIdentifier: "Question") as! QuestionViewController //instantiate question controller
-        
-        switch(indexPath.row) {
-            case 0:
-                questionController.header = #imageLiteral(resourceName: "removal-ab.jpg")
-                questionController.answerTitle = "How to remove a tick"
-                questionController.answer = "1. Use fine-tipped tweezers to grasp the tick as close to the skin's surface as possible.\n\n2. Pull upward with steady, even pressure. Don't twist or jerk the tick; this can cause the mouth-parts to break off and remain in the skin. If this happens, remove the mouth-parts with tweezers. If you are unable to remove the mouth easily with clean tweezers, leave it alone and let the skin heal.\n\n3. After removing the tick, thoroughly clean the bite area and your hands with rubbing alcohol, an iodine scrub, or soap and water.\n\n4. Dispose of a live tick by submersing it in alcohol, placing it in a sealed bag/container, wrapping it tightly in tape, or flushing it down the toilet. Never crush a tick with your fingers."
-                break
-            case 1:
-                questionController.header = #imageLiteral(resourceName: "Tick")
-                questionController.answerTitle = "Tick Identification"
-                break
-            case 2:
-                questionController.header = #imageLiteral(resourceName: "Tick")
-                questionController.answerTitle = "Avoiding Ticks"
-                break
-            case 3:
-                questionController.header = #imageLiteral(resourceName: "Tick")
-                questionController.answerTitle = "Tick-Borne Diseases"
-                break
-            case 4:
-                questionController.header = #imageLiteral(resourceName: "Tick")
-                questionController.answerTitle = "Tick Districution"
-                break
-            case 5:
-                questionController.header = #imageLiteral(resourceName: "Tick")
-                questionController.answerTitle = "Preventing Tick Bites"
-                break
-            default:
-                break
-        }
-        
-        questionController.question = cellContent[indexPath.row]
+        questionController.question = indexPath.row
         navigationController?.pushViewController(questionController, animated: true) //navigate to Question view
     }
     

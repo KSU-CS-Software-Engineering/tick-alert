@@ -14,17 +14,16 @@ class UploadViewController: UIViewController, UITextFieldDelegate {
     
     var uploadImage: UIImage?
 
- 
-    @IBOutlet var postButton: UIButton!
-    @IBOutlet var tickDescription: UITextView!
     @IBOutlet var tickType: UITextField!
-    @IBOutlet var map: MKMapView!
     @IBOutlet var preview: UIImageView!
-    
-    @IBAction func postButtonPressed(_ sender: Any) {
-        if(tickType.text?.count == 0) {return}
-        
-        //TODO: upload post
+    @IBAction func identificationTips(_ sender: Any) {
+        let questionController = storyboard?.instantiateViewController(withIdentifier: "Question") as! QuestionViewController //instantiate question controller
+        questionController.question = 1
+        navigationController?.pushViewController(questionController, animated: true) //navigate to Question view
+    }
+    @IBAction func continueButton(_ sender: Any) {
+        let descriptionController = storyboard?.instantiateViewController(withIdentifier: "Description") as! DescriptionViewController
+        navigationController?.pushViewController(descriptionController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
