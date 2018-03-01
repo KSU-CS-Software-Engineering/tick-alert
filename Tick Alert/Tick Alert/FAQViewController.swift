@@ -11,11 +11,11 @@ import UIKit
 class FAQViewController: UITableViewController {
 
     //Topics in the FAQ
-    let cellContent = ["Tick Removal", "Tick Identification", "Avoiding Ticks", "Tick-Borne Diseases", "Tick Distribution", "Preventing Tick Bites"]
+    let cellContent = ["Tick Removal", "Tick Identification", "Avoiding Ticks", "Tick-Borne Diseases", "Tick Distribution", "Preventing Tick Bites", "Photo Optimization"]
     
     //return number of cells
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return cellContent.count
     }
     
     //Dynamically create cells

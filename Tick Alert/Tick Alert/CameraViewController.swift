@@ -20,8 +20,9 @@ class CameraViewController: UIViewController {
     var capturePhotoOutput: AVCapturePhotoOutput?
     
     @IBAction func helpButtonPressed(_ sender: Any) {
-        let tipsController = storyboard?.instantiateViewController(withIdentifier: "CameraTips") as! CameraTipsViewController
-        navigationController?.pushViewController(tipsController, animated: true)
+        let questionController = storyboard?.instantiateViewController(withIdentifier: "Question") as! QuestionViewController
+        questionController.question = 6
+        navigationController?.pushViewController(questionController, animated: true)
     }
     
     // Captures a photo after the button is pressed

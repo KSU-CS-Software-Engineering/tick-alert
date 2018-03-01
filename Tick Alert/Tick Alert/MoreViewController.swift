@@ -11,7 +11,7 @@ import UIKit
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Options in the table
-    let cellContent = ["FAQ", "About", "Settings"]
+    let cellContent = ["FAQ", "Common Ticks", "About", "Settings"]
     
     //Return number of rows in the table
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,13 +36,18 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let faqController = storyboard?.instantiateViewController(withIdentifier: "FAQ") as! FAQViewController //instantiate FAQ controller
                 navigationController?.pushViewController(faqController, animated: true) //navigate to FAQ view
                 break
-        
+            
             case 1:
+                let commonController = storyboard?.instantiateViewController(withIdentifier: "Common") as! CommonViewController
+                navigationController?.pushViewController(commonController, animated: true)
+                break
+        
+            case 2:
                 let aboutController = storyboard?.instantiateViewController(withIdentifier: "About") as! AboutViewController //instantiate About controller
                 navigationController?.pushViewController(aboutController, animated: true) //navigate to About view
                 break
             
-            case 2:
+            case 3:
                 let settingsController = storyboard?.instantiateViewController(withIdentifier: "Settings") as! SettingsViewController //instantiate Settings controller
                 navigationController?.pushViewController(settingsController, animated: true) //navigate to Settings view
                 break

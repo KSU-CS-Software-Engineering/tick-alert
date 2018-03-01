@@ -17,9 +17,8 @@ class UploadViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var tickType: UITextField!
     @IBOutlet var preview: UIImageView!
     @IBAction func identificationTips(_ sender: Any) {
-        let questionController = storyboard?.instantiateViewController(withIdentifier: "Question") as! QuestionViewController //instantiate question controller
-        questionController.question = 1
-        navigationController?.pushViewController(questionController, animated: true) //navigate to Question view
+        let commonController = storyboard?.instantiateViewController(withIdentifier: "Common") as! CommonViewController
+        navigationController?.pushViewController(commonController, animated: true)
     }
     @IBAction func continueButton(_ sender: Any) {
         let descriptionController = storyboard?.instantiateViewController(withIdentifier: "Description") as! DescriptionViewController
