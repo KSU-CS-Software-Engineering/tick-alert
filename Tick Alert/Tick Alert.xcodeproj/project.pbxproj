@@ -28,6 +28,7 @@
 		0E9DDD2B20486C250084FB59 /* Rhipicephalus_sanguineus_all.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DDD2620486C240084FB59 /* Rhipicephalus_sanguineus_all.jpg */; };
 		0E9DDD2C20486C250084FB59 /* Amblyomma_americanum_all.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DDD2720486C250084FB59 /* Amblyomma_americanum_all.jpg */; };
 		0E9DDD302048A9740084FB59 /* TickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DDD2F2048A9740084FB59 /* TickViewController.swift */; };
+		0E9DDD322048ADC40084FB59 /* closeup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DDD312048ADC40084FB59 /* closeup.jpg */; };
 		0EB5A32B2047DDB5002CE020 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5A32A2047DDB5002CE020 /* DescriptionViewController.swift */; };
 		0EB5A32D2047DDC4002CE020 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5A32C2047DDC4002CE020 /* LocationViewController.swift */; };
 		0EB5A32F2047DDCF002CE020 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5A32E2047DDCF002CE020 /* PreviewViewController.swift */; };
@@ -93,6 +94,7 @@
 		0E9DDD2620486C240084FB59 /* Rhipicephalus_sanguineus_all.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Rhipicephalus_sanguineus_all.jpg; sourceTree = "<group>"; };
 		0E9DDD2720486C250084FB59 /* Amblyomma_americanum_all.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Amblyomma_americanum_all.jpg; sourceTree = "<group>"; };
 		0E9DDD2F2048A9740084FB59 /* TickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickViewController.swift; sourceTree = "<group>"; };
+		0E9DDD312048ADC40084FB59 /* closeup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = closeup.jpg; sourceTree = "<group>"; };
 		0EB5A32A2047DDB5002CE020 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		0EB5A32C2047DDC4002CE020 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		0EB5A32E2047DDCF002CE020 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				0E9DDD2520486C240084FB59 /* Ixodes_scapularis_all.jpg */,
 				0E9DDD2620486C240084FB59 /* Rhipicephalus_sanguineus_all.jpg */,
 				0E9DDD17204861BC0084FB59 /* removal-ab.jpg */,
+				0E9DDD312048ADC40084FB59 /* closeup.jpg */,
 				0E2D40A41F8ADEAF00DD3F37 /* AppDelegate.swift */,
 				0E2D40AA1F8ADEAF00DD3F37 /* Main.storyboard */,
 				0E2D40AD1F8ADEAF00DD3F37 /* Assets.xcassets */,
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E2D40B11F8ADEAF00DD3F37 /* LaunchScreen.storyboard in Resources */,
+				0E9DDD322048ADC40084FB59 /* closeup.jpg in Resources */,
 				0E9DDD2B20486C250084FB59 /* Rhipicephalus_sanguineus_all.jpg in Resources */,
 				0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */,
 				0E9DDD2A20486C250084FB59 /* Ixodes_scapularis_all.jpg in Resources */,

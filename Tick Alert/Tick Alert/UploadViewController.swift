@@ -35,8 +35,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate {
         let rect: CGRect = CGRect(origin: CGPoint(x: (contextSize.height - contextSize.width) / 2, y: 0), size: CGSize(width: contextSize.width, height: contextSize.width))
         let imageRef: CGImage = uploadImage!.cgImage!.cropping(to: rect)!
         preview.image = UIImage(cgImage: imageRef, scale: uploadImage!.scale, orientation: uploadImage!.imageOrientation)
-        
-        tickType.delegate = self
+
     }
 
     override func didReceiveMemoryWarning() {
