@@ -9,11 +9,19 @@
 import UIKit
 
 class DescriptionViewController: UIViewController {
+    
+    var tickType: String?
+    var uploadImage: UIImage?
 
+    @IBOutlet var textField: UITextView!
     @IBAction func continueButton(_ sender: Any) {
         let locationController = storyboard?.instantiateViewController(withIdentifier: "Location") as! LocationViewController
+        locationController.tickType = tickType!
+        locationController.uploadImage = uploadImage
+        locationController.desc = textField.text
         navigationController?.pushViewController(locationController, animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

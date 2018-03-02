@@ -10,10 +10,13 @@ import UIKit
 import MapKit
 import Firebase
 
-class UploadViewController: UIViewController, UITextFieldDelegate {
+class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let tickOptions = ["Pick Tick:","Blacklegged Tick", "American Dog Tick", "Lone Star Tick", "Brown Dog Tick", "Rocky Mountain Tick"]
     
     var uploadImage: UIImage?
-
+    var selectedTickType: String?
+    
     @IBOutlet var tickType: UITextField!
     @IBOutlet var preview: UIImageView!
     @IBAction func identificationTips(_ sender: Any) {
@@ -21,8 +24,29 @@ class UploadViewController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(commonController, animated: true)
     }
     @IBAction func continueButton(_ sender: Any) {
+        if(selectedTickType == nil || selectedTickType == tickOptions[0]) {return}
+        
         let descriptionController = storyboard?.instantiateViewController(withIdentifier: "Description") as! DescriptionViewController
+        descriptionController.uploadImage = preview.image
+        descriptionController.tickType = selectedTickType
         navigationController?.pushViewController(descriptionController, animated: true)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return tickOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let attributedString = NSAttributedString(string: tickOptions[row], attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
+        return attributedString
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedTickType = tickOptions[row]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,14 +65,5 @@ class UploadViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
 }
