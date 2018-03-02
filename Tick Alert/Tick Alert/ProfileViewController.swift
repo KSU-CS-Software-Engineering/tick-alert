@@ -103,9 +103,9 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         // Upload profile picture to databse, if not done already
         let storageRef = Storage.storage().reference()
         let picRef =  storageRef.child("users").child(userId!+".jpg")
-        let uploadTask = picRef.putData(data!, metadata: nil) { (metadata, error) in
+        _ = picRef.putData(data!, metadata: nil) { (metadata, error) in
             guard metadata != nil else {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
         }

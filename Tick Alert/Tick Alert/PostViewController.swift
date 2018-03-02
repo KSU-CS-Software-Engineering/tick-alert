@@ -100,17 +100,17 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tickImage.image = UIImage(data: data!)
             
             // Creates required information to display a map view of the post
-            let lat = value?.value(forKey: "lat") as? Double
-            let lon = value?.value(forKey: "lon") as? Double
+            let lat: CLLocationDegrees = value?.value(forKey: "lat") as! CLLocationDegrees
+            let lon: CLLocationDegrees = value?.value(forKey: "lon") as! CLLocationDegrees
             let title = value?.value(forKey: "type") as? String
             let subTitle = value?.value(forKey: "date") as? String
             let pin: MKPointAnnotation = MKPointAnnotation()
-            pin.coordinate = CLLocationCoordinate2DMake(lat!, lon!)
+            pin.coordinate = CLLocationCoordinate2DMake(lat, lon)
             pin.title = title
             pin.subtitle = subTitle
             self.mapView.addAnnotation(pin)
             
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat!, lon!), CLLocationDistance(1000), CLLocationDistance(1000))
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat, lon), CLLocationDistance(1000), CLLocationDistance(1000))
             self.mapView.setRegion(coordinateRegion, animated: true)
         }) { (error) in
             print(error.localizedDescription)
