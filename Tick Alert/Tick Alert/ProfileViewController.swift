@@ -43,7 +43,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
                 let urlString = value?.value(forKey: "imageUrl") as? String
                 let url = URL(string: urlString!)
                 let data = try? Data(contentsOf: url!)
-                cell.displayContent(image: UIImage(data: data!)!)
+                if(data != nil) {cell.displayContent(image: UIImage(data: data!)!)}
+                else {cell.displayContent(image: #imageLiteral(resourceName: "recenttick"))}
                 
                 cell.postId = post
             }) { (error) in
@@ -86,7 +87,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         
         // Set the profile picture to Google profile picture
         let data = try? Data(contentsOf: (user?.photoURL)!)
-        userProfileImage.image = UIImage(data: data!)
+        if(data != nil) {userProfileImage.image = UIImage(data: data!)}
+        else {userProfileImage.image = #imageLiteral(resourceName: "profile")}
         
         // Get user location from databse
         ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in

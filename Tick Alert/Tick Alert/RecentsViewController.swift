@@ -63,7 +63,8 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let urlString = value.value(forKey: "imageUrl") as? String
                 let url = URL(string: urlString!)
                 let data = try? Data(contentsOf: url!)
-                self.images.append(UIImage(data: data!)!)
+                if(data != nil) {self.images.append(UIImage(data: data!)!)}
+                else {self.images.append(#imageLiteral(resourceName: "recenttick"))}
             }
             self.tableView.reloadData()
         })

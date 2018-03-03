@@ -50,6 +50,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             picRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
                     print(error.localizedDescription)
+                    cell.profileImage.image = #imageLiteral(resourceName: "profile")
                 } else {
                     cell.profileImage.image = UIImage(data: data!)
                 }
@@ -97,7 +98,8 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             let urlString = value?.value(forKey: "imageUrl") as? String
             let url = URL(string: urlString!)
             let data = try? Data(contentsOf: url!)
-            self.tickImage.image = UIImage(data: data!)
+            if(data != nil) {self.tickImage.image = UIImage(data: data!)}
+            else {self.tickImage.image = #imageLiteral(resourceName: "recenttick")}
             
             // Creates required information to display a map view of the post
             let lat: CLLocationDegrees = value?.value(forKey: "lat") as! CLLocationDegrees

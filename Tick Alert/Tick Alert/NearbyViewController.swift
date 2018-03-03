@@ -52,7 +52,7 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     let urlString = value?.value(forKey: "imageUrl") as? String
                     let url = URL(string: urlString!)
                     let data = try? Data(contentsOf: url!)
-                    self.pinImages["\(lat!)"+"\(lon!)"] = UIImage(data: data!)
+                    if(data != nil) {self.pinImages["\(lat!)"+"\(lon!)"] = UIImage(data: data!)}
                     self.pinIDs["\(lat!)"+"\(lon!)"] = post
                     
                     let pin: MKPointAnnotation = MKPointAnnotation()
@@ -88,7 +88,8 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }
         
         let imageKey = "\(annotation.coordinate.latitude)"+"\(annotation.coordinate.longitude)"
-        annotationView!.image = pinImages[imageKey]
+        if(pinImages.count > 0) {annotationView!.image = pinImages[imageKey]}
+        else {annotationView!.image = #imageLiteral(resourceName: "recenttick")}
         annotationView!.frame.size = CGSize(width: 30, height: 30)
         return annotationView
     }
