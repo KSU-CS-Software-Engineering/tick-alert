@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
+    var postIds = [Any]()
+    var postImages = [UIImage]()
     var numberOfPosts = 0
     
     // Returns the number of times a new CollectionViewCell should be created
@@ -28,31 +30,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         if(Auth.auth().currentUser == nil) {return cell}
-        
-        let user = Auth.auth().currentUser
-        let userId = user?.uid
-        let ref = Database.database().reference()
-        
-        // Populates the CollectionViewCell with the tick image
-        ref.child("user/"+userId!+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSArray
-            let post = value?[indexPath.row+1] as! Int
-            ref.child("post").child("\(post)").observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                
-                let urlString = value?.value(forKey: "imageUrl") as? String
-                let url = URL(string: urlString!)
-                let data = try? Data(contentsOf: url!)
-                if(data != nil) {cell.displayContent(image: UIImage(data: data!)!)}
-                else {cell.displayContent(image: #imageLiteral(resourceName: "recenttick"))}
-                
-                cell.postId = post
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+        cell.postId = postIds[indexPath.row+1] as! Int
+        cell.tickImage.image = postImages[indexPath.row]
         return cell
     }
     
@@ -76,12 +55,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         let user = Auth.auth().currentUser
         let userId = user?.uid
         
-        let ref = Database.database().reference()
-        ref.child("user/"+userId!+"/posts").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.numberOfPosts = Int(snapshot.childrenCount)
-            self.collectionView.reloadData()
-        })
-        
         // Set name to Google display name
         self.userFirstAndLast.text = user?.displayName
         
@@ -90,7 +63,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         if(data != nil) {userProfileImage.image = UIImage(data: data!)}
         else {userProfileImage.image = #imageLiteral(resourceName: "profile")}
         
-        // Get user location from databse
+        // Get user and post information from database
+        let ref = Database.database().reference()
         ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -98,6 +72,24 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             // Set the location to value in database
             self.userLocation.text = value?.value(forKey: "location") as? String
             self.userBio.text = value?.value(forKey: "bio") as? String
+            
+            self.postIds = value?.value(forKey: "posts") as! [Any]
+            self.numberOfPosts = self.postIds.count-1
+    
+            ref.child("post").observeSingleEvent(of: .value, with: {(snapshot) in
+                let posts = (snapshot.value as? [NSDictionary])!
+                
+                for i in 1...self.postIds.count-1 {
+                    let urlString = posts[(self.postIds[i] as! Int)].value(forKey: "imageUrl") as? String
+                    let url = URL(string: urlString!)
+                    let data = try? Data(contentsOf: url!)
+                    if(data != nil) {self.postImages.append(UIImage(data: data!)!)}
+                    else {self.postImages.append(#imageLiteral(resourceName: "recenttick"))}
+                }
+                self.collectionView.reloadData()
+            }) {(error) in
+                print("ERROR: \(error.localizedDescription)")
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
