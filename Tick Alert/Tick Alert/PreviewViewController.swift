@@ -31,7 +31,8 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             let numberOfPosts = snapshot.childrenCount
             let storageRef = Storage.storage().reference()
             let picRef = storageRef.child("posts").child(String(numberOfPosts))
-            picRef.putData(UIImagePNGRepresentation(self.uploadImage!)!, metadata: nil) {(metadata, error) in
+            let lowResImage = UIImageJPEGRepresentation(self.uploadImage!, 0)
+            picRef.putData(lowResImage!, metadata: nil) {(metadata, error) in
                 guard metadata != nil else {
                     print(error!.localizedDescription)
                     return
