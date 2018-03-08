@@ -18,6 +18,7 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     
+    var buttonPressed = false
     var tickType: String?
     var desc: String?
     var location: CLLocationCoordinate2D?
@@ -26,6 +27,8 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
     @IBAction func submitButton(_ sender: Any) {
+        if(buttonPressed) {return}
+        buttonPressed = true
         let ref = Database.database().reference()
         ref.child("post").observeSingleEvent(of: .value, with: {(snapshot) in
             let numberOfPosts = snapshot.childrenCount
@@ -54,6 +57,8 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                         ref.child("user").child(Auth.auth().currentUser!.uid).child("posts").observeSingleEvent(of: .value, with: {(snapshot) in
                             let numberOfUserPosts = snapshot.childrenCount
                             ref.child("user").child(Auth.auth().currentUser!.uid).child("posts").updateChildValues(["\(numberOfUserPosts+1)": numberOfPosts])
+                            
+                            self.navigationController?.popToRootViewController(animated: true)
                         })
                     } else {
                         print(error!.localizedDescription)
@@ -61,8 +66,6 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 })
             }
         })
-        
-        self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {

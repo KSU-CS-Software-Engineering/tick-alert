@@ -18,6 +18,7 @@ class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
+    var buttonPressed = false
     
     @IBAction func helpButtonPressed(_ sender: Any) {
         let questionController = storyboard?.instantiateViewController(withIdentifier: "Question") as! QuestionViewController
@@ -27,6 +28,8 @@ class CameraViewController: UIViewController {
     
     // Captures a photo after the button is pressed
     @IBAction func capturePhoto(_ sender: Any) {
+        if(buttonPressed) {return}
+        buttonPressed = true
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
         
         let photoSettings = AVCapturePhotoSettings()
