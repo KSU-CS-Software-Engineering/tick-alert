@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userBio: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
+    var posts = [NSDictionary]()
+    var imagePaths = [String:String]()
     var postIds = [Any]()
     var postImages = [UIImage]()
     var numberOfPosts = 0
@@ -30,8 +32,30 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         if(Auth.auth().currentUser == nil) {return cell}
+        
         cell.postId = postIds[indexPath.row+1] as! Int
-        cell.tickImage.image = postImages[indexPath.row]
+        
+        if let path = imagePaths["\(cell.postId)"] {
+            let fullPath = documentsPathForFileName(name: path)
+            let imageData = NSData(contentsOfFile: fullPath)
+            let pic = UIImage(data: imageData! as Data)
+            cell.tickImage.image = pic
+        }
+        else {
+            let value = posts[cell.postId]
+            let urlString = value.value(forKey: "imageUrl") as? String
+            let url = URL(string: urlString!)
+            if let data = try? Data(contentsOf: url!) {
+                let relativePath = "image_\(NSDate.timeIntervalSinceReferenceDate).jpg"
+                let path = documentsPathForFileName(name: relativePath)
+                do {try data.write(to: URL(fileURLWithPath: path), options: .atomic)}
+                catch {print(error)}
+                imagePaths["\(cell.postId)"] = relativePath
+                cell.tickImage.image = UIImage(data: data)
+                UserDefaults.standard.set(imagePaths, forKey: "images")
+            }
+        }
+        
         return cell
     }
     
@@ -77,15 +101,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             self.numberOfPosts = self.postIds.count-1
     
             ref.child("post").observeSingleEvent(of: .value, with: {(snapshot) in
-                let posts = (snapshot.value as? [NSDictionary])!
-                
-                for i in 1...self.postIds.count-1 {
-                    let urlString = posts[(self.postIds[i] as! Int)].value(forKey: "imageUrl") as? String
-                    let url = URL(string: urlString!)
-                    let data = try? Data(contentsOf: url!)
-                    if(data != nil) {self.postImages.append(UIImage(data: data!)!)}
-                    else {self.postImages.append(#imageLiteral(resourceName: "recenttick"))}
-                }
+                self.posts = (snapshot.value as? [NSDictionary])!
+                self.imagePaths = UserDefaults.standard.dictionary(forKey: "images") as! [String:String]
                 self.collectionView.reloadData()
             }) {(error) in
                 print("ERROR: \(error.localizedDescription)")
@@ -103,6 +120,13 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
                 return
             }
         }
+    }
+    
+    func documentsPathForFileName(name: String) -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let path = paths[0] as NSString
+        let fullPath = path.appendingPathComponent(name)
+        return fullPath
     }
     
     override func viewDidLoad() {

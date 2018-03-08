@@ -53,6 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        if(UserDefaults.standard.dictionary(forKey: "images") == nil) {UserDefaults.standard.set([String : UIImage](), forKey: "images")}
+        if(UserDefaults.standard.array(forKey: "posts") == nil) {UserDefaults.standard.set([NSDictionary](), forKey: "posts")}
         return true
     }
 
@@ -72,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
