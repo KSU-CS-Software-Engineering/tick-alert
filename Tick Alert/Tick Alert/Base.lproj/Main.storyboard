@@ -365,7 +365,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXi-e3-pNa">
-                                <rect key="frame" x="160" y="98" width="205" height="21"/>
+                                <rect key="frame" x="0.0" y="98" width="205" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="dWf-OU-tce"/>
                                 </constraints>
@@ -374,7 +374,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DW-4U-Qpx">
-                                <rect key="frame" x="10" y="248" width="355" height="100"/>
+                                <rect key="frame" x="0.0" y="248" width="355" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="xoA-1Z-1K6"/>
                                 </constraints>
@@ -392,7 +392,7 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7G-tX-nbi">
-                                <rect key="frame" x="160" y="129" width="205" height="21"/>
+                                <rect key="frame" x="0.0" y="129" width="205" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bbs-Zv-5Rh"/>
                                 </constraints>
@@ -452,7 +452,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-km-xY3">
-                                <rect key="frame" x="160" y="160" width="205" height="21"/>
+                                <rect key="frame" x="0.0" y="160" width="205" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bnN-CK-nLv"/>
                                 </constraints>
@@ -685,6 +685,17 @@
                                     <outlet property="delegate" destination="Hkw-lp-TcQ" id="0U3-mc-a6C"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ek6-V2-1lG">
+                                <rect key="frame" x="309" y="675" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="X1I-lA-AE9"/>
+                                    <constraint firstAttribute="height" constant="50" id="YAi-PP-NPb"/>
+                                </constraints>
+                                <state key="normal" image="target"/>
+                                <connections>
+                                    <action selector="centerButtonPressed:" destination="Hkw-lp-TcQ" eventType="touchUpInside" id="7Ra-xd-Ug9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34509803919999998" green="0.1647058824" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -696,11 +707,14 @@
                             <constraint firstItem="1uk-zh-6Kv" firstAttribute="trailing" secondItem="hot-lK-zkm" secondAttribute="trailing" id="R5H-ZA-pcY"/>
                             <constraint firstItem="hot-lK-zkm" firstAttribute="trailing" secondItem="Agh-9e-5hM" secondAttribute="trailing" constant="16" id="XGi-Sb-yBT"/>
                             <constraint firstItem="1uk-zh-6Kv" firstAttribute="top" secondItem="Agh-9e-5hM" secondAttribute="bottom" constant="8" id="cNY-e0-eLy"/>
+                            <constraint firstItem="hot-lK-zkm" firstAttribute="bottom" secondItem="ek6-V2-1lG" secondAttribute="bottom" constant="53" id="fkm-ge-a4K"/>
+                            <constraint firstItem="hot-lK-zkm" firstAttribute="trailing" secondItem="ek6-V2-1lG" secondAttribute="trailing" constant="16" id="iDE-hw-22j"/>
                             <constraint firstItem="YFk-Fg-NsP" firstAttribute="top" secondItem="1uk-zh-6Kv" secondAttribute="bottom" constant="8" id="x4q-FR-DnC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hot-lK-zkm"/>
                     </view>
                     <connections>
+                        <outlet property="centerMapButton" destination="ek6-V2-1lG" id="iBW-6C-pfb"/>
                         <outlet property="map" destination="1uk-zh-6Kv" id="GqN-sa-9Er"/>
                         <segue destination="eJ1-k5-7P9" kind="show" id="syd-Il-8gW"/>
                     </connections>

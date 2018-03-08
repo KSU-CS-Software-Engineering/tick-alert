@@ -11,6 +11,7 @@ import MapKit
 
 class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet var centerMapButton: UIButton!
     var tickType: String?
     var desc: String?
     var uploadImage: UIImage?
@@ -20,6 +21,11 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet var map: MKMapView!
     var locationManager = CLLocationManager()
     var locationSelected = false
+    
+    @IBAction func centerButtonPressed(_ sender: Any) {
+        locationManager.startUpdatingLocation()
+        locationManager.stopUpdatingLocation()
+    }
     
     @IBAction func continueButton(_ sender: Any) {
         if(!locationSelected) {return}
