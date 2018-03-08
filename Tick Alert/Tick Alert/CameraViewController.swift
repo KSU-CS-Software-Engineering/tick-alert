@@ -43,12 +43,13 @@ class CameraViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        buttonPressed = false
     }
     
     // Sets the View up once it is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
