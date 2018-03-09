@@ -13,6 +13,38 @@ class OrnationViewController: UIViewController {
     var uploadImage: UIImage?
     var sex: String?
     
+    @IBOutlet var tickImage: UIImageView!
+    @IBOutlet var ornationLabel: UILabel!
+    @IBOutlet var exampleImage: UIImageView!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var ornationSelector: UISegmentedControl!
+    
+    @IBAction func ornationSelected(_ sender: Any) {
+        switch(ornationSelector.selectedSegmentIndex) {
+            case 0:
+                ornationLabel.text = "ORNATE"
+                exampleImage.image = #imageLiteral(resourceName: "ornate_ticks.png")
+                descriptionLabel.text = "Ornate: colored markings present"
+                break
+            case 1:
+                ornationLabel.text = "INORNATE"
+                exampleImage.image = #imageLiteral(resourceName: "inornate_ticks.png")
+                descriptionLabel.text = "Inornate: no colored markings present"
+                break
+            default:
+                break
+        }
+    }
+    
+    @objc func nextButtonPressed() {
+        let capitulumController = storyboard?.instantiateViewController(withIdentifier: "capitulum") as! CapitulumViewController
+        capitulumController.uploadImage = uploadImage
+        capitulumController.sex = sex
+        if(ornationSelector.selectedSegmentIndex == 0) {capitulumController.ornation = "ORNATE"}
+        else {capitulumController.ornation = "INORNATE"}
+        navigationController?.pushViewController(capitulumController, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -20,7 +52,14 @@ class OrnationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let nextButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(nextButtonPressed))
+        self.navigationItem.rightBarButtonItem = nextButton
+        
+        ornationLabel.text = "ORNATE"
+        exampleImage.image = #imageLiteral(resourceName: "ornate_ticks.png")
+        descriptionLabel.text = "Ornate: colored markings present"
+        
+        tickImage.image = uploadImage
     }
 
     override func didReceiveMemoryWarning() {
