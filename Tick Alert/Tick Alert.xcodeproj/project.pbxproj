@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E183110205251FD00805AB8 /* SexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18310F205251FD00805AB8 /* SexViewController.swift */; };
+		0E1831132052582B00805AB8 /* male_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831112052582A00805AB8 /* male_ticks.png */; };
+		0E1831142052582B00805AB8 /* female_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831122052582B00805AB8 /* female_ticks.png */; };
+		0E18311620525C8800805AB8 /* OrnationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18311520525C8800805AB8 /* OrnationViewController.swift */; };
 		0E2D40A51F8ADEAF00DD3F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40A41F8ADEAF00DD3F37 /* AppDelegate.swift */; };
 		0E2D40AC1F8ADEAF00DD3F37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2D40AA1F8ADEAF00DD3F37 /* Main.storyboard */; };
 		0E2D40AE1F8ADEAF00DD3F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2D40AD1F8ADEAF00DD3F37 /* Assets.xcassets */; };
@@ -67,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E18310F205251FD00805AB8 /* SexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexViewController.swift; sourceTree = "<group>"; };
+		0E1831112052582A00805AB8 /* male_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_ticks.png; sourceTree = "<group>"; };
+		0E1831122052582B00805AB8 /* female_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_ticks.png; sourceTree = "<group>"; };
+		0E18311520525C8800805AB8 /* OrnationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnationViewController.swift; sourceTree = "<group>"; };
 		0E2D40A11F8ADEAF00DD3F37 /* Tick Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tick Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2D40A41F8ADEAF00DD3F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E2D40AB1F8ADEAF00DD3F37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,6 +187,8 @@
 				0E9DDD2620486C240084FB59 /* Rhipicephalus_sanguineus_all.jpg */,
 				0E9DDD17204861BC0084FB59 /* removal-ab.jpg */,
 				0E9DDD312048ADC40084FB59 /* closeup.jpg */,
+				0E1831122052582B00805AB8 /* female_ticks.png */,
+				0E1831112052582A00805AB8 /* male_ticks.png */,
 				0E2D40A41F8ADEAF00DD3F37 /* AppDelegate.swift */,
 				0E2D40AA1F8ADEAF00DD3F37 /* Main.storyboard */,
 				0E2D40AD1F8ADEAF00DD3F37 /* Assets.xcassets */,
@@ -206,6 +216,8 @@
 				0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */,
 				0E9DDD2120486A1F0084FB59 /* CommonCell.swift */,
 				0E9DDD2F2048A9740084FB59 /* TickViewController.swift */,
+				0E18310F205251FD00805AB8 /* SexViewController.swift */,
+				0E18311520525C8800805AB8 /* OrnationViewController.swift */,
 			);
 			path = "Tick Alert";
 			sourceTree = "<group>";
@@ -368,11 +380,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E2D40B11F8ADEAF00DD3F37 /* LaunchScreen.storyboard in Resources */,
+				0E1831132052582B00805AB8 /* male_ticks.png in Resources */,
 				0E9DDD322048ADC40084FB59 /* closeup.jpg in Resources */,
 				0E9DDD2B20486C250084FB59 /* Rhipicephalus_sanguineus_all.jpg in Resources */,
 				0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */,
 				0E9DDD2A20486C250084FB59 /* Ixodes_scapularis_all.jpg in Resources */,
 				0E9DDD2920486C250084FB59 /* Dermacentor_andersoni_all.jpg in Resources */,
+				0E1831142052582B00805AB8 /* female_ticks.png in Resources */,
 				0E9DDD2820486C250084FB59 /* Dermacentor_variabilis_all.jpg in Resources */,
 				0E9DDD18204861BD0084FB59 /* removal-ab.jpg in Resources */,
 				0E2D40AE1F8ADEAF00DD3F37 /* Assets.xcassets in Resources */,
@@ -619,6 +633,8 @@
 				0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */,
 				0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */,
 				0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */,
+				0E18311620525C8800805AB8 /* OrnationViewController.swift in Sources */,
+				0E183110205251FD00805AB8 /* SexViewController.swift in Sources */,
 				0E2D40A51F8ADEAF00DD3F37 /* AppDelegate.swift in Sources */,
 				0EB5A32B2047DDB5002CE020 /* DescriptionViewController.swift in Sources */,
 				0E9DDD202048698C0084FB59 /* CommonViewController.swift in Sources */,

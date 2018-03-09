@@ -99,9 +99,13 @@ extension CameraViewController : AVCapturePhotoCaptureDelegate {
             // Save our captured image to photos album
             //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             
-            let uploadController = storyboard?.instantiateViewController(withIdentifier: "Upload") as! UploadViewController
-            uploadController.uploadImage = image
-            navigationController?.pushViewController(uploadController, animated: true)
+//            let uploadController = storyboard?.instantiateViewController(withIdentifier: "Upload") as! UploadViewController
+//            uploadController.uploadImage = image
+//            navigationController?.pushViewController(uploadController, animated: true)
+            
+            let sexController = storyboard?.instantiateViewController(withIdentifier: "sex") as! SexViewController
+            sexController.uploadImage = image
+            navigationController?.pushViewController(sexController, animated: true)
         }
     }
 }
