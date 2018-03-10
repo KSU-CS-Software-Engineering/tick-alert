@@ -112,6 +112,7 @@ class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         if(sex == "MALE") {exampleImage.image = exampleImages[options[0]*2]}
         else {exampleImage.image = exampleImages[options[0]*2+1]}
+        selectedTickType = tickOptions[options[0]]
         
         
         let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))

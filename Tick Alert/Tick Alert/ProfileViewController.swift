@@ -64,6 +64,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         postController.postId = "\(cell.postId!)"
+        postController.previousController = "Profile"
         navigationController?.pushViewController(postController, animated: true)
     }
     

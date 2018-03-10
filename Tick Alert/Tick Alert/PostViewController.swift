@@ -19,12 +19,16 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tickDescription: UILabel!
     @IBOutlet var tickImage: UIImageView!
     var posterId = ""
+    var previousController = ""
     
     // When the poster's name is pressed, load a DynamicProfileView
     @IBAction func posterButtonPressed(_ sender: Any) {
-        let profileController = self.storyboard?.instantiateViewController(withIdentifier: "DynamicProfile") as! DynamicProfileViewController
-        profileController.profileId = posterId
-        self.navigationController?.pushViewController(profileController, animated: true)
+        if(previousController == "Profile") {_ = navigationController?.popViewController(animated: true)}
+        else {
+            let profileController = self.storyboard?.instantiateViewController(withIdentifier: "DynamicProfile") as! DynamicProfileViewController
+            profileController.profileId = posterId
+            self.navigationController?.pushViewController(profileController, animated: true)
+        }
     }
     
     var postId = ""
