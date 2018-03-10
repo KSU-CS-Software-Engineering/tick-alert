@@ -12,6 +12,9 @@ class DescriptionViewController: UIViewController {
     
     var tickType: String?
     var uploadImage: UIImage?
+    var sex: String?
+    var ornation: String?
+    var capitulum: String?
 
     @IBOutlet var textField: UITextView!
     @IBAction func continueButton(_ sender: Any) {

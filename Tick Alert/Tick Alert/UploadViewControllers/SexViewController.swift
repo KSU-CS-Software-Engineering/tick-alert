@@ -23,12 +23,12 @@ class SexViewController: UIViewController {
             case 0:
                 sexLabel.text = "MALE"
                 descriptionLabel.text = "For MALES: scutum extends the entire length of the body"
-                exampleImage.image = #imageLiteral(resourceName: "male_ticks.png")
+                exampleImage.image = #imageLiteral(resourceName: "maleTicks.png")
                 break
             case 1:
                 sexLabel.text = "FEMALE"
                 descriptionLabel.text = "For FEMALES: scutum extends 1/3 to 1/2 the length of the body (allows her body to expand with eggs)"
-                exampleImage.image = #imageLiteral(resourceName: "female_ticks.png")
+                exampleImage.image = #imageLiteral(resourceName: "femaleTicks.png")
                 break
             default:
                 break
@@ -37,7 +37,7 @@ class SexViewController: UIViewController {
     
     @objc func nextButtonPressed() {
         let ornationController = storyboard?.instantiateViewController(withIdentifier: "ornation") as! OrnationViewController
-        ornationController.uploadImage = uploadImage
+        ornationController.uploadImage = tickImage.image
         if(maleFemaleSelector.selectedSegmentIndex == 0) {ornationController.sex = "MALE"}
         else {ornationController.sex = "FEMALE"}
         navigationController?.pushViewController(ornationController, animated: true)
@@ -52,10 +52,14 @@ class SexViewController: UIViewController {
         let nextButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(nextButtonPressed))
         self.navigationItem.rightBarButtonItem = nextButton
         
-        tickImage.image = uploadImage
+        let contextSize: CGSize = uploadImage!.size
+        let rect: CGRect = CGRect(origin: CGPoint(x: (contextSize.height - contextSize.width) / 2, y: 0), size: CGSize(width: contextSize.width, height: contextSize.width))
+        let imageRef: CGImage = uploadImage!.cgImage!.cropping(to: rect)!
+        tickImage.image = UIImage(cgImage: imageRef, scale: uploadImage!.scale, orientation: uploadImage!.imageOrientation)
+        
         sexLabel.text = "MALE"
         descriptionLabel.text = "For MALES: scutum extends the entire length of the body"
-        exampleImage.image = #imageLiteral(resourceName: "male_ticks.png")
+        exampleImage.image = #imageLiteral(resourceName: "maleTicks.png")
     }
 
     override func didReceiveMemoryWarning() {

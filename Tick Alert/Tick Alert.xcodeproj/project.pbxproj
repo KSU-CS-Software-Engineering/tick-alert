@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E183110205251FD00805AB8 /* SexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18310F205251FD00805AB8 /* SexViewController.swift */; };
-		0E1831132052582B00805AB8 /* male_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831112052582A00805AB8 /* male_ticks.png */; };
-		0E1831142052582B00805AB8 /* female_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831122052582B00805AB8 /* female_ticks.png */; };
 		0E18311620525C8800805AB8 /* OrnationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18311520525C8800805AB8 /* OrnationViewController.swift */; };
 		0E1831192052619A00805AB8 /* inornate_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831172052619900805AB8 /* inornate_ticks.png */; };
 		0E18311A2052619A00805AB8 /* ornate_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831182052619A00805AB8 /* ornate_ticks.png */; };
@@ -25,6 +23,24 @@
 		0E2D40DF1F8AED2B00DD3F37 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40DE1F8AED2B00DD3F37 /* NearbyViewController.swift */; };
 		0E2D40E11F8AED3500DD3F37 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */; };
 		0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */; };
+		0E40FE3320530BE4009694EA /* femaleTicks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3120530BE2009694EA /* femaleTicks.png */; };
+		0E40FE3420530BE4009694EA /* maleTicks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3220530BE3009694EA /* maleTicks.png */; };
+		0E40FE3720534D2C009694EA /* short_capitulum.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3520534D2A009694EA /* short_capitulum.png */; };
+		0E40FE3820534D2C009694EA /* long_capitulum.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3620534D2A009694EA /* long_capitulum.png */; };
+		0E40FE4920535A60009694EA /* female_browndog.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3B20535A53009694EA /* female_browndog.png */; };
+		0E40FE4A20535A60009694EA /* female_americandog.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3C20535A54009694EA /* female_americandog.png */; };
+		0E40FE4B20535A60009694EA /* female_westernblacklegged.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3D20535A54009694EA /* female_westernblacklegged.png */; };
+		0E40FE4C20535A60009694EA /* male_browndog.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3E20535A55009694EA /* male_browndog.png */; };
+		0E40FE4D20535A60009694EA /* female_blacklegged.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE3F20535A56009694EA /* female_blacklegged.png */; };
+		0E40FE4E20535A60009694EA /* male_americandog.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4020535A57009694EA /* male_americandog.png */; };
+		0E40FE4F20535A60009694EA /* male_gulfcoast.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4120535A58009694EA /* male_gulfcoast.png */; };
+		0E40FE5020535A60009694EA /* male_rockymountainwood.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4220535A59009694EA /* male_rockymountainwood.png */; };
+		0E40FE5120535A60009694EA /* female_gulfcoast.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4320535A5A009694EA /* female_gulfcoast.png */; };
+		0E40FE5220535A60009694EA /* male_blacklegged.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4420535A5B009694EA /* male_blacklegged.png */; };
+		0E40FE5320535A60009694EA /* female_lonestar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4520535A5C009694EA /* female_lonestar.png */; };
+		0E40FE5420535A60009694EA /* male_lonestar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4620535A5D009694EA /* male_lonestar.png */; };
+		0E40FE5520535A60009694EA /* female_rockymountainwood.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4720535A5E009694EA /* female_rockymountainwood.png */; };
+		0E40FE5620535A60009694EA /* male_westernblacklegged.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4820535A5F009694EA /* male_westernblacklegged.png */; };
 		0E5D59612046549B00595A38 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D59602046549B00595A38 /* UploadViewController.swift */; };
 		0E9DDD18204861BD0084FB59 /* removal-ab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DDD17204861BC0084FB59 /* removal-ab.jpg */; };
 		0E9DDD202048698C0084FB59 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */; };
@@ -75,8 +91,6 @@
 
 /* Begin PBXFileReference section */
 		0E18310F205251FD00805AB8 /* SexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexViewController.swift; sourceTree = "<group>"; };
-		0E1831112052582A00805AB8 /* male_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_ticks.png; sourceTree = "<group>"; };
-		0E1831122052582B00805AB8 /* female_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_ticks.png; sourceTree = "<group>"; };
 		0E18311520525C8800805AB8 /* OrnationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnationViewController.swift; sourceTree = "<group>"; };
 		0E1831172052619900805AB8 /* inornate_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inornate_ticks.png; sourceTree = "<group>"; };
 		0E1831182052619A00805AB8 /* ornate_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ornate_ticks.png; sourceTree = "<group>"; };
@@ -98,6 +112,24 @@
 		0E2D40DE1F8AED2B00DD3F37 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsViewController.swift; sourceTree = "<group>"; };
+		0E40FE3120530BE2009694EA /* femaleTicks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = femaleTicks.png; sourceTree = "<group>"; };
+		0E40FE3220530BE3009694EA /* maleTicks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maleTicks.png; sourceTree = "<group>"; };
+		0E40FE3520534D2A009694EA /* short_capitulum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = short_capitulum.png; sourceTree = "<group>"; };
+		0E40FE3620534D2A009694EA /* long_capitulum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = long_capitulum.png; sourceTree = "<group>"; };
+		0E40FE3B20535A53009694EA /* female_browndog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_browndog.png; sourceTree = "<group>"; };
+		0E40FE3C20535A54009694EA /* female_americandog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_americandog.png; sourceTree = "<group>"; };
+		0E40FE3D20535A54009694EA /* female_westernblacklegged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_westernblacklegged.png; sourceTree = "<group>"; };
+		0E40FE3E20535A55009694EA /* male_browndog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_browndog.png; sourceTree = "<group>"; };
+		0E40FE3F20535A56009694EA /* female_blacklegged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_blacklegged.png; sourceTree = "<group>"; };
+		0E40FE4020535A57009694EA /* male_americandog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_americandog.png; sourceTree = "<group>"; };
+		0E40FE4120535A58009694EA /* male_gulfcoast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_gulfcoast.png; sourceTree = "<group>"; };
+		0E40FE4220535A59009694EA /* male_rockymountainwood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_rockymountainwood.png; sourceTree = "<group>"; };
+		0E40FE4320535A5A009694EA /* female_gulfcoast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_gulfcoast.png; sourceTree = "<group>"; };
+		0E40FE4420535A5B009694EA /* male_blacklegged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_blacklegged.png; sourceTree = "<group>"; };
+		0E40FE4520535A5C009694EA /* female_lonestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_lonestar.png; sourceTree = "<group>"; };
+		0E40FE4620535A5D009694EA /* male_lonestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_lonestar.png; sourceTree = "<group>"; };
+		0E40FE4720535A5E009694EA /* female_rockymountainwood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_rockymountainwood.png; sourceTree = "<group>"; };
+		0E40FE4820535A5F009694EA /* male_westernblacklegged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_westernblacklegged.png; sourceTree = "<group>"; };
 		0E5D59602046549B00595A38 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		0E9DDD17204861BC0084FB59 /* removal-ab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "removal-ab.jpg"; sourceTree = "<group>"; };
 		0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
@@ -186,47 +218,25 @@
 		0E2D40A31F8ADEAF00DD3F37 /* Tick Alert */ = {
 			isa = PBXGroup;
 			children = (
-				0E9DDD2720486C250084FB59 /* Amblyomma_americanum_all.jpg */,
-				0E9DDD2420486C230084FB59 /* Dermacentor_andersoni_all.jpg */,
-				0E9DDD2320486C230084FB59 /* Dermacentor_variabilis_all.jpg */,
-				0E9DDD2520486C240084FB59 /* Ixodes_scapularis_all.jpg */,
-				0E9DDD2620486C240084FB59 /* Rhipicephalus_sanguineus_all.jpg */,
-				0E9DDD17204861BC0084FB59 /* removal-ab.jpg */,
-				0E9DDD312048ADC40084FB59 /* closeup.jpg */,
-				0E1831122052582B00805AB8 /* female_ticks.png */,
-				0E1831112052582A00805AB8 /* male_ticks.png */,
-				0E1831172052619900805AB8 /* inornate_ticks.png */,
-				0E1831182052619A00805AB8 /* ornate_ticks.png */,
+				0E40FE3920535A0D009694EA /* images */,
 				0E2D40A41F8ADEAF00DD3F37 /* AppDelegate.swift */,
 				0E2D40AA1F8ADEAF00DD3F37 /* Main.storyboard */,
 				0E2D40AD1F8ADEAF00DD3F37 /* Assets.xcassets */,
 				0E2D40AF1F8ADEAF00DD3F37 /* LaunchScreen.storyboard */,
 				0E2D40B21F8ADEAF00DD3F37 /* Info.plist */,
 				0EE375441FE231BF0084321E /* GoogleService-Info.plist */,
-				0E2D40DA1F8AEC9200DD3F37 /* CameraViewController.swift */,
 				0E2D40DC1F8AED1F00DD3F37 /* ProfileViewController.swift */,
 				DF8E173F2024212000AFCC73 /* CollectionViewCell.swift */,
-				0E2D40DE1F8AED2B00DD3F37 /* NearbyViewController.swift */,
-				0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */,
 				0E2D40E41F8AED8C00DD3F37 /* RecentsViewController.swift */,
 				0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */,
+				0E2D40DA1F8AEC9200DD3F37 /* CameraViewController.swift */,
+				0EBDEB4F2053626500B92256 /* UploadViewControllers */,
+				0E2D40DE1F8AED2B00DD3F37 /* NearbyViewController.swift */,
+				0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */,
+				0EBDEB50205362AC00B92256 /* MoreViewControllers */,
 				0EFC9B15202AC37800F6B3EA /* PostViewController.swift */,
 				0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */,
 				DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */,
-				0EBDA10C2045B98700C5870A /* FAQViewController.swift */,
-				0EBDA10E2045C10C00C5870A /* AboutViewController.swift */,
-				0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */,
-				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
-				0E5D59602046549B00595A38 /* UploadViewController.swift */,
-				0EB5A32A2047DDB5002CE020 /* DescriptionViewController.swift */,
-				0EB5A32C2047DDC4002CE020 /* LocationViewController.swift */,
-				0EB5A32E2047DDCF002CE020 /* PreviewViewController.swift */,
-				0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */,
-				0E9DDD2120486A1F0084FB59 /* CommonCell.swift */,
-				0E9DDD2F2048A9740084FB59 /* TickViewController.swift */,
-				0E18310F205251FD00805AB8 /* SexViewController.swift */,
-				0E18311520525C8800805AB8 /* OrnationViewController.swift */,
-				0E18311B2052651400805AB8 /* CapitulumViewController.swift */,
 			);
 			path = "Tick Alert";
 			sourceTree = "<group>";
@@ -247,6 +257,76 @@
 				0E2D40C81F8ADEAF00DD3F37 /* Info.plist */,
 			);
 			path = "Tick AlertUITests";
+			sourceTree = "<group>";
+		};
+		0E40FE3920535A0D009694EA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0E40FE3A20535A3F009694EA /* Example Ticks */,
+				0E9DDD2720486C250084FB59 /* Amblyomma_americanum_all.jpg */,
+				0E9DDD2420486C230084FB59 /* Dermacentor_andersoni_all.jpg */,
+				0E9DDD2320486C230084FB59 /* Dermacentor_variabilis_all.jpg */,
+				0E9DDD2520486C240084FB59 /* Ixodes_scapularis_all.jpg */,
+				0E9DDD2620486C240084FB59 /* Rhipicephalus_sanguineus_all.jpg */,
+				0E9DDD17204861BC0084FB59 /* removal-ab.jpg */,
+				0E9DDD312048ADC40084FB59 /* closeup.jpg */,
+				0E40FE3120530BE2009694EA /* femaleTicks.png */,
+				0E40FE3220530BE3009694EA /* maleTicks.png */,
+				0E1831172052619900805AB8 /* inornate_ticks.png */,
+				0E1831182052619A00805AB8 /* ornate_ticks.png */,
+				0E40FE3620534D2A009694EA /* long_capitulum.png */,
+				0E40FE3520534D2A009694EA /* short_capitulum.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		0E40FE3A20535A3F009694EA /* Example Ticks */ = {
+			isa = PBXGroup;
+			children = (
+				0E40FE3C20535A54009694EA /* female_americandog.png */,
+				0E40FE3F20535A56009694EA /* female_blacklegged.png */,
+				0E40FE3B20535A53009694EA /* female_browndog.png */,
+				0E40FE4320535A5A009694EA /* female_gulfcoast.png */,
+				0E40FE4520535A5C009694EA /* female_lonestar.png */,
+				0E40FE4720535A5E009694EA /* female_rockymountainwood.png */,
+				0E40FE3D20535A54009694EA /* female_westernblacklegged.png */,
+				0E40FE4020535A57009694EA /* male_americandog.png */,
+				0E40FE4420535A5B009694EA /* male_blacklegged.png */,
+				0E40FE3E20535A55009694EA /* male_browndog.png */,
+				0E40FE4120535A58009694EA /* male_gulfcoast.png */,
+				0E40FE4620535A5D009694EA /* male_lonestar.png */,
+				0E40FE4220535A59009694EA /* male_rockymountainwood.png */,
+				0E40FE4820535A5F009694EA /* male_westernblacklegged.png */,
+			);
+			path = "Example Ticks";
+			sourceTree = "<group>";
+		};
+		0EBDEB4F2053626500B92256 /* UploadViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E18311B2052651400805AB8 /* CapitulumViewController.swift */,
+				0E18311520525C8800805AB8 /* OrnationViewController.swift */,
+				0E18310F205251FD00805AB8 /* SexViewController.swift */,
+				0E5D59602046549B00595A38 /* UploadViewController.swift */,
+				0EB5A32A2047DDB5002CE020 /* DescriptionViewController.swift */,
+				0EB5A32C2047DDC4002CE020 /* LocationViewController.swift */,
+				0EB5A32E2047DDCF002CE020 /* PreviewViewController.swift */,
+			);
+			path = UploadViewControllers;
+			sourceTree = "<group>";
+		};
+		0EBDEB50205362AC00B92256 /* MoreViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E9DDD2F2048A9740084FB59 /* TickViewController.swift */,
+				0E9DDD2120486A1F0084FB59 /* CommonCell.swift */,
+				0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */,
+				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
+				0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */,
+				0EBDA10E2045C10C00C5870A /* AboutViewController.swift */,
+				0EBDA10C2045B98700C5870A /* FAQViewController.swift */,
+			);
+			path = MoreViewControllers;
 			sourceTree = "<group>";
 		};
 		3FF780318C1D2D10F7209800 /* Pods */ = {
@@ -389,20 +469,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E2D40B11F8ADEAF00DD3F37 /* LaunchScreen.storyboard in Resources */,
-				0E1831132052582B00805AB8 /* male_ticks.png in Resources */,
+				0E40FE4920535A60009694EA /* female_browndog.png in Resources */,
+				0E40FE5020535A60009694EA /* male_rockymountainwood.png in Resources */,
 				0E9DDD322048ADC40084FB59 /* closeup.jpg in Resources */,
+				0E40FE4F20535A60009694EA /* male_gulfcoast.png in Resources */,
+				0E40FE3320530BE4009694EA /* femaleTicks.png in Resources */,
+				0E40FE3820534D2C009694EA /* long_capitulum.png in Resources */,
+				0E40FE5320535A60009694EA /* female_lonestar.png in Resources */,
+				0E40FE5620535A60009694EA /* male_westernblacklegged.png in Resources */,
 				0E9DDD2B20486C250084FB59 /* Rhipicephalus_sanguineus_all.jpg in Resources */,
+				0E40FE5120535A60009694EA /* female_gulfcoast.png in Resources */,
 				0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */,
+				0E40FE4A20535A60009694EA /* female_americandog.png in Resources */,
 				0E9DDD2A20486C250084FB59 /* Ixodes_scapularis_all.jpg in Resources */,
+				0E40FE3420530BE4009694EA /* maleTicks.png in Resources */,
+				0E40FE5420535A60009694EA /* male_lonestar.png in Resources */,
 				0E9DDD2920486C250084FB59 /* Dermacentor_andersoni_all.jpg in Resources */,
-				0E1831142052582B00805AB8 /* female_ticks.png in Resources */,
 				0E1831192052619A00805AB8 /* inornate_ticks.png in Resources */,
+				0E40FE4C20535A60009694EA /* male_browndog.png in Resources */,
+				0E40FE3720534D2C009694EA /* short_capitulum.png in Resources */,
+				0E40FE5220535A60009694EA /* male_blacklegged.png in Resources */,
 				0E18311A2052619A00805AB8 /* ornate_ticks.png in Resources */,
+				0E40FE4B20535A60009694EA /* female_westernblacklegged.png in Resources */,
+				0E40FE5520535A60009694EA /* female_rockymountainwood.png in Resources */,
 				0E9DDD2820486C250084FB59 /* Dermacentor_variabilis_all.jpg in Resources */,
 				0E9DDD18204861BD0084FB59 /* removal-ab.jpg in Resources */,
 				0E2D40AE1F8ADEAF00DD3F37 /* Assets.xcassets in Resources */,
+				0E40FE4E20535A60009694EA /* male_americandog.png in Resources */,
 				0E2D40AC1F8ADEAF00DD3F37 /* Main.storyboard in Resources */,
 				0E9DDD2C20486C250084FB59 /* Amblyomma_americanum_all.jpg in Resources */,
+				0E40FE4D20535A60009694EA /* female_blacklegged.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
