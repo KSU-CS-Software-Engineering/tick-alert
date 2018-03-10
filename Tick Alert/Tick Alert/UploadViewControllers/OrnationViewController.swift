@@ -52,7 +52,7 @@ class OrnationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nextButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(nextButtonPressed))
+        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))
         self.navigationItem.rightBarButtonItem = nextButton
         
         ornationLabel.text = "ORNATE"

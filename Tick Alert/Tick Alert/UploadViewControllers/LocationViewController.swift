@@ -15,6 +15,10 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     var tickType: String?
     var desc: String?
     var uploadImage: UIImage?
+    var sex: String?
+    var ornation: String?
+    var capitulum: String?
+    var whereFound: String?
 
     var userLocation: CLLocation?
     var pin: MKPointAnnotation = MKPointAnnotation()
@@ -25,17 +29,6 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     @IBAction func centerButtonPressed(_ sender: Any) {
         locationManager.startUpdatingLocation()
         locationManager.stopUpdatingLocation()
-    }
-    
-    @IBAction func continueButton(_ sender: Any) {
-        if(!locationSelected) {return}
-        
-        let previewController = storyboard?.instantiateViewController(withIdentifier: "Preview") as! PreviewViewController
-        previewController.tickType = tickType
-        previewController.desc = desc
-        previewController.uploadImage = uploadImage
-        previewController.location = pin.coordinate
-        navigationController?.pushViewController(previewController, animated: true)
     }
     
     override func viewDidLoad() {
@@ -49,8 +42,26 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         pin.title = tickType!
         
+        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))
+        self.navigationItem.rightBarButtonItem = nextButton
+        
         let uitgr = UITapGestureRecognizer(target: self, action: #selector(LocationViewController.action(_:)))
         map.addGestureRecognizer(uitgr)
+    }
+    
+    @objc func nextButtonPressed() {
+        if(!locationSelected) {return}
+        
+        let previewController = storyboard?.instantiateViewController(withIdentifier: "Preview") as! PreviewViewController
+        previewController.uploadImage = uploadImage
+        previewController.tickType = tickType
+        previewController.sex = sex
+        previewController.ornation = ornation
+        previewController.capitulum = capitulum
+        previewController.desc = desc
+        previewController.whereFound = whereFound
+        previewController.location = pin.coordinate
+        navigationController?.pushViewController(previewController, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

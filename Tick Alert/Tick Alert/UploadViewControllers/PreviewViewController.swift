@@ -17,6 +17,9 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet var map: MKMapView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var elevationLabel: UILabel!
+    @IBOutlet var weatherImage: UIImageView!
+    @IBOutlet var temperatureLabel: UILabel!
     
     var buttonPressed = false
     var tickType: String?
@@ -24,9 +27,16 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     var location: CLLocationCoordinate2D?
     var uploadImage: UIImage?
     var date: String?
+    var sex: String?
+    var ornation: String?
+    var capitulum: String?
+    var whereFound: String?
+    var weather = ""
+    var temperature = ""
+    var elevation = ""
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
-    @IBAction func submitButton(_ sender: Any) {
+    
+    @objc func nextButtonPressed() {
         if(buttonPressed) {return}
         buttonPressed = true
         let ref = Database.database().reference()
@@ -51,7 +61,12 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                             "location": self.locationLabel.text as Any,
                             "poster": Auth.auth().currentUser!.uid,
                             "posterName": self.userLabel.text as Any,
-                            "type": self.tickType!
+                            "type": self.tickType!,
+                            "sex": self.sex!,
+                            "where": self.whereFound!,
+                            "weather": self.weather,
+                            "temperature": self.temperature,
+                            "elevation": self.elevation
                         ]
                         ref.child("post").child("\(numberOfPosts)").setValue(newPostData)
                         ref.child("user").child(Auth.auth().currentUser!.uid).child("posts").observeSingleEvent(of: .value, with: {(snapshot) in
@@ -98,6 +113,11 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 self.locationLabel.text = (placemarks?[0].locality)! + ", " + (placemarks?[0].administrativeArea)!
             }
         })
+        
+        let nextButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))
+        self.navigationItem.rightBarButtonItem = nextButton
+        
+        //TODO: get elevation and weather info
     }
 
     override func didReceiveMemoryWarning() {

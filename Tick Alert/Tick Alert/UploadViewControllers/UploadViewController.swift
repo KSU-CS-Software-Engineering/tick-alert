@@ -12,7 +12,7 @@ import Firebase
 
 class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let tickOptions = ["Blacklegged", "Western Blacklegged", "Gulf Coast", "American Dog", "Lone Star", "Brown Dog", "Rocky Mountain"]
+    let tickOptions = ["Blacklegged", "Western Blacklegged", "Gulf Coast", "American Dog", "Lone Star", "Brown Dog", "Rocky Mountain Wood"]
     //Images are in same order as options with male followed by female
     let exampleImages = [#imageLiteral(resourceName: "male_blacklegged.png"), #imageLiteral(resourceName: "female_blacklegged.png"), #imageLiteral(resourceName: "male_westernblacklegged.png"), #imageLiteral(resourceName: "female_westernblacklegged.png"), #imageLiteral(resourceName: "male_gulfcoast.png"), #imageLiteral(resourceName: "female_gulfcoast.png"), #imageLiteral(resourceName: "male_americandog.png"), #imageLiteral(resourceName: "female_americandog.png"), #imageLiteral(resourceName: "male_lonestar.png"), #imageLiteral(resourceName: "female_lonestar.png"), #imageLiteral(resourceName: "male_browndog.png"), #imageLiteral(resourceName: "female_browndog.png"), #imageLiteral(resourceName: "male_rockymountainwood.png"), #imageLiteral(resourceName: "female_rockymountainwood.png")]
     let BLACKLEGGED = 0
@@ -110,7 +110,11 @@ class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             }
         }
         
-        let nextButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(nextButtonPressed))
+        if(sex == "MALE") {exampleImage.image = exampleImages[options[0]*2]}
+        else {exampleImage.image = exampleImages[options[0]*2+1]}
+        
+        
+        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))
         self.navigationItem.rightBarButtonItem = nextButton
     }
     
