@@ -20,6 +20,8 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet var elevationLabel: UILabel!
     @IBOutlet var weatherImage: UIImageView!
     @IBOutlet var temperatureLabel: UILabel!
+    @IBOutlet var sexLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     
     var buttonPressed = false
     var tickType: String?
@@ -117,7 +119,29 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         let nextButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))
         self.navigationItem.rightBarButtonItem = nextButton
         
+        sexLabel.text = sex
+        dateLabel.text = date
+        
         //TODO: get elevation and weather info
+        let url = URL(string: "https://maps.googleapis.com/maps/api/elevation/json?locations=\(location!.latitude),\(location!.longitude)&key=AIzaSyCrjKRm_68ZeAFFnTdQg55cJkHFUwQFk3g")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                self.elevation = "\(Double(round(1000*(((responseJSON["results"] as! NSArray)[0] as! NSDictionary)["elevation"] as! Double)))/1000)"
+                self.updateElevationLabel()
+            }
+        }
+        task.resume()
+    }
+    
+    func updateElevationLabel() {
+        self.elevationLabel.text = self.elevation + " ft"
     }
 
     override func didReceiveMemoryWarning() {
