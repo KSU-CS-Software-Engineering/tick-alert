@@ -297,15 +297,13 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pvN-IK-DfJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="110" id="BQG-Z5-3WH"/>
-                                                        <constraint firstAttribute="height" constant="110" id="Enb-aF-3sX"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="pvN-IK-DfJ" firstAttribute="top" secondItem="npT-XH-nUv" secondAttribute="top" id="A75-uS-anJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="pvN-IK-DfJ" secondAttribute="trailing" id="BXk-lC-yvu"/>
+                                            <constraint firstAttribute="bottom" secondItem="pvN-IK-DfJ" secondAttribute="bottom" id="knF-Ut-k1C"/>
                                             <constraint firstItem="pvN-IK-DfJ" firstAttribute="leading" secondItem="npT-XH-nUv" secondAttribute="leading" id="oqB-84-ySj"/>
                                         </constraints>
                                         <connections>
@@ -1735,7 +1733,7 @@
         <segue reference="4vZ-X4-bDe"/>
         <segue reference="fuN-Ve-aYC"/>
         <segue reference="8fJ-fa-A38"/>
-        <segue reference="0rr-tV-uzL"/>
+        <segue reference="gwI-pt-1bj"/>
         <segue reference="hVp-Lj-GPf"/>
     </inferredMetricsTieBreakers>
 </document>

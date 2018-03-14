@@ -96,10 +96,6 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
                 self.profileImage.image = image
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
@@ -109,6 +105,10 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     override func didReceiveMemoryWarning() {
