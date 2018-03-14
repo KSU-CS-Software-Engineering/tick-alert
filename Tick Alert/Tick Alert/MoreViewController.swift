@@ -63,6 +63,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
             default:
                 print("cell")
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
