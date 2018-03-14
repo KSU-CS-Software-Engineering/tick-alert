@@ -18,7 +18,6 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var poster: UIButton!
     @IBOutlet var datePosted: UILabel!
     @IBOutlet var locationLabel: UILabel!
-    @IBOutlet var tickDescription: UILabel!
     @IBOutlet var elevationLabel: UILabel!
     @IBOutlet var temperatureLabel: UILabel!
     @IBOutlet var weatherImage: UIImageView!
@@ -26,6 +25,7 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     var posterId = ""
     var previousController = ""
     
+    @IBOutlet var tickDescription: UITextView!
     // When the poster's name is pressed, load a DynamicProfileView
     @IBAction func posterButtonPressed(_ sender: Any) {
         if(previousController == "Profile") {_ = navigationController?.popViewController(animated: true)}

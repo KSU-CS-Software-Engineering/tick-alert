@@ -15,13 +15,13 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet var tickTypeLabel: UILabel!
     @IBOutlet var userLabel: UILabel!
     @IBOutlet var map: MKMapView!
-    @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var elevationLabel: UILabel!
     @IBOutlet var weatherImage: UIImageView!
     @IBOutlet var temperatureLabel: UILabel!
     @IBOutlet var sexLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var descriptionLabel: UITextView!
     
     var buttonPressed = false
     var tickType: String?
