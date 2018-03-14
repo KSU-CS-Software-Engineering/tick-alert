@@ -113,11 +113,19 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             if(weatherData != nil) {self.weatherImage.image = UIImage(data: weatherData!)}
             
             // Sets image associated with the post
-            let urlString = value?.value(forKey: "imageUrl") as? String
-            let imageURL = URL(string: urlString!)
-            let imageData = try? Data(contentsOf: imageURL!)
-            if(imageData != nil) {self.tickImage.image = UIImage(data: imageData!)}
-            else {self.tickImage.image = #imageLiteral(resourceName: "recenttick")}
+            let imagePaths = UserDefaults.standard.dictionary(forKey: "images") as! [String:String]
+            if let path = imagePaths["\(self.postId)"] {
+                let fullPath = self.documentsPathForFileName(name: path)
+                let imageData = NSData(contentsOfFile: fullPath)
+                let pic = UIImage(data: imageData! as Data)
+                self.tickImage.image = pic
+            } else {
+                let urlString = value?.value(forKey: "imageUrl") as? String
+                let imageURL = URL(string: urlString!)
+                let imageData = try? Data(contentsOf: imageURL!)
+                if(imageData != nil) {self.tickImage.image = UIImage(data: imageData!)}
+                else {self.tickImage.image = #imageLiteral(resourceName: "recenttick")}
+            }
             
             // Creates required information to display a map view of the post
             let lat: CLLocationDegrees = value?.value(forKey: "lat") as! CLLocationDegrees
@@ -146,4 +154,10 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
 
+    func documentsPathForFileName(name: String) -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let path = paths[0] as NSString
+        let fullPath = path.appendingPathComponent(name)
+        return fullPath
+    }
 }
