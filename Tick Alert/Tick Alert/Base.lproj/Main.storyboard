@@ -91,6 +91,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2i8-iP-5ev">
+                                <rect key="frame" x="85" y="385.66666666666669" width="205" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="9aV-Sn-dV1"/>
+                                    <constraint firstAttribute="width" constant="205" id="WvP-b0-2B6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="GButton.png"/>
+                                <connections>
+                                    <action selector="googleSignInButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="MWw-YH-qMC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34509803921568627" green="0.16470588235294117" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -102,6 +114,7 @@
                             <constraint firstItem="7eg-Eu-SED" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="UZ3-uZ-Yop"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="7TH-Rs-c8v" secondAttribute="trailing" constant="16" id="cah-Fy-rih"/>
                             <constraint firstItem="ANb-U1-B4x" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="10" id="hnl-sx-V3V"/>
+                            <constraint firstItem="2i8-iP-5ev" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="i3o-s1-mBL"/>
                             <constraint firstItem="7TH-Rs-c8v" firstAttribute="leading" secondItem="ANb-U1-B4x" secondAttribute="trailing" constant="8" id="iqf-tH-OK4"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Axf-Vv-g3F" secondAttribute="trailing" constant="16" id="kXw-0A-3sJ"/>
                             <constraint firstItem="Axf-Vv-g3F" firstAttribute="top" secondItem="ANb-U1-B4x" secondAttribute="bottom" constant="4" id="lZU-Om-bbx"/>
@@ -109,6 +122,7 @@
                             <constraint firstItem="OY5-WT-7V3" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="20" id="pHH-0o-qZf"/>
                             <constraint firstItem="7eg-Eu-SED" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="pac-41-vRJ"/>
                             <constraint firstItem="OY5-WT-7V3" firstAttribute="leading" secondItem="ANb-U1-B4x" secondAttribute="trailing" constant="8" id="rUL-k6-Saf"/>
+                            <constraint firstItem="2i8-iP-5ev" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="uQp-bP-RWG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -117,6 +131,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="7eg-Eu-SED" id="aoY-5i-Odu"/>
+                        <outlet property="googleSignInButton" destination="2i8-iP-5ev" id="ADg-oF-a0x"/>
                         <outlet property="userBio" destination="Axf-Vv-g3F" id="FbD-hj-WOp"/>
                         <outlet property="userFirstAndLast" destination="OY5-WT-7V3" id="glm-fX-bJ2"/>
                         <outlet property="userLocation" destination="7TH-Rs-c8v" id="gnN-c6-bKJ"/>
@@ -1727,6 +1742,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GButton.png" width="410" height="85"/>
         <image name="align" width="50" height="50"/>
         <image name="camera" width="25" height="25"/>
         <image name="capture" width="100" height="100"/>

@@ -41,6 +41,7 @@
 		0E40FE5420535A60009694EA /* male_lonestar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4620535A5D009694EA /* male_lonestar.png */; };
 		0E40FE5520535A60009694EA /* female_rockymountainwood.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4720535A5E009694EA /* female_rockymountainwood.png */; };
 		0E40FE5620535A60009694EA /* male_westernblacklegged.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4820535A5F009694EA /* male_westernblacklegged.png */; };
+		0E4E5D942059C24C007DF904 /* GButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E4E5D932059C24B007DF904 /* GButton.png */; };
 		0E5D59612046549B00595A38 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D59602046549B00595A38 /* UploadViewController.swift */; };
 		0E9DDD18204861BD0084FB59 /* removal-ab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DDD17204861BC0084FB59 /* removal-ab.jpg */; };
 		0E9DDD202048698C0084FB59 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */; };
@@ -135,6 +136,7 @@
 		0E40FE4620535A5D009694EA /* male_lonestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_lonestar.png; sourceTree = "<group>"; };
 		0E40FE4720535A5E009694EA /* female_rockymountainwood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_rockymountainwood.png; sourceTree = "<group>"; };
 		0E40FE4820535A5F009694EA /* male_westernblacklegged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_westernblacklegged.png; sourceTree = "<group>"; };
+		0E4E5D932059C24B007DF904 /* GButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GButton.png; sourceTree = "<group>"; };
 		0E5D59602046549B00595A38 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		0E9DDD17204861BC0084FB59 /* removal-ab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "removal-ab.jpg"; sourceTree = "<group>"; };
 		0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		0E40FE3920535A0D009694EA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0E4E5D932059C24B007DF904 /* GButton.png */,
 				0EA897FF20544E4700C13DCB /* Weather */,
 				0E40FE3A20535A3F009694EA /* Example Ticks */,
 				0E9DDD2720486C250084FB59 /* Amblyomma_americanum_all.jpg */,
@@ -510,6 +513,7 @@
 				0E40FE5420535A60009694EA /* male_lonestar.png in Resources */,
 				0EA897FC20544E4300C13DCB /* cloudy.png in Resources */,
 				0EA897FA20544E4300C13DCB /* sun.png in Resources */,
+				0E4E5D942059C24C007DF904 /* GButton.png in Resources */,
 				0E9DDD2920486C250084FB59 /* Dermacentor_andersoni_all.jpg in Resources */,
 				0E1831192052619A00805AB8 /* inornate_ticks.png in Resources */,
 				0E40FE4C20535A60009694EA /* male_browndog.png in Resources */,

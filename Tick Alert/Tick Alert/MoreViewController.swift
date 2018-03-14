@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
 
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GIDSignInUIDelegate {
     
@@ -56,6 +57,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
             case 4:
                 GIDSignIn.sharedInstance().uiDelegate = self
                 GIDSignIn.sharedInstance().signOut()
+                do {try Auth.auth().signOut()} catch {}
                 break
                 
             default:
