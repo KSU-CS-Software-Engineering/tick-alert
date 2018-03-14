@@ -121,6 +121,15 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
                 return
             }
         }
+        
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView!.collectionViewLayout = layout
     }
     
     func documentsPathForFileName(name: String) -> String {
