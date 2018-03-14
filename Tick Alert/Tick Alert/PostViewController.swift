@@ -104,33 +104,19 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.posterId = (value?.value(forKey: "poster") as? String)!
             self.sexLabel.text = value?.value(forKey: "sex") as? String
             self.locationLabel.text = value?.value(forKey: "location") as? String
-            self.temperatureLabel.text = "\(value?.value(forKey: "temperature") as! String)°F"
+            self.temperatureLabel.text = value?.value(forKey: "temperature") as? String
             self.elevationLabel.text = "\(value?.value(forKey: "elevation") as! String) ft"
             
-            switch(value?.value(forKey: "weather") as! String) {
-            case "sunny":
-                self.weatherImage.image = #imageLiteral(resourceName: "sun.png")
-                break
-            case "partlycloudy":
-                self.weatherImage.image = #imageLiteral(resourceName: "partlycloudy.png")
-                break
-            case "cloudy":
-                self.weatherImage.image = #imageLiteral(resourceName: "cloudy.png")
-                break
-            case "rain":
-                self.weatherImage.image = #imageLiteral(resourceName: "rain.png")
-                break
-            case "snow":
-                self.weatherImage.image = #imageLiteral(resourceName: "snow.png")
-                break
-            default:
-                break
-            }
+            let weatherURLString = value?.value(forKey: "weatherURL") as! String
+            let weatherURL = URL(string: weatherURLString)
+            let weatherData = try? Data(contentsOf: weatherURL!)
+            if(weatherData != nil) {self.weatherImage.image = UIImage(data: weatherData!)}
+            
             // Sets image associated with the post
             let urlString = value?.value(forKey: "imageUrl") as? String
-            let url = URL(string: urlString!)
-            let data = try? Data(contentsOf: url!)
-            if(data != nil) {self.tickImage.image = UIImage(data: data!)}
+            let imageURL = URL(string: urlString!)
+            let imageData = try? Data(contentsOf: imageURL!)
+            if(imageData != nil) {self.tickImage.image = UIImage(data: imageData!)}
             else {self.tickImage.image = #imageLiteral(resourceName: "recenttick")}
             
             // Creates required information to display a map view of the post

@@ -33,9 +33,9 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     var ornation: String?
     var capitulum: String?
     var whereFound: String?
-    var weather = ""
     var temperature = ""
     var elevation = ""
+    var weatherURL = ""
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
     @objc func nextButtonPressed() {
@@ -66,7 +66,7 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                             "type": self.tickType!,
                             "sex": self.sex!,
                             "where": self.whereFound!,
-                            "weather": self.weather,
+                            "weatherURL": self.weatherURL,
                             "temperature": self.temperature,
                             "elevation": self.elevation
                         ]
@@ -112,7 +112,31 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(CLLocation(latitude: location!.latitude, longitude: location!.longitude), completionHandler: {(placemarks, error) in
             if(error == nil) {
-                self.locationLabel.text = (placemarks?[0].locality)! + ", " + (placemarks?[0].administrativeArea)!
+                let city = placemarks?[0].locality
+                let state = placemarks?[0].administrativeArea
+                self.locationLabel.text = city! + ", " + state!
+                
+                //weather key: 92775877df4abb0e
+                let semaphore = DispatchSemaphore(value: 0)
+                let url = URL(string: "https://api.wunderground.com/api/92775877df4abb0e/conditions/q/\(state!)/\(city!.replacingOccurrences(of: " ", with: "_")).json")
+                var request = URLRequest(url: url!)
+                request.httpMethod = "POST"
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print(error?.localizedDescription ?? "No data")
+                        return
+                    }
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let responseJSON = responseJSON as? [String: Any] {
+                        self.elevation = ((responseJSON["current_observation"] as! NSDictionary)["display_location"] as! NSDictionary)["elevation"] as! String
+                        self.weatherURL = ((responseJSON["current_observation"] as! NSDictionary)["icon_url"] as! String).replacingOccurrences(of: "http", with: "https")
+                        self.temperature = ((responseJSON["current_observation"] as! NSDictionary)["temperature_string"] as! String)
+                        semaphore.signal()
+                    }
+                }
+                task.resume()
+                _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+                self.updateLabelsAndIcon()
             }
         })
         
@@ -121,27 +145,15 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         sexLabel.text = sex
         dateLabel.text = date
-        
-        //TODO: get elevation and weather info
-        let url = URL(string: "https://maps.googleapis.com/maps/api/elevation/json?locations=\(location!.latitude),\(location!.longitude)&key=AIzaSyCrjKRm_68ZeAFFnTdQg55cJkHFUwQFk3g")
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "No data")
-                return
-            }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            if let responseJSON = responseJSON as? [String: Any] {
-                self.elevation = "\(Double(round(1000*(((responseJSON["results"] as! NSArray)[0] as! NSDictionary)["elevation"] as! Double)))/1000)"
-                self.updateElevationLabel()
-            }
-        }
-        task.resume()
     }
     
-    func updateElevationLabel() {
+    func updateLabelsAndIcon() {
         self.elevationLabel.text = self.elevation + " ft"
+        self.temperatureLabel.text = self.temperature
+        
+        let url = URL(string: weatherURL)
+        let data = try? Data(contentsOf: url!)
+        if(data != nil) {weatherImage.image = UIImage(data: data!)}
     }
 
     override func didReceiveMemoryWarning() {
