@@ -15,9 +15,9 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userLocation: UILabel!
-    @IBOutlet weak var userBio: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var userBio: UITextView!
     
     var numberOfPosts = 0
     

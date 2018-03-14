@@ -14,8 +14,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var userFirstAndLast: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
-    @IBOutlet weak var userBio: UILabel!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var userBio: UITextView!
     
     var posts = [NSDictionary]()
     var imagePaths = [String:String]()
