@@ -40,29 +40,33 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             let numberOfPosts = snapshot.childrenCount
             
             for post in 0...numberOfPosts-1 {
-                ref.child("post").child("\(post)").observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = (snapshot.value as! NSArray)[Int(post)] as? NSDictionary
                     
-                    let value = snapshot.value as? NSDictionary
-                    
-                    let lat = value?.value(forKey: "lat") as? Double
-                    let lon = value?.value(forKey: "lon") as? Double
-                    let title = value?.value(forKey: "type") as? String
-                    let subTitle = value?.value(forKey: "date") as? String
-                    
+                let lat = value?.value(forKey: "lat") as? Double
+                let lon = value?.value(forKey: "lon") as? Double
+                let title = value?.value(forKey: "type") as? String
+                let subTitle = value?.value(forKey: "date") as? String
+                
+                let imagePaths = UserDefaults.standard.dictionary(forKey: "images") as! [String:String]
+                if let path = imagePaths["\(post)"] {
+                    let fullPath = self.documentsPathForFileName(name: path)
+                    let imageData = NSData(contentsOfFile: fullPath)
+                    let pic = UIImage(data: imageData! as Data)
+                    self.pinImages["\(lat!)"+"\(lon!)"] = pic
+                    self.pinIDs["\(lat!)"+"\(lon!)"] = post
+                } else {
                     let urlString = value?.value(forKey: "imageUrl") as? String
                     let url = URL(string: urlString!)
                     let data = try? Data(contentsOf: url!)
                     if(data != nil) {self.pinImages["\(lat!)"+"\(lon!)"] = UIImage(data: data!)}
                     self.pinIDs["\(lat!)"+"\(lon!)"] = post
-                    
-                    let pin: MKPointAnnotation = MKPointAnnotation()
-                    pin.coordinate = CLLocationCoordinate2DMake(lat!, lon!)
-                    pin.title = title
-                    pin.subtitle = subTitle
-                    self.map.addAnnotation(pin)
-                }) { (error) in
-                    print(error.localizedDescription)
                 }
+                
+                let pin: MKPointAnnotation = MKPointAnnotation()
+                pin.coordinate = CLLocationCoordinate2DMake(lat!, lon!)
+                pin.title = title
+                pin.subtitle = subTitle
+                self.map.addAnnotation(pin)
             }
         }) { (error) in
             print(error.localizedDescription)
@@ -133,5 +137,10 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         // Dispose of any resources that can be recreated.
     }
     
-
+    func documentsPathForFileName(name: String) -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let path = paths[0] as NSString
+        let fullPath = path.appendingPathComponent(name)
+        return fullPath
+    }
 }
