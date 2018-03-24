@@ -29,6 +29,12 @@ class PostViewController: UIViewController {
     @IBOutlet var tickDescription: UITextView!
     @IBAction func viewCommentsClicked(_ sender: Any) {
         let commentsController = self.storyboard?.instantiateViewController(withIdentifier: "Comments") as! CommentsViewController
+        commentsController.image = tickImage.image!
+        commentsController.specie = tickType.text!
+        commentsController.sex = sexLabel.text!
+        commentsController.dt = datePosted.text!
+        commentsController.loc = locationLabel.text!
+        commentsController.userName = (poster.titleLabel?.text)!
         commentsController.postId = postId
         self.navigationController?.pushViewController(commentsController, animated: true)
     }

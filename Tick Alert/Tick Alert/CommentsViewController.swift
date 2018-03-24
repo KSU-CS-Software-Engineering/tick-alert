@@ -19,8 +19,14 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var location: UILabel!
     @IBOutlet var user: UILabel!
     var postId = ""
+    var image: UIImage = UIImage()
+    var specie = ""
+    var sex = ""
+    var dt = ""
+    var loc = ""
+    var userName = ""
     var commentsCount = 0
-    var comments: NSDictionary = [:]
+    var comments: NSArray = []
     let ref = Database.database().reference()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +36,7 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = commentsTable.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsTableViewCell
         
-        let comment = comments["\(indexPath.row)"] as! NSDictionary
+        let comment = comments[indexPath.row] as! NSDictionary
         
         // Set User Profile Picture
         let picRef = Storage.storage().reference(withPath: "users/\(comment["poster"] as! String).jpg")
@@ -52,32 +58,27 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.isHidden = false
         
         ref.child("post").child("\(postId)").child("comments").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.comments = snapshot.value as! NSDictionary
             self.commentsCount = Int(snapshot.childrenCount)
+            if(self.commentsCount > 0) {
+                self.comments = snapshot.value as! NSArray
+            }
             self.commentsTable.reloadData()
         })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tickImage.image = image
+        tickSpecie.text = specie
+        tickSex.text = sex
+        date.text = dt
+        location.text = loc
+        user.text = userName
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

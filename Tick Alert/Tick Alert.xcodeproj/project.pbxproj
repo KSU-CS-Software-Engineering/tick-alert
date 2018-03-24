@@ -72,7 +72,6 @@
 		0EE375471FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE95ABC20239C3F00D7E499 /* RecentCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */; };
 		0EFC9B16202AC37800F6B3EA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC9B15202AC37800F6B3EA /* PostViewController.swift */; };
-		0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */; };
 		1FA873A81971E5141B4D5A7C /* Pods_Tick_Alert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F3878EE4EBE10722877C90 /* Pods_Tick_Alert.framework */; };
 		8907B8715AA2AB649C41EA99 /* Pods_Tick_AlertTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CC48D1BF899855CA2F3EF8 /* Pods_Tick_AlertTests.framework */; };
 		DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */; };
@@ -167,7 +166,6 @@
 		0EE375441FE231BF0084321E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCellViewController.swift; sourceTree = "<group>"; };
 		0EFC9B15202AC37800F6B3EA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCellViewController.swift; sourceTree = "<group>"; };
 		3EAEC1FB3B44B0E61709E49C /* Pods-Tick AlertUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick AlertUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick AlertUITests/Pods-Tick AlertUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE7C511D12F8D922B52C9CA /* Pods-Tick AlertTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick AlertTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick AlertTests/Pods-Tick AlertTests.debug.xcconfig"; sourceTree = "<group>"; };
 		621553C0BBA4E72C708C9E10 /* Pods-Tick Alert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick Alert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick Alert/Pods-Tick Alert.debug.xcconfig"; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 				0EFC9B15202AC37800F6B3EA /* PostViewController.swift */,
 				0EE0EAF92065FBDE00133C22 /* CommentsViewController.swift */,
 				0EE0EAFB2066017900133C22 /* CommentsTableViewCell.swift */,
-				0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */,
 				DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */,
 			);
 			path = "Tick Alert";
@@ -775,7 +772,6 @@
 				0E18311C2052651400805AB8 /* CapitulumViewController.swift in Sources */,
 				DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */,
 				0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */,
-				0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */,
 				0EE0EAFA2065FBDE00133C22 /* CommentsViewController.swift in Sources */,
 				0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */,
 				0EE0EAFC2066017900133C22 /* CommentsTableViewCell.swift in Sources */,
