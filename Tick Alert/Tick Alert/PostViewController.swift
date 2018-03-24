@@ -47,6 +47,10 @@ class PostViewController: UIViewController {
             self.navigationController?.pushViewController(profileController, animated: true)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
 
     // Populate the View with Post information from the Firebase database
     override func viewDidLoad() {
