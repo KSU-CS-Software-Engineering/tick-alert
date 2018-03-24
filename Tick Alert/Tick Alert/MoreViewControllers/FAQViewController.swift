@@ -30,9 +30,16 @@ class FAQViewController: UITableViewController {
     //Handle navigation upon selection of row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let questionController = storyboard?.instantiateViewController(withIdentifier: "Question") as! QuestionViewController //instantiate question controller
-        questionController.question = indexPath.row
-        navigationController?.pushViewController(questionController, animated: true) //navigate to Question view
+        switch(indexPath.row) {
+            case 4:
+                let commonController = storyboard?.instantiateViewController(withIdentifier: "Common") as! CommonViewController
+                navigationController?.pushViewController(commonController, animated: true)
+            break
+            default:
+                let questionController = storyboard?.instantiateViewController(withIdentifier: "Question") as! QuestionViewController //instantiate question controller
+                questionController.question = indexPath.row
+                navigationController?.pushViewController(questionController, animated: true) //navigate to Question view
+        }
     }
     
     override func viewDidLoad() {
