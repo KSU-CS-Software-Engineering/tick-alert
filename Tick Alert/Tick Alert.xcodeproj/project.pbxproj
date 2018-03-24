@@ -65,6 +65,8 @@
 		0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10E2045C10C00C5870A /* AboutViewController.swift */; };
 		0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */; };
 		0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1142045C34200C5870A /* QuestionViewController.swift */; };
+		0EE0EAFA2065FBDE00133C22 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE0EAF92065FBDE00133C22 /* CommentsViewController.swift */; };
+		0EE0EAFC2066017900133C22 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE0EAFB2066017900133C22 /* CommentsTableViewCell.swift */; };
 		0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375461FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375471FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
@@ -160,6 +162,8 @@
 		0EBDA10E2045C10C00C5870A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0EBDA1142045C34200C5870A /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		0EE0EAF92065FBDE00133C22 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		0EE0EAFB2066017900133C22 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		0EE375441FE231BF0084321E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCellViewController.swift; sourceTree = "<group>"; };
 		0EFC9B15202AC37800F6B3EA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */,
 				0EBDEB50205362AC00B92256 /* MoreViewControllers */,
 				0EFC9B15202AC37800F6B3EA /* PostViewController.swift */,
+				0EE0EAF92065FBDE00133C22 /* CommentsViewController.swift */,
+				0EE0EAFB2066017900133C22 /* CommentsTableViewCell.swift */,
 				0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */,
 				DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */,
 			);
@@ -770,7 +776,9 @@
 				DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */,
 				0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */,
 				0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */,
+				0EE0EAFA2065FBDE00133C22 /* CommentsViewController.swift in Sources */,
 				0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */,
+				0EE0EAFC2066017900133C22 /* CommentsTableViewCell.swift in Sources */,
 				0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */,
 				0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */,
 				0E18311620525C8800805AB8 /* OrnationViewController.swift in Sources */,
