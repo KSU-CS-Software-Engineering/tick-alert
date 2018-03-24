@@ -27,6 +27,7 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     var userName = ""
     var commentsCount = 0
     var comments: NSArray = []
+    var profilePics = [String:UIImage]()
     let ref = Database.database().reference()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,13 +40,19 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
         let comment = comments[indexPath.row] as! NSDictionary
         
         // Set User Profile Picture
-        let picRef = Storage.storage().reference(withPath: "users/\(comment["poster"] as! String).jpg")
-        picRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                print(error.localizedDescription)
-                cell.commenterImage.image = #imageLiteral(resourceName: "profile")
-            } else {
-                cell.commenterImage.image = UIImage(data: data!)
+        if let profilePic = profilePics["\(String(describing: comment["poster"]))"]{
+            cell.commenterImage.image = profilePic
+        } else {
+            let picRef = Storage.storage().reference(withPath: "users/\(comment["poster"] as! String).jpg")
+            picRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    cell.commenterImage.image = #imageLiteral(resourceName: "profile")
+                } else {
+                    let profilePic = UIImage(data: data!)!
+                    self.profilePics["\(String(describing: comment["poster"]))"] = profilePic
+                    cell.commenterImage.image = profilePic
+                }
             }
         }
         
