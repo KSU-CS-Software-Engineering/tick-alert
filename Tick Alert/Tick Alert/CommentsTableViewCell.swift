@@ -1,19 +1,17 @@
 //
-//  CommentsCellViewController.swift
+//  CommentsTableViewCell.swift
 //  Tick Alert
 //
-//  Created by David Freeman on 2/6/18.
+//  Created by David Freeman on 3/23/18.
 //  Copyright © 2018 David Freeman. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class CommentsCellViewController: UITableViewCell {
-    
-    //Defines aspects of the comment cells in post view
-    @IBOutlet var profileImage: UIImageView!
-    @IBOutlet var commentBody: UILabel!
+class CommentsTableViewCell: UITableViewCell {
+
+    @IBOutlet var commenterImage: UIImageView!
+    @IBOutlet var comment: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

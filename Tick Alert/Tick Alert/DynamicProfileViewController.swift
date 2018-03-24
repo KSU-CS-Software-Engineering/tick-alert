@@ -39,10 +39,18 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
             ref.child("post").child("\(post)").observeSingleEvent(of: .value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 
-                let urlString = value?.value(forKey: "imageUrl") as? String
-                let url = URL(string: urlString!)
-                let data = try? Data(contentsOf: url!)
-                cell.displayContent(image: UIImage(data: data!)!)
+                let imagePaths = UserDefaults.standard.dictionary(forKey: "images") as! [String:String]
+                if let path = imagePaths["\(post)"] {
+                    let fullPath = self.documentsPathForFileName(name: path)
+                    let imageData = NSData(contentsOfFile: fullPath)
+                    let pic = UIImage(data: imageData! as Data)
+                    cell.displayContent(image: pic!)
+                } else {
+                    let urlString = value?.value(forKey: "imageUrl") as? String
+                    let url = URL(string: urlString!)
+                    let data = try? Data(contentsOf: url!)
+                    cell.displayContent(image: UIImage(data: data!)!)
+                }
                 
                 cell.postId = post
             }) { (error) in
@@ -116,5 +124,11 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
+    func documentsPathForFileName(name: String) -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let path = paths[0] as NSString
+        let fullPath = path.appendingPathComponent(name)
+        return fullPath
+    }
 }
 

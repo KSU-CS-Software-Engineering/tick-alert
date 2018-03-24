@@ -41,6 +41,7 @@
 		0E40FE5420535A60009694EA /* male_lonestar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4620535A5D009694EA /* male_lonestar.png */; };
 		0E40FE5520535A60009694EA /* female_rockymountainwood.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4720535A5E009694EA /* female_rockymountainwood.png */; };
 		0E40FE5620535A60009694EA /* male_westernblacklegged.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E40FE4820535A5F009694EA /* male_westernblacklegged.png */; };
+		0E4E5D942059C24C007DF904 /* GButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E4E5D932059C24B007DF904 /* GButton.png */; };
 		0E5D59612046549B00595A38 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D59602046549B00595A38 /* UploadViewController.swift */; };
 		0E9DDD18204861BD0084FB59 /* removal-ab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DDD17204861BC0084FB59 /* removal-ab.jpg */; };
 		0E9DDD202048698C0084FB59 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */; };
@@ -64,12 +65,22 @@
 		0EBDA10F2045C10C00C5870A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA10E2045C10C00C5870A /* AboutViewController.swift */; };
 		0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */; };
 		0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDA1142045C34200C5870A /* QuestionViewController.swift */; };
+		0EC6ECCF2066524500CAF618 /* DistributionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6ECCE2066524500CAF618 /* DistributionMapViewController.swift */; };
+		0EC6ECD8206658AB00CAF618 /* brownDog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECD1206658AA00CAF618 /* brownDog.jpg */; };
+		0EC6ECD9206658AB00CAF618 /* americanDog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECD2206658AA00CAF618 /* americanDog.jpg */; };
+		0EC6ECDA206658AB00CAF618 /* westernBlacklegged.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECD3206658AA00CAF618 /* westernBlacklegged.jpg */; };
+		0EC6ECDB206658AB00CAF618 /* blacklegged.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECD4206658AB00CAF618 /* blacklegged.jpg */; };
+		0EC6ECDC206658AB00CAF618 /* loneStar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECD5206658AB00CAF618 /* loneStar.jpg */; };
+		0EC6ECDD206658AB00CAF618 /* gulfCoast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECD6206658AB00CAF618 /* gulfCoast.jpg */; };
+		0EC6ECDE206658AB00CAF618 /* rockyMountainWood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECD7206658AB00CAF618 /* rockyMountainWood.jpg */; };
+		0EC6ECE020665CFF00CAF618 /* KSU-College-of-Vet-Medicine.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EC6ECDF20665CFE00CAF618 /* KSU-College-of-Vet-Medicine.jpg */; };
+		0EE0EAFA2065FBDE00133C22 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE0EAF92065FBDE00133C22 /* CommentsViewController.swift */; };
+		0EE0EAFC2066017900133C22 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE0EAFB2066017900133C22 /* CommentsTableViewCell.swift */; };
 		0EE375451FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375461FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE375471FE231BF0084321E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE375441FE231BF0084321E /* GoogleService-Info.plist */; };
 		0EE95ABC20239C3F00D7E499 /* RecentCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */; };
 		0EFC9B16202AC37800F6B3EA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC9B15202AC37800F6B3EA /* PostViewController.swift */; };
-		0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */; };
 		1FA873A81971E5141B4D5A7C /* Pods_Tick_Alert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F3878EE4EBE10722877C90 /* Pods_Tick_Alert.framework */; };
 		8907B8715AA2AB649C41EA99 /* Pods_Tick_AlertTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CC48D1BF899855CA2F3EF8 /* Pods_Tick_AlertTests.framework */; };
 		DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */; };
@@ -135,6 +146,7 @@
 		0E40FE4620535A5D009694EA /* male_lonestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_lonestar.png; sourceTree = "<group>"; };
 		0E40FE4720535A5E009694EA /* female_rockymountainwood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_rockymountainwood.png; sourceTree = "<group>"; };
 		0E40FE4820535A5F009694EA /* male_westernblacklegged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male_westernblacklegged.png; sourceTree = "<group>"; };
+		0E4E5D932059C24B007DF904 /* GButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GButton.png; sourceTree = "<group>"; };
 		0E5D59602046549B00595A38 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		0E9DDD17204861BC0084FB59 /* removal-ab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "removal-ab.jpg"; sourceTree = "<group>"; };
 		0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
@@ -158,10 +170,20 @@
 		0EBDA10E2045C10C00C5870A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0EBDA1142045C34200C5870A /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		0EC6ECCE2066524500CAF618 /* DistributionMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionMapViewController.swift; sourceTree = "<group>"; };
+		0EC6ECD1206658AA00CAF618 /* brownDog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brownDog.jpg; sourceTree = "<group>"; };
+		0EC6ECD2206658AA00CAF618 /* americanDog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = americanDog.jpg; sourceTree = "<group>"; };
+		0EC6ECD3206658AA00CAF618 /* westernBlacklegged.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = westernBlacklegged.jpg; sourceTree = "<group>"; };
+		0EC6ECD4206658AB00CAF618 /* blacklegged.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blacklegged.jpg; sourceTree = "<group>"; };
+		0EC6ECD5206658AB00CAF618 /* loneStar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loneStar.jpg; sourceTree = "<group>"; };
+		0EC6ECD6206658AB00CAF618 /* gulfCoast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gulfCoast.jpg; sourceTree = "<group>"; };
+		0EC6ECD7206658AB00CAF618 /* rockyMountainWood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rockyMountainWood.jpg; sourceTree = "<group>"; };
+		0EC6ECDF20665CFE00CAF618 /* KSU-College-of-Vet-Medicine.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "KSU-College-of-Vet-Medicine.jpg"; sourceTree = "<group>"; };
+		0EE0EAF92065FBDE00133C22 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		0EE0EAFB2066017900133C22 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		0EE375441FE231BF0084321E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EE95ABB20239C3F00D7E499 /* RecentCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCellViewController.swift; sourceTree = "<group>"; };
 		0EFC9B15202AC37800F6B3EA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCellViewController.swift; sourceTree = "<group>"; };
 		3EAEC1FB3B44B0E61709E49C /* Pods-Tick AlertUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick AlertUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick AlertUITests/Pods-Tick AlertUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE7C511D12F8D922B52C9CA /* Pods-Tick AlertTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick AlertTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick AlertTests/Pods-Tick AlertTests.debug.xcconfig"; sourceTree = "<group>"; };
 		621553C0BBA4E72C708C9E10 /* Pods-Tick Alert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tick Alert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tick Alert/Pods-Tick Alert.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,7 +267,8 @@
 				0E2D40E01F8AED3500DD3F37 /* MoreViewController.swift */,
 				0EBDEB50205362AC00B92256 /* MoreViewControllers */,
 				0EFC9B15202AC37800F6B3EA /* PostViewController.swift */,
-				0EFC9B17202AC3F000F6B3EA /* CommentsCellViewController.swift */,
+				0EE0EAF92065FBDE00133C22 /* CommentsViewController.swift */,
+				0EE0EAFB2066017900133C22 /* CommentsTableViewCell.swift */,
 				DF2C35B9203362B000FF325E /* DynamicProfileViewController.swift */,
 			);
 			path = "Tick Alert";
@@ -272,6 +295,9 @@
 		0E40FE3920535A0D009694EA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0EC6ECDF20665CFE00CAF618 /* KSU-College-of-Vet-Medicine.jpg */,
+				0EC6ECD02066585D00CAF618 /* distributions */,
+				0E4E5D932059C24B007DF904 /* GButton.png */,
 				0EA897FF20544E4700C13DCB /* Weather */,
 				0E40FE3A20535A3F009694EA /* Example Ticks */,
 				0E9DDD2720486C250084FB59 /* Amblyomma_americanum_all.jpg */,
@@ -341,15 +367,30 @@
 		0EBDEB50205362AC00B92256 /* MoreViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0E9DDD2F2048A9740084FB59 /* TickViewController.swift */,
-				0E9DDD2120486A1F0084FB59 /* CommonCell.swift */,
 				0E9DDD1F2048698C0084FB59 /* CommonViewController.swift */,
-				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
-				0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */,
-				0EBDA10E2045C10C00C5870A /* AboutViewController.swift */,
+				0E9DDD2120486A1F0084FB59 /* CommonCell.swift */,
+				0E9DDD2F2048A9740084FB59 /* TickViewController.swift */,
+				0EC6ECCE2066524500CAF618 /* DistributionMapViewController.swift */,
 				0EBDA10C2045B98700C5870A /* FAQViewController.swift */,
+				0EBDA1142045C34200C5870A /* QuestionViewController.swift */,
+				0EBDA10E2045C10C00C5870A /* AboutViewController.swift */,
+				0EBDA1122045C1EC00C5870A /* SettingsViewController.swift */,
 			);
 			path = MoreViewControllers;
+			sourceTree = "<group>";
+		};
+		0EC6ECD02066585D00CAF618 /* distributions */ = {
+			isa = PBXGroup;
+			children = (
+				0EC6ECD2206658AA00CAF618 /* americanDog.jpg */,
+				0EC6ECD4206658AB00CAF618 /* blacklegged.jpg */,
+				0EC6ECD1206658AA00CAF618 /* brownDog.jpg */,
+				0EC6ECD6206658AB00CAF618 /* gulfCoast.jpg */,
+				0EC6ECD5206658AB00CAF618 /* loneStar.jpg */,
+				0EC6ECD7206658AB00CAF618 /* rockyMountainWood.jpg */,
+				0EC6ECD3206658AA00CAF618 /* westernBlacklegged.jpg */,
+			);
+			path = distributions;
 			sourceTree = "<group>";
 		};
 		3FF780318C1D2D10F7209800 /* Pods */ = {
@@ -498,6 +539,7 @@
 				0E40FE4F20535A60009694EA /* male_gulfcoast.png in Resources */,
 				0E40FE3320530BE4009694EA /* femaleTicks.png in Resources */,
 				0E40FE3820534D2C009694EA /* long_capitulum.png in Resources */,
+				0EC6ECD9206658AB00CAF618 /* americanDog.jpg in Resources */,
 				0E40FE5320535A60009694EA /* female_lonestar.png in Resources */,
 				0E40FE5620535A60009694EA /* male_westernblacklegged.png in Resources */,
 				0E9DDD2B20486C250084FB59 /* Rhipicephalus_sanguineus_all.jpg in Resources */,
@@ -508,9 +550,12 @@
 				0E9DDD2A20486C250084FB59 /* Ixodes_scapularis_all.jpg in Resources */,
 				0E40FE3420530BE4009694EA /* maleTicks.png in Resources */,
 				0E40FE5420535A60009694EA /* male_lonestar.png in Resources */,
+				0EC6ECDA206658AB00CAF618 /* westernBlacklegged.jpg in Resources */,
 				0EA897FC20544E4300C13DCB /* cloudy.png in Resources */,
 				0EA897FA20544E4300C13DCB /* sun.png in Resources */,
+				0E4E5D942059C24C007DF904 /* GButton.png in Resources */,
 				0E9DDD2920486C250084FB59 /* Dermacentor_andersoni_all.jpg in Resources */,
+				0EC6ECDD206658AB00CAF618 /* gulfCoast.jpg in Resources */,
 				0E1831192052619A00805AB8 /* inornate_ticks.png in Resources */,
 				0E40FE4C20535A60009694EA /* male_browndog.png in Resources */,
 				0E40FE3720534D2C009694EA /* short_capitulum.png in Resources */,
@@ -519,12 +564,17 @@
 				0E40FE4B20535A60009694EA /* female_westernblacklegged.png in Resources */,
 				0EA897FD20544E4300C13DCB /* snow.png in Resources */,
 				0E40FE5520535A60009694EA /* female_rockymountainwood.png in Resources */,
+				0EC6ECDB206658AB00CAF618 /* blacklegged.jpg in Resources */,
 				0E9DDD2820486C250084FB59 /* Dermacentor_variabilis_all.jpg in Resources */,
+				0EC6ECDC206658AB00CAF618 /* loneStar.jpg in Resources */,
 				0EA897FE20544E4300C13DCB /* rain.png in Resources */,
+				0EC6ECE020665CFF00CAF618 /* KSU-College-of-Vet-Medicine.jpg in Resources */,
+				0EC6ECDE206658AB00CAF618 /* rockyMountainWood.jpg in Resources */,
 				0E9DDD18204861BD0084FB59 /* removal-ab.jpg in Resources */,
 				0E2D40AE1F8ADEAF00DD3F37 /* Assets.xcassets in Resources */,
 				0E40FE4E20535A60009694EA /* male_americandog.png in Resources */,
 				0E2D40AC1F8ADEAF00DD3F37 /* Main.storyboard in Resources */,
+				0EC6ECD8206658AB00CAF618 /* brownDog.jpg in Resources */,
 				0E9DDD2C20486C250084FB59 /* Amblyomma_americanum_all.jpg in Resources */,
 				0E40FE4D20535A60009694EA /* female_blacklegged.png in Resources */,
 			);
@@ -765,8 +815,10 @@
 				0E18311C2052651400805AB8 /* CapitulumViewController.swift in Sources */,
 				DF2C35BA203362B000FF325E /* DynamicProfileViewController.swift in Sources */,
 				0E2D40E51F8AED8C00DD3F37 /* RecentsViewController.swift in Sources */,
-				0EFC9B18202AC3F000F6B3EA /* CommentsCellViewController.swift in Sources */,
+				0EC6ECCF2066524500CAF618 /* DistributionMapViewController.swift in Sources */,
+				0EE0EAFA2065FBDE00133C22 /* CommentsViewController.swift in Sources */,
 				0EBDA1132045C1EC00C5870A /* SettingsViewController.swift in Sources */,
+				0EE0EAFC2066017900133C22 /* CommentsTableViewCell.swift in Sources */,
 				0EBDA10D2045B98700C5870A /* FAQViewController.swift in Sources */,
 				0EBDA1152045C34200C5870A /* QuestionViewController.swift in Sources */,
 				0E18311620525C8800805AB8 /* OrnationViewController.swift in Sources */,

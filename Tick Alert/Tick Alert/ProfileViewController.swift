@@ -16,12 +16,73 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var userBio: UITextView!
+    @IBOutlet var googleSignInButton: UIButton!
     
     var posts = [NSDictionary]()
     var imagePaths = [String:String]()
     var postIds = [Any]()
     var postImages = [UIImage]()
     var numberOfPosts = 0
+    var userId = ""
+    
+    @IBAction func googleSignInButtonPressed(_ sender: Any) {
+        // Log user into Google
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+        if(Auth.auth().currentUser == nil) {return}
+        googleSignInButton.isHidden = true
+        collectionView.isHidden = false
+        userFirstAndLast.isHidden = false
+        userBio.isHidden = false
+        userProfileImage.isHidden = false
+        userLocation.isHidden = false
+        
+        // Get the infomration of the user currently logged in
+        let user = Auth.auth().currentUser
+        userId = (user?.uid)!
+        
+        // Set name to Google display name
+        self.userFirstAndLast.text = user?.displayName
+        
+        // Set the profile picture to Google profile picture
+        let data = try? Data(contentsOf: (user?.photoURL)!)
+        if(data != nil) {userProfileImage.image = UIImage(data: data!)}
+        else {userProfileImage.image = #imageLiteral(resourceName: "profile")}
+        
+        // Upload profile picture to databse, if not done already
+        let storageRef = Storage.storage().reference()
+        let picRef =  storageRef.child("users").child(userId+".jpg")
+        _ = picRef.putData(data!, metadata: nil) { (metadata, error) in
+            guard metadata != nil else {
+                print(error!.localizedDescription)
+                return
+            }
+        }
+        
+        // Get user and post information from database
+        let ref = Database.database().reference()
+        ref.child("user").child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            // Set the location to value in database
+            self.userLocation.text = value?.value(forKey: "location") as? String
+            self.userBio.text = value?.value(forKey: "bio") as? String
+            
+            self.postIds = value?.value(forKey: "posts") as! [Any]
+            self.numberOfPosts = self.postIds.count-1
+            
+            ref.child("post").observeSingleEvent(of: .value, with: {(snapshot) in
+                self.posts = (snapshot.value as? [NSDictionary])!
+                self.imagePaths = UserDefaults.standard.dictionary(forKey: "images") as! [String:String]
+                self.collectionView.reloadData()
+            }) {(error) in
+                print("ERROR: \(error.localizedDescription)")
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
     
     // Returns the number of times a new CollectionViewCell should be created
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,26 +132,38 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     // Populates the View with information from the Firebase database of the logged in user
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        // Log user into Google
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
-        if(Auth.auth().currentUser == nil) {return}
         
-        // Get the infomration of the user currently logged in
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView!.collectionViewLayout = layout
+        
+        if(Auth.auth().currentUser == nil) {
+            googleSignInButton.isHidden = false
+            collectionView.isHidden = true
+            userBio.isHidden = true
+            userProfileImage.isHidden = true
+            userFirstAndLast.isHidden = true
+            userLocation.isHidden = true
+            return
+        }
+        
+        googleSignInButton.isHidden = true
+        collectionView.isHidden = false
+        userFirstAndLast.isHidden = false
+        userBio.isHidden = false
+        userProfileImage.isHidden = false
+        userLocation.isHidden = false
+        
         let user = Auth.auth().currentUser
-        let userId = user?.uid
-        
-        // Set name to Google display name
-        self.userFirstAndLast.text = user?.displayName
-        
-        // Set the profile picture to Google profile picture
-        let data = try? Data(contentsOf: (user?.photoURL)!)
-        if(data != nil) {userProfileImage.image = UIImage(data: data!)}
-        else {userProfileImage.image = #imageLiteral(resourceName: "profile")}
-        
+        userId = (user?.uid)!
         // Get user and post information from database
         let ref = Database.database().reference()
-        ref.child("user").child(userId!).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("user").child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             
@@ -112,24 +185,13 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             print(error.localizedDescription)
         }
         
-        // Upload profile picture to databse, if not done already
-        let storageRef = Storage.storage().reference()
-        let picRef =  storageRef.child("users").child(userId!+".jpg")
-        _ = picRef.putData(data!, metadata: nil) { (metadata, error) in
-            guard metadata != nil else {
-                print(error!.localizedDescription)
-                return
-            }
-        }
+        // Set name to Google display name
+        self.userFirstAndLast.text = user?.displayName
         
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        collectionView!.collectionViewLayout = layout
+        // Set the profile picture to Google profile picture
+        let data = try? Data(contentsOf: (user?.photoURL)!)
+        if(data != nil) {userProfileImage.image = UIImage(data: data!)}
+        else {userProfileImage.image = #imageLiteral(resourceName: "profile")}
     }
     
     func documentsPathForFileName(name: String) -> String {
