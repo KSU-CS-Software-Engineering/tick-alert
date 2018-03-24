@@ -1352,7 +1352,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Center Tick in Guide Box" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-LJ-Vr6">
-                                        <rect key="frame" x="55" y="164.66666666666666" width="265" height="40"/>
+                                        <rect key="frame" x="55" y="196.66666666666666" width="265" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="265" id="dnk-ta-XZ2"/>
                                             <constraint firstAttribute="height" constant="40" id="nLl-L5-qtn"/>
@@ -1361,17 +1361,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugt-yk-0WQ">
-                                        <rect key="frame" x="317" y="52" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ZER-mz-b14"/>
-                                            <constraint firstAttribute="width" constant="50" id="qjk-cE-Fv5"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="question"/>
-                                        <connections>
-                                            <action selector="helpButtonPressed:" destination="1mw-UD-bj6" eventType="touchUpInside" id="p37-0b-VUT"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSC-ch-prt">
                                         <rect key="frame" x="146" y="647" width="82" height="82"/>
                                         <constraints>
@@ -1383,13 +1372,24 @@
                                             <action selector="capturePhoto:" destination="1mw-UD-bj6" eventType="touchUpInside" id="5Gh-b3-44B"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugt-yk-0WQ">
+                                        <rect key="frame" x="317" y="32" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ZER-mz-b14"/>
+                                            <constraint firstAttribute="width" constant="50" id="qjk-cE-Fv5"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="question"/>
+                                        <connections>
+                                            <action selector="helpButtonPressed:" destination="1mw-UD-bj6" eventType="touchUpInside" id="p37-0b-VUT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ugt-yk-0WQ" secondAttribute="trailing" constant="8" id="CRd-9N-dLK"/>
+                                    <constraint firstItem="scF-FR-awS" firstAttribute="top" secondItem="Hfb-LJ-Vr6" secondAttribute="bottom" constant="8" id="D9k-jR-jEA"/>
                                     <constraint firstItem="Hfb-LJ-Vr6" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="Efy-Su-XAy"/>
-                                    <constraint firstItem="scF-FR-awS" firstAttribute="top" secondItem="Hfb-LJ-Vr6" secondAttribute="bottom" constant="40" id="GRJ-1h-Xjv"/>
-                                    <constraint firstItem="Ugt-yk-0WQ" firstAttribute="top" secondItem="J6K-wk-7iH" secondAttribute="top" constant="52" id="R1u-sK-nAx"/>
+                                    <constraint firstItem="Ugt-yk-0WQ" firstAttribute="top" secondItem="J6K-wk-7iH" secondAttribute="top" constant="32" id="I9I-di-th3"/>
                                     <constraint firstItem="qSC-ch-prt" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="dG6-An-1bb"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="centerX" secondItem="J6K-wk-7iH" secondAttribute="centerX" id="jz0-7a-Ydu"/>
                                     <constraint firstItem="scF-FR-awS" firstAttribute="centerY" secondItem="J6K-wk-7iH" secondAttribute="centerY" id="kuF-h2-vSB"/>
