@@ -155,7 +155,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                                 <color key="backgroundColor" red="0.34509803921568627" green="0.16470588235294117" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recentCell" rowHeight="110" id="I92-xM-Ovw" customClass="RecentCellViewController" customModule="Tick_Alert" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recentCell" rowHeight="110" id="I92-xM-Ovw" customClass="RecentCellViewController" customModule="Tick_Alert" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I92-xM-Ovw" id="rX9-1C-17g">
@@ -599,12 +599,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jUA-c8-XWo">
-                                <rect key="frame" x="0.0" y="238" width="375" height="574"/>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jUA-c8-XWo">
+                                <rect key="frame" x="0.0" y="238" width="375" height="490"/>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.1647058824" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.34509803919999998" green="0.1647058824" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="CommentsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsCell" id="4vm-x0-dny" customClass="CommentsTableViewCell" customModule="Tick_Alert" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsCell" id="4vm-x0-dny" customClass="CommentsTableViewCell" customModule="Tick_Alert" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4vm-x0-dny" id="Kw3-Pl-7gl">
@@ -657,37 +657,63 @@
                                     <outlet property="delegate" destination="0bb-g2-cVW" id="HNH-g5-XMs"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXM-g7-m7O">
+                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHw-kx-Uwr">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Pg5-r6-Xgb"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="eHw-kx-Uwr" firstAttribute="centerY" secondItem="fXM-g7-m7O" secondAttribute="centerY" id="XQw-w0-SkV"/>
+                                    <constraint firstAttribute="trailing" secondItem="eHw-kx-Uwr" secondAttribute="trailing" id="bwQ-Fb-ArM"/>
+                                    <constraint firstAttribute="height" constant="50" id="kIV-59-4In"/>
+                                    <constraint firstItem="eHw-kx-Uwr" firstAttribute="leading" secondItem="fXM-g7-m7O" secondAttribute="leading" id="kvM-oQ-ddr"/>
+                                    <constraint firstItem="eHw-kx-Uwr" firstAttribute="top" secondItem="fXM-g7-m7O" secondAttribute="top" id="uTZ-0u-fe4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.34509803919999998" green="0.1647058824" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iLV-Jd-WBn" firstAttribute="leading" secondItem="bOL-D9-YI8" secondAttribute="trailing" constant="10" id="5HV-hf-CQi"/>
                             <constraint firstItem="VHm-C5-uqg" firstAttribute="leading" secondItem="bOL-D9-YI8" secondAttribute="trailing" constant="10" id="8Gf-Ew-TvL"/>
                             <constraint firstItem="iLV-Jd-WBn" firstAttribute="top" secondItem="PZW-kM-mYS" secondAttribute="bottom" constant="8" id="9Cd-XQ-uix"/>
+                            <constraint firstItem="jUA-c8-XWo" firstAttribute="top" secondItem="bOL-D9-YI8" secondAttribute="bottom" id="BcF-g8-6x0"/>
                             <constraint firstItem="PZW-kM-mYS" firstAttribute="top" secondItem="Cjq-Yp-Qju" secondAttribute="bottom" constant="8" id="EWK-gy-Bm3"/>
+                            <constraint firstItem="fXM-g7-m7O" firstAttribute="leading" secondItem="h9F-x9-B1u" secondAttribute="leading" id="Eu6-Xz-17D"/>
+                            <constraint firstItem="fXM-g7-m7O" firstAttribute="top" secondItem="jUA-c8-XWo" secondAttribute="bottom" id="FJl-gy-Vqg"/>
                             <constraint firstItem="h9F-x9-B1u" firstAttribute="trailing" secondItem="Cjq-Yp-Qju" secondAttribute="trailing" constant="8" id="H0C-pa-0Ec"/>
                             <constraint firstItem="h9F-x9-B1u" firstAttribute="trailing" secondItem="lyr-2k-kfr" secondAttribute="trailing" constant="8" id="HM1-Qc-N3M"/>
                             <constraint firstItem="lyr-2k-kfr" firstAttribute="leading" secondItem="bOL-D9-YI8" secondAttribute="trailing" constant="10" id="HhC-rx-HfV"/>
-                            <constraint firstAttribute="bottom" secondItem="jUA-c8-XWo" secondAttribute="bottom" id="JMn-4N-La2"/>
-                            <constraint firstItem="jUA-c8-XWo" firstAttribute="trailing" secondItem="h9F-x9-B1u" secondAttribute="trailing" id="LVU-aL-C47"/>
-                            <constraint firstItem="jUA-c8-XWo" firstAttribute="leading" secondItem="h9F-x9-B1u" secondAttribute="leading" id="LXS-Ce-Bp8"/>
                             <constraint firstItem="h9F-x9-B1u" firstAttribute="trailing" secondItem="iLV-Jd-WBn" secondAttribute="trailing" constant="8" id="ObR-Ej-Jnq"/>
                             <constraint firstItem="PZW-kM-mYS" firstAttribute="leading" secondItem="bOL-D9-YI8" secondAttribute="trailing" constant="10" id="PXV-FR-S2Y"/>
                             <constraint firstItem="Cjq-Yp-Qju" firstAttribute="top" secondItem="h9F-x9-B1u" secondAttribute="top" constant="10" id="PiW-rj-OBn"/>
                             <constraint firstItem="bOL-D9-YI8" firstAttribute="top" secondItem="h9F-x9-B1u" secondAttribute="top" id="Pva-6p-79z"/>
                             <constraint firstItem="lyr-2k-kfr" firstAttribute="top" secondItem="VHm-C5-uqg" secondAttribute="bottom" constant="8" id="aRu-cq-32A"/>
                             <constraint firstItem="VHm-C5-uqg" firstAttribute="top" secondItem="iLV-Jd-WBn" secondAttribute="bottom" constant="8" id="bVH-wP-71W"/>
-                            <constraint firstItem="jUA-c8-XWo" firstAttribute="top" secondItem="bOL-D9-YI8" secondAttribute="bottom" id="geL-SD-Vwm"/>
                             <constraint firstItem="h9F-x9-B1u" firstAttribute="trailing" secondItem="PZW-kM-mYS" secondAttribute="trailing" constant="8" id="gjB-sl-S47"/>
                             <constraint firstItem="bOL-D9-YI8" firstAttribute="leading" secondItem="h9F-x9-B1u" secondAttribute="leading" id="i53-mV-rsc"/>
+                            <constraint firstItem="jUA-c8-XWo" firstAttribute="leading" secondItem="h9F-x9-B1u" secondAttribute="leading" id="la2-PF-hqV"/>
+                            <constraint firstItem="jUA-c8-XWo" firstAttribute="trailing" secondItem="h9F-x9-B1u" secondAttribute="trailing" id="m4h-m7-2yc"/>
+                            <constraint firstItem="fXM-g7-m7O" firstAttribute="trailing" secondItem="h9F-x9-B1u" secondAttribute="trailing" id="raG-CE-A0x"/>
                             <constraint firstItem="Cjq-Yp-Qju" firstAttribute="leading" secondItem="bOL-D9-YI8" secondAttribute="trailing" constant="10" id="rre-Ig-sAV"/>
                             <constraint firstItem="h9F-x9-B1u" firstAttribute="trailing" secondItem="VHm-C5-uqg" secondAttribute="trailing" constant="8" id="xAT-EX-bqC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h9F-x9-B1u"/>
                     </view>
                     <connections>
+                        <outlet property="commentsInputContainerView" destination="fXM-g7-m7O" id="bc2-Aj-wxh"/>
                         <outlet property="commentsTable" destination="jUA-c8-XWo" id="rbs-9W-2Gr"/>
                         <outlet property="date" destination="iLV-Jd-WBn" id="NVH-gt-KQm"/>
                         <outlet property="location" destination="VHm-C5-uqg" id="GnG-13-cEP"/>
+                        <outlet property="newCommentTextBox" destination="eHw-kx-Uwr" id="Hwd-c1-4t4"/>
                         <outlet property="tickImage" destination="bOL-D9-YI8" id="4ru-k2-o5f"/>
                         <outlet property="tickSex" destination="PZW-kM-mYS" id="qMW-Dy-N8B"/>
                         <outlet property="tickSpecie" destination="Cjq-Yp-Qju" id="YB5-Ki-Q9n"/>
@@ -1435,7 +1461,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="moreCell" id="Fa0-SL-KE7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="moreCell" id="Fa0-SL-KE7">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fa0-SL-KE7" id="Y1B-rs-iOu">
@@ -1659,7 +1685,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.1647058824" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommonCell" rowHeight="150" id="jd6-mP-Pji" customClass="CommonCell" customModule="Tick_Alert" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommonCell" rowHeight="150" id="jd6-mP-Pji" customClass="CommonCell" customModule="Tick_Alert" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jd6-mP-Pji" id="1q7-Rg-lrU">

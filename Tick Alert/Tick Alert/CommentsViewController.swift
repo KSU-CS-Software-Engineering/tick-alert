@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CommentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet var commentsTable: UITableView!
     @IBOutlet var tickImage: UIImageView!
@@ -29,6 +29,8 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     var comments: NSArray = []
     var profilePics = [String:UIImage]()
     let ref = Database.database().reference()
+    @IBOutlet var commentsInputContainerView: UIView!
+    @IBOutlet var newCommentTextBox: UITextField!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commentsCount
@@ -73,6 +75,8 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
         })
     }
     
+    var bottomConstraint: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,6 +86,58 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
         date.text = dt
         location.text = loc
         user.text = userName
+        newCommentTextBox.delegate = self
+        
+        bottomConstraint = NSLayoutConstraint(item: commentsInputContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottomMargin, multiplier: 1, constant: 0)
+        view.addConstraint(bottomConstraint!)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func handleKeyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
+            
+            if(notification.name == NSNotification.Name.UIKeyboardWillShow) {
+                let window = UIApplication.shared.keyWindow
+                let bottomPadding = window?.safeAreaInsets.bottom
+                bottomConstraint?.constant = -keyboardFrame.height + bottomPadding!
+            } else {
+                bottomConstraint?.constant = 0
+            }
+            
+            UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+                }, completion: { (completed) in
+                    
+            })
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        let newCommentData = [
+            "body": newCommentTextBox.text!,
+            "poster": Auth.auth().currentUser!.uid
+            ] as [String : Any]
+        ref.child("post").child(postId).child("comments").child("\(commentsCount)").setValue(newCommentData)
+        
+        ref.child("post").child("\(postId)").child("comments").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.commentsCount = Int(snapshot.childrenCount)
+            if(self.commentsCount > 0) {
+                self.comments = snapshot.value as! NSArray
+            }
+            self.commentsTable.reloadData()
+        })
+        
+        newCommentTextBox.text = ""
+        return true
     }
 
     override func didReceiveMemoryWarning() {
