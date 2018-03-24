@@ -10,8 +10,7 @@ import UIKit
 import MapKit
 import Firebase
 
-class PostViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet var tableView: UITableView!
+class PostViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var tickType: UILabel!
     @IBOutlet var sexLabel: UILabel!
@@ -24,8 +23,15 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tickImage: UIImageView!
     var posterId = ""
     var previousController = ""
+    var postId = ""
+    let ref = Database.database().reference()
     
     @IBOutlet var tickDescription: UITextView!
+    @IBAction func viewCommentsClicked(_ sender: Any) {
+        let commentsController = self.storyboard?.instantiateViewController(withIdentifier: "Comments") as! CommentsViewController
+        commentsController.postId = postId
+        self.navigationController?.pushViewController(commentsController, animated: true)
+    }
     // When the poster's name is pressed, load a DynamicProfileView
     @IBAction func posterButtonPressed(_ sender: Any) {
         if(previousController == "Profile") {_ = navigationController?.popViewController(animated: true)}
@@ -34,57 +40,6 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
             profileController.profileId = posterId
             self.navigationController?.pushViewController(profileController, animated: true)
         }
-    }
-    
-    var postId = ""
-    var comments = 0
-    let ref = Database.database().reference()
-    
-    // Returns the number of rows that should be created
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments
-    }
-    
-    // Creates a new row in the table
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentsCellViewController
-        
-        let ref = Database.database().reference()
-        ref.child("post").child("\(postId)").child("comments").child("\(indexPath.row)").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-            
-            // Set User Profile Picture
-            let picRef = Storage.storage().reference(withPath: "users/\(value!.value(forKey: "poster") as! String).jpg")
-            picRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    cell.profileImage.image = #imageLiteral(resourceName: "profile")
-                } else {
-                    cell.profileImage.image = UIImage(data: data!)
-                }
-            }
-            cell.commentBody.text = value?.value(forKey: "body") as? String
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        return cell
-    }
-    
-    // Defines the size of each row of the table
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    // Before the view appears, gets the number of comments a post has
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
-        
-        ref.child("post").child("\(postId)").child("comments").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.comments = Int(snapshot.childrenCount)
-            self.tableView.reloadData()
-        })
     }
 
     // Populate the View with Post information from the Firebase database
@@ -143,10 +98,6 @@ class PostViewController: UIViewController, UITableViewDelegate, UITableViewData
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-        // Sets all rows to this height
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 60
     }
 
     override func didReceiveMemoryWarning() {
