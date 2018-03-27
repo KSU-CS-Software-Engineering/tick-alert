@@ -24,20 +24,23 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     var postImages = [UIImage]()
     var numberOfPosts = 0
     var userId = ""
+    @IBOutlet weak var separatorLine: UIView!
     
     @IBAction func googleSignInButtonPressed(_ sender: Any) {
         // Log user into Google
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         if(Auth.auth().currentUser == nil) {return}
+        
         googleSignInButton.isHidden = true
         collectionView.isHidden = false
         userFirstAndLast.isHidden = false
         userBio.isHidden = false
         userProfileImage.isHidden = false
         userLocation.isHidden = false
+        separatorLine.isHidden = false
         
-        // Get the infomration of the user currently logged in
+        // Get the information of the user currently logged in
         let user = Auth.auth().currentUser
         userId = (user?.uid)!
         
@@ -48,11 +51,16 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         let data = try? Data(contentsOf: (user?.photoURL)!)
         if(data != nil) {userProfileImage.image = UIImage(data: data!)}
         else {userProfileImage.image = #imageLiteral(resourceName: "profile")}
+        userProfileImage.layer.borderWidth = 1
+        userProfileImage.layer.masksToBounds = false
+        userProfileImage.layer.borderColor = UIColor.black.cgColor
+        userProfileImage.layer.cornerRadius = userProfileImage.frame.height/2
+        userProfileImage.clipsToBounds = true
         
         // Upload profile picture to databse, if not done already
         let storageRef = Storage.storage().reference()
         let picRef =  storageRef.child("users").child(userId+".jpg")
-        _ = picRef.putData(data!, metadata: nil) { (metadata, error) in
+        picRef.putData(data!, metadata: nil) { (metadata, error) in
             guard metadata != nil else {
                 print(error!.localizedDescription)
                 return
@@ -136,7 +144,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -149,6 +157,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             userProfileImage.isHidden = true
             userFirstAndLast.isHidden = true
             userLocation.isHidden = true
+            separatorLine.isHidden = true
             return
         }
         
@@ -158,6 +167,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         userBio.isHidden = false
         userProfileImage.isHidden = false
         userLocation.isHidden = false
+        separatorLine.isHidden = false
         
         let user = Auth.auth().currentUser
         userId = (user?.uid)!
@@ -186,12 +196,17 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         }
         
         // Set name to Google display name
-        self.userFirstAndLast.text = user?.displayName
+        self.userFirstAndLast.text = String(describing: user!.displayName!.split(separator: " ")[0])
         
         // Set the profile picture to Google profile picture
         let data = try? Data(contentsOf: (user?.photoURL)!)
         if(data != nil) {userProfileImage.image = UIImage(data: data!)}
         else {userProfileImage.image = #imageLiteral(resourceName: "profile")}
+        userProfileImage.layer.borderWidth = 1
+        userProfileImage.layer.masksToBounds = false
+        userProfileImage.layer.borderColor = UIColor.black.cgColor
+        userProfileImage.layer.cornerRadius = userProfileImage.frame.height/2
+        userProfileImage.clipsToBounds = true
     }
     
     func documentsPathForFileName(name: String) -> String {
