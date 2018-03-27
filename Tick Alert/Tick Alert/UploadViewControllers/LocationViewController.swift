@@ -47,6 +47,7 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         let uitgr = UITapGestureRecognizer(target: self, action: #selector(LocationViewController.action(_:)))
         map.addGestureRecognizer(uitgr)
+        map.mapType = .hybrid
     }
     
     @objc func nextButtonPressed() {

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick-nobg" translatesAutoresizingMaskIntoConstraints="NO" id="JYJ-l7-myD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tickonwhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="JYJ-l7-myD">
                                 <rect key="frame" x="37" y="183" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="KFr-Dt-wKJ"/>
@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.34509803921568627" green="0.16470588235294117" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JYJ-l7-myD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mek-bR-V0t"/>
                             <constraint firstItem="JYJ-l7-myD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qLy-xM-Huj"/>
@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tick-nobg" width="768" height="768"/>
+        <image name="tickonwhite.png" width="1536" height="1536"/>
     </resources>
 </document>

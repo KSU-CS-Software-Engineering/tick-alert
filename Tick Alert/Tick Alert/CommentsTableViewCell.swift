@@ -15,7 +15,12 @@ class CommentsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        commenterImage.layer.borderWidth = 1
+        commenterImage.layer.masksToBounds = false
+        commenterImage.layer.borderColor = UIColor.black.cgColor
+        commenterImage.layer.cornerRadius = commenterImage.frame.height/2
+        commenterImage.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

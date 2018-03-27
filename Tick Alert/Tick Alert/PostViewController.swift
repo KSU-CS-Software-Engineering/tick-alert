@@ -55,6 +55,7 @@ class PostViewController: UIViewController {
     // Populate the View with Post information from the Firebase database
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.mapType = .hybrid
         
         ref.child("post").child("\(postId)").observeSingleEvent(of: .value, with: { (snapshot) in
             

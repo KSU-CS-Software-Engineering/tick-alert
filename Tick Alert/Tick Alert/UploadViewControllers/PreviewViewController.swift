@@ -92,6 +92,7 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         userLabel.text = Auth.auth().currentUser?.displayName
         descriptionLabel.text = desc!
         buttonPressed = false
+        map.mapType = .hybrid
         
         //Create and place pin on map
         let currentDate = Date()

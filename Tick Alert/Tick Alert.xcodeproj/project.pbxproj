@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0AD775206AADAF002C8EA4 /* tickonwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E0AD774206AADAE002C8EA4 /* tickonwhite.png */; };
 		0E183110205251FD00805AB8 /* SexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18310F205251FD00805AB8 /* SexViewController.swift */; };
 		0E18311620525C8800805AB8 /* OrnationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18311520525C8800805AB8 /* OrnationViewController.swift */; };
 		0E1831192052619A00805AB8 /* inornate_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831172052619900805AB8 /* inornate_ticks.png */; };
@@ -106,6 +107,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E0AD774206AADAE002C8EA4 /* tickonwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tickonwhite.png; path = ../../../Resources/tickonwhite.png; sourceTree = "<group>"; };
 		0E18310F205251FD00805AB8 /* SexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexViewController.swift; sourceTree = "<group>"; };
 		0E18311520525C8800805AB8 /* OrnationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnationViewController.swift; sourceTree = "<group>"; };
 		0E1831172052619900805AB8 /* inornate_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inornate_ticks.png; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 		0E40FE3920535A0D009694EA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0E0AD774206AADAE002C8EA4 /* tickonwhite.png */,
 				0EC6ECDF20665CFE00CAF618 /* KSU-College-of-Vet-Medicine.jpg */,
 				0EC6ECD02066585D00CAF618 /* distributions */,
 				0E4E5D932059C24B007DF904 /* GButton.png */,
@@ -555,6 +558,7 @@
 				0EA897FA20544E4300C13DCB /* sun.png in Resources */,
 				0E4E5D942059C24C007DF904 /* GButton.png in Resources */,
 				0E9DDD2920486C250084FB59 /* Dermacentor_andersoni_all.jpg in Resources */,
+				0E0AD775206AADAF002C8EA4 /* tickonwhite.png in Resources */,
 				0EC6ECDD206658AB00CAF618 /* gulfCoast.jpg in Resources */,
 				0E1831192052619A00805AB8 /* inornate_ticks.png in Resources */,
 				0E40FE4C20535A60009694EA /* male_browndog.png in Resources */,

@@ -46,10 +46,14 @@ class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return options.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let attributedString = NSAttributedString(string: tickOptions[options[row]], attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
-        return attributedString
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return tickOptions[options[row]]
     }
+    
+//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        let attributedString = NSAttributedString(string: tickOptions[options[row]], attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
+//        return attributedString
+//    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedTickType = tickOptions[options[row]]
