@@ -15,6 +15,23 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet var map: MKMapView!
     var locationManager = CLLocationManager()
     
+    @IBOutlet var mapTypeSelector: UISegmentedControl!
+    @IBAction func mapTypeSelected(_ sender: Any) {
+        switch(mapTypeSelector.selectedSegmentIndex) {
+            case 0:
+                map.mapType = .standard
+                break
+            case 1:
+                map.mapType = .satellite
+                break
+            case 2:
+                map.mapType = .hybrid
+                break
+            default:
+                break
+        }
+    }
+    
     var pinImages: [String:UIImage] = [:]
     var pinIDs: [String:UInt] = [:]
     
@@ -26,6 +43,10 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        map.mapType = .standard
+        mapTypeSelector.selectedSegmentIndex = 0
+        mapTypeSelector.layer.cornerRadius = 4.0
+        mapTypeSelector.clipsToBounds = true
 
         //parameters for map view
         locationManager.delegate = self

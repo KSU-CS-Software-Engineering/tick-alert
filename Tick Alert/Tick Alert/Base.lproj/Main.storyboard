@@ -1892,6 +1892,19 @@
                                     <action selector="centerOnLocationButtonPress:" destination="PUf-Ll-qeK" eventType="touchUpInside" id="Mx3-f6-7xm"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ys-8L-vJt">
+                                <rect key="frame" x="20" y="681" width="265" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <color key="tintColor" red="0.34509803919999998" green="0.1647058824" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="mapTypeSelected:" destination="PUf-Ll-qeK" eventType="valueChanged" id="twX-vt-DDf"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1899,8 +1912,11 @@
                             <constraint firstItem="SIn-xX-6Gf" firstAttribute="bottom" secondItem="zgw-dX-kuJ" secondAttribute="bottom" constant="20" id="6Su-aZ-32h"/>
                             <constraint firstItem="pIk-YL-Y8A" firstAttribute="leading" secondItem="SIn-xX-6Gf" secondAttribute="leading" id="ChP-ZG-SKo"/>
                             <constraint firstItem="pIk-YL-Y8A" firstAttribute="trailing" secondItem="SIn-xX-6Gf" secondAttribute="trailing" id="YDQ-Mc-6ix"/>
+                            <constraint firstItem="4ys-8L-vJt" firstAttribute="leading" secondItem="SIn-xX-6Gf" secondAttribute="leading" constant="20" id="fud-eL-Tyc"/>
                             <constraint firstItem="pIk-YL-Y8A" firstAttribute="bottom" secondItem="SIn-xX-6Gf" secondAttribute="bottom" id="kqK-y2-RKh"/>
                             <constraint firstItem="SIn-xX-6Gf" firstAttribute="trailing" secondItem="zgw-dX-kuJ" secondAttribute="trailing" constant="20" id="ugD-Kg-h1G"/>
+                            <constraint firstItem="SIn-xX-6Gf" firstAttribute="bottom" secondItem="4ys-8L-vJt" secondAttribute="bottom" constant="20" id="v4O-zh-TIp"/>
+                            <constraint firstItem="zgw-dX-kuJ" firstAttribute="leading" secondItem="4ys-8L-vJt" secondAttribute="trailing" constant="20" id="wFQ-b0-4cb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SIn-xX-6Gf"/>
                     </view>
@@ -1909,12 +1925,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="map" destination="pIk-YL-Y8A" id="EnJ-ph-T0V"/>
+                        <outlet property="mapTypeSelector" destination="4ys-8L-vJt" id="dks-my-oN3"/>
                         <segue destination="ls5-Ag-A8c" kind="show" id="0rr-tV-uzL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE7-8U-GAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="705.69715142428788"/>
+            <point key="canvasLocation" x="940" y="705.66502463054189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LZ3-jh-rNg">
@@ -1978,10 +1995,10 @@
         <image name="target" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4vZ-X4-bDe"/>
+        <segue reference="ubx-qo-nY1"/>
         <segue reference="fuN-Ve-aYC"/>
         <segue reference="8fJ-fa-A38"/>
-        <segue reference="dhu-dq-qdy"/>
+        <segue reference="0rr-tV-uzL"/>
         <segue reference="hVp-Lj-GPf"/>
     </inferredMetricsTieBreakers>
 </document>
