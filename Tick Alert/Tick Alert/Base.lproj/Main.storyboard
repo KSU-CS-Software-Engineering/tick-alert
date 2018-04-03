@@ -84,7 +84,7 @@
                                             <constraint firstItem="OY5-WT-7V3" firstAttribute="top" secondItem="ANb-U1-B4x" secondAttribute="bottom" constant="8" id="qpe-pk-YeT"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7eg-Eu-SED">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7eg-Eu-SED">
                                         <rect key="frame" x="0.0" y="261" width="375" height="416"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KcU-rt-iCK">
@@ -133,7 +133,7 @@
                                     <constraint firstAttribute="trailing" secondItem="gqe-bk-Bhw" secondAttribute="trailing" constant="8" id="SZs-yl-QN5"/>
                                     <constraint firstItem="7eg-Eu-SED" firstAttribute="leading" secondItem="klB-bV-CRg" secondAttribute="leading" id="efU-0o-f6C"/>
                                     <constraint firstItem="cr9-qn-IlY" firstAttribute="leading" secondItem="klB-bV-CRg" secondAttribute="leading" id="oyd-F4-S17"/>
-                                    <constraint firstAttribute="bottom" secondItem="7eg-Eu-SED" secondAttribute="bottom" id="tbL-Bb-ytt"/>
+                                    <constraint firstItem="cr9-qn-IlY" firstAttribute="bottom" secondItem="7eg-Eu-SED" secondAttribute="bottom" constant="-453" id="tbL-Bb-ytt"/>
                                     <constraint firstItem="cr9-qn-IlY" firstAttribute="top" secondItem="klB-bV-CRg" secondAttribute="top" id="xiZ-lx-dCu"/>
                                     <constraint firstItem="cr9-qn-IlY" firstAttribute="centerX" secondItem="klB-bV-CRg" secondAttribute="centerX" id="yWO-z2-dK2"/>
                                     <constraint firstItem="2i8-iP-5ev" firstAttribute="centerX" secondItem="klB-bV-CRg" secondAttribute="centerX" id="zYP-8e-P4q"/>
