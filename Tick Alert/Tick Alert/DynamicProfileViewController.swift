@@ -17,7 +17,7 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var userBio: UITextView!
+    @IBOutlet var userBio: UILabel!
     
     var numberOfPosts = 0
     
@@ -104,6 +104,11 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
                 self.profileImage.image = image
             }
         }
+        self.profileImage.layer.borderWidth = 1
+        self.profileImage.layer.masksToBounds = false
+        self.profileImage.layer.borderColor = UIColor.black.cgColor
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
+        self.profileImage.clipsToBounds = true
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
