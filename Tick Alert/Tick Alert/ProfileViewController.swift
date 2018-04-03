@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userFirstAndLast: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var userBio: UITextView!
+    @IBOutlet var userBio: UILabel!
     @IBOutlet var googleSignInButton: UIButton!
     
     var posts = [NSDictionary]()
