@@ -196,7 +196,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         }
         
         // Set name to Google display name
-        self.userFirstAndLast.text = String(describing: user!.displayName!.split(separator: " ")[0])
+        self.userFirstAndLast.text = user!.displayName
         
         // Set the profile picture to Google profile picture
         let data = try? Data(contentsOf: (user?.photoURL)!)
