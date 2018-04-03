@@ -270,7 +270,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1Y-5u-NVL">
-                                        <rect key="frame" x="0.0" y="281" width="375" height="0.0"/>
+                                        <rect key="frame" x="8" y="281" width="359" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Y0y-Om-M3W"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -318,8 +321,8 @@
                                             <constraint firstItem="e1P-Lz-S2A" firstAttribute="centerX" secondItem="KwZ-ba-g3H" secondAttribute="centerX" id="ztU-5m-haV"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ub5-nl-anH">
-                                        <rect key="frame" x="0.0" y="289" width="375" height="442"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ub5-nl-anH">
+                                        <rect key="frame" x="0.0" y="297" width="375" height="427"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WRt-WN-eyP">
                                             <size key="itemSize" width="110" height="110"/>
@@ -359,22 +362,22 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="KwZ-ba-g3H" secondAttribute="trailing" id="3lR-4f-Wcb"/>
-                                    <constraint firstAttribute="trailing" secondItem="u1Y-5u-NVL" secondAttribute="trailing" id="7GO-f3-qo2"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ub5-nl-anH" secondAttribute="trailing" id="AFO-He-Br7"/>
+                                    <constraint firstItem="u1Y-5u-NVL" firstAttribute="leading" secondItem="5ok-q0-pbC" secondAttribute="leading" constant="8" id="5Wn-nG-dQ7"/>
                                     <constraint firstItem="KwZ-ba-g3H" firstAttribute="leading" secondItem="5ok-q0-pbC" secondAttribute="leading" id="BGY-eQ-d3l"/>
-                                    <constraint firstItem="Ub5-nl-anH" firstAttribute="leading" secondItem="5ok-q0-pbC" secondAttribute="leading" id="Vy1-bt-nYs"/>
-                                    <constraint firstItem="u1Y-5u-NVL" firstAttribute="centerX" secondItem="5ok-q0-pbC" secondAttribute="centerX" id="ZAP-O9-sEt"/>
-                                    <constraint firstItem="Ub5-nl-anH" firstAttribute="top" secondItem="u1Y-5u-NVL" secondAttribute="bottom" constant="8" id="bGZ-Zj-Iad"/>
+                                    <constraint firstItem="u1Y-5u-NVL" firstAttribute="top" secondItem="KwZ-ba-g3H" secondAttribute="bottom" constant="8" id="Bx0-3g-rGt"/>
+                                    <constraint firstItem="Ub5-nl-anH" firstAttribute="leading" secondItem="5ok-q0-pbC" secondAttribute="leading" id="GfV-Kv-N9m"/>
+                                    <constraint firstItem="Ub5-nl-anH" firstAttribute="top" secondItem="u1Y-5u-NVL" secondAttribute="bottom" id="Shq-W1-Lvw"/>
+                                    <constraint firstAttribute="trailing" secondItem="u1Y-5u-NVL" secondAttribute="trailing" constant="8" id="eeG-YQ-8Ca"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ub5-nl-anH" secondAttribute="trailing" id="eze-Va-N93"/>
                                     <constraint firstItem="KwZ-ba-g3H" firstAttribute="centerX" secondItem="5ok-q0-pbC" secondAttribute="centerX" id="fxB-Sb-HD9"/>
                                     <constraint firstItem="KwZ-ba-g3H" firstAttribute="top" secondItem="5ok-q0-pbC" secondAttribute="top" id="hkA-G2-ylm"/>
-                                    <constraint firstItem="u1Y-5u-NVL" firstAttribute="leading" secondItem="5ok-q0-pbC" secondAttribute="leading" id="oPl-he-col"/>
-                                    <constraint firstItem="u1Y-5u-NVL" firstAttribute="top" secondItem="KwZ-ba-g3H" secondAttribute="bottom" constant="8" id="tJ7-ds-9vY"/>
-                                    <constraint firstItem="Ub5-nl-anH" firstAttribute="centerX" secondItem="5ok-q0-pbC" secondAttribute="centerX" id="wCM-iW-Bkd"/>
+                                    <constraint firstItem="KwZ-ba-g3H" firstAttribute="bottom" secondItem="Ub5-nl-anH" secondAttribute="bottom" constant="-451" id="z3h-Fj-ckt"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5ok-q0-pbC" firstAttribute="centerY" secondItem="jQd-rE-CEK" secondAttribute="centerY" id="208-DQ-Hl4"/>
                             <constraint firstAttribute="bottom" secondItem="5ok-q0-pbC" secondAttribute="bottom" id="6Ee-Mq-rjk"/>
                             <constraint firstItem="5ok-q0-pbC" firstAttribute="trailing" secondItem="I5B-g4-nAA" secondAttribute="trailing" id="7oa-A2-T2S"/>
                             <constraint firstItem="5ok-q0-pbC" firstAttribute="leading" secondItem="I5B-g4-nAA" secondAttribute="leading" id="Y0C-ev-hhK"/>
