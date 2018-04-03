@@ -339,15 +339,15 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pvN-IK-DfJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                            <rect key="frame" x="1" y="1" width="108" height="108"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="pvN-IK-DfJ" firstAttribute="leading" secondItem="npT-XH-nUv" secondAttribute="leading" id="57J-ai-E8s"/>
-                                                    <constraint firstAttribute="bottom" secondItem="pvN-IK-DfJ" secondAttribute="bottom" id="58L-Or-MwG"/>
-                                                    <constraint firstAttribute="trailing" secondItem="pvN-IK-DfJ" secondAttribute="trailing" id="HAB-iQ-ZHa"/>
-                                                    <constraint firstItem="pvN-IK-DfJ" firstAttribute="top" secondItem="npT-XH-nUv" secondAttribute="top" id="eLf-tm-rf0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pvN-IK-DfJ" secondAttribute="bottom" constant="1" id="1Tm-Xy-fYm"/>
+                                                    <constraint firstItem="pvN-IK-DfJ" firstAttribute="top" secondItem="npT-XH-nUv" secondAttribute="top" constant="1" id="Azf-0g-vI4"/>
+                                                    <constraint firstItem="pvN-IK-DfJ" firstAttribute="leading" secondItem="npT-XH-nUv" secondAttribute="leading" constant="1" id="dec-dg-MqU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pvN-IK-DfJ" secondAttribute="trailing" constant="1" id="qS8-Pg-2Sn"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="tickImage" destination="pvN-IK-DfJ" id="et6-N9-Vcd"/>
