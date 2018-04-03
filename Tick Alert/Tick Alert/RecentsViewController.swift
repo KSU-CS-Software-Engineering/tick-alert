@@ -55,6 +55,8 @@ class RecentsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         
+        if(post % 2 == 0) {cell.backgroundColor = UIColor(red: 88/255, green: 42/255, blue: 114/255, alpha: 0.3)}
+        else {cell.backgroundColor = UIColor.white}
         return cell
     }
     
