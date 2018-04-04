@@ -17,7 +17,6 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var userBio: UILabel!
     
     var numberOfPosts = 0
     
@@ -87,7 +86,6 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
             let value = snapshot.value as? NSDictionary
             self.userName.text = value?.value(forKey: "name") as? String
             self.userLocation.text = value?.value(forKey: "location") as? String
-            self.userBio.text = value?.value(forKey: "bio") as? String
             
             self.title = self.userName.text
         }) { (error) in
