@@ -12,9 +12,11 @@ class CommentsTableViewCell: UITableViewCell {
 
     @IBOutlet var commenterImage: UIImageView!
     @IBOutlet var comment: UILabel!
+    @IBOutlet var roundedView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        roundedView.layer.cornerRadius = 8
         
         commenterImage.layer.borderWidth = 1
         commenterImage.layer.masksToBounds = false

@@ -16,7 +16,6 @@ class PostViewController: UIViewController {
     @IBOutlet var sexLabel: UILabel!
     @IBOutlet var poster: UIButton!
     @IBOutlet var datePosted: UILabel!
-    @IBOutlet var locationLabel: UILabel!
     @IBOutlet var elevationLabel: UILabel!
     @IBOutlet var temperatureLabel: UILabel!
     @IBOutlet var weatherImage: UIImageView!
@@ -26,6 +25,7 @@ class PostViewController: UIViewController {
     var postId = ""
     let ref = Database.database().reference()
     
+    @IBOutlet var roundedView: UIView!
     @IBOutlet var tickDescription: UITextView!
     @IBAction func viewCommentsClicked(_ sender: Any) {
         let commentsController = self.storyboard?.instantiateViewController(withIdentifier: "Comments") as! CommentsViewController
@@ -33,7 +33,6 @@ class PostViewController: UIViewController {
         commentsController.specie = tickType.text!
         commentsController.sex = sexLabel.text!
         commentsController.dt = datePosted.text!
-        commentsController.loc = locationLabel.text!
         commentsController.userName = (poster.titleLabel?.text)!
         commentsController.postId = postId
         self.navigationController?.pushViewController(commentsController, animated: true)
@@ -56,6 +55,9 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .hybrid
+        mapView.layer.cornerRadius = 8
+        roundedView.layer.cornerRadius = 8
+        tickImage.layer.cornerRadius = 8
         
         ref.child("post").child("\(postId)").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -69,7 +71,6 @@ class PostViewController: UIViewController {
             self.poster.setTitle(value?.value(forKey: "posterName") as? String, for: .normal)
             self.posterId = (value?.value(forKey: "poster") as? String)!
             self.sexLabel.text = value?.value(forKey: "sex") as? String
-            self.locationLabel.text = value?.value(forKey: "location") as? String
             self.temperatureLabel.text = value?.value(forKey: "temperature") as? String
             self.elevationLabel.text = "\(value?.value(forKey: "elevation") as! String) ft"
             
@@ -97,7 +98,7 @@ class PostViewController: UIViewController {
             let lat: CLLocationDegrees = value?.value(forKey: "lat") as! CLLocationDegrees
             let lon: CLLocationDegrees = value?.value(forKey: "lon") as! CLLocationDegrees
             let title = value?.value(forKey: "type") as? String
-            let subTitle = value?.value(forKey: "date") as? String
+            let subTitle = value?.value(forKey: "location") as? String
             let pin: MKPointAnnotation = MKPointAnnotation()
             pin.coordinate = CLLocationCoordinate2DMake(lat, lon)
             pin.title = title

@@ -16,7 +16,6 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tickSpecie: UILabel!
     @IBOutlet var tickSex: UILabel!
     @IBOutlet var date: UILabel!
-    @IBOutlet var location: UILabel!
     @IBOutlet var user: UILabel!
     var postId = ""
     var image: UIImage = UIImage()
@@ -31,6 +30,7 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     let ref = Database.database().reference()
     @IBOutlet var commentsInputContainerView: UIView!
     @IBOutlet var newCommentTextBox: UITextField!
+    @IBOutlet var roundedView: UIView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commentsCount
@@ -84,12 +84,13 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundedView.layer.cornerRadius = 8
+        tickImage.layer.cornerRadius = 8
         
         tickImage.image = image
         tickSpecie.text = specie
         tickSex.text = sex
         date.text = dt
-        location.text = loc
         user.text = userName
         newCommentTextBox.delegate = self
         

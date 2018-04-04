@@ -49,6 +49,7 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         map.mapType = .hybrid
         
         locationManager.stopUpdatingLocation()
+        map.layer.cornerRadius = 8
     }
     
     @objc func nextButtonPressed() {
