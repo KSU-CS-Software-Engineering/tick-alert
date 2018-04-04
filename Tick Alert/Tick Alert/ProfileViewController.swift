@@ -121,7 +121,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
                 UserDefaults.standard.set(imagePaths, forKey: "images")
             }
         }
-        
+        cell.roundedView.layer.cornerRadius = 8
+        cell.tickImage.layer.cornerRadius = 8
         return cell
     }
     
@@ -211,6 +212,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        separatorLine.layer.cornerRadius = 8
     }
 
     override func didReceiveMemoryWarning() {

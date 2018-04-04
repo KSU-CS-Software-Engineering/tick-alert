@@ -15,6 +15,7 @@ class SexViewController: UIViewController {
     @IBOutlet var exampleImage: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var maleFemaleSelector: UISegmentedControl!
+    @IBOutlet var roundedView: UIView!
     
     var uploadImage: UIImage?
     
@@ -22,12 +23,12 @@ class SexViewController: UIViewController {
         switch(maleFemaleSelector.selectedSegmentIndex) {
             case 0:
                 sexLabel.text = "MALE"
-                descriptionLabel.text = "For MALES: scutum extends the entire length of the body"
+                descriptionLabel.text = "Scutum extends the entire length of the body"
                 exampleImage.image = #imageLiteral(resourceName: "maleTicks.png")
                 break
             case 1:
                 sexLabel.text = "FEMALE"
-                descriptionLabel.text = "For FEMALES: scutum extends 1/3 to 1/2 the length of the body (allows her body to expand with eggs)"
+                descriptionLabel.text = "Scutum extends 1/3 to 1/2 the length of the body (allows her body to expand with eggs)"
                 exampleImage.image = #imageLiteral(resourceName: "femaleTicks.png")
                 break
             default:
@@ -58,8 +59,12 @@ class SexViewController: UIViewController {
         tickImage.image = UIImage(cgImage: imageRef, scale: uploadImage!.scale, orientation: uploadImage!.imageOrientation)
         
         sexLabel.text = "MALE"
-        descriptionLabel.text = "For MALES: scutum extends the entire length of the body"
+        descriptionLabel.text = "Scutum extends the entire length of the body"
         exampleImage.image = #imageLiteral(resourceName: "maleTicks.png")
+        
+        roundedView.layer.cornerRadius = 8
+        exampleImage.layer.cornerRadius = 8
+        maleFemaleSelector.layer.cornerRadius = 8
     }
 
     override func didReceiveMemoryWarning() {

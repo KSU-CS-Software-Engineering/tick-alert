@@ -19,18 +19,19 @@ class CapitulumViewController: UIViewController {
     @IBOutlet var exampleImage: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var capitulumSelector: UISegmentedControl!
+    @IBOutlet var roundedView: UIView!
     
     @IBAction func indexSelected(_ sender: Any) {
         switch(capitulumSelector.selectedSegmentIndex) {
             case 0:
                 capitulumLabel.text = "SHORT"
                 exampleImage.image = #imageLiteral(resourceName: "short_capitulum.png")
-                descriptionLabel.text = "Short: mouth similar in length and width"
+                descriptionLabel.text = "Mouth similar in length and width"
                 break
             case 1:
                 capitulumLabel.text = "LONG"
                 exampleImage.image = #imageLiteral(resourceName: "long_capitulum.png")
-                descriptionLabel.text = "Long: mouth longer than it is wide"
+                descriptionLabel.text = "Mouth longer than it is wide"
                 break
             default:
                 break
@@ -60,7 +61,11 @@ class CapitulumViewController: UIViewController {
         tickImage.image = uploadImage
         capitulumLabel.text = "SHORT"
         exampleImage.image = #imageLiteral(resourceName: "short_capitulum.png")
-        descriptionLabel.text = "Short: mouth similar in length and width"
+        descriptionLabel.text = "Mouth similar in length and width"
+        
+        roundedView.layer.cornerRadius = 8
+        exampleImage.layer.cornerRadius = 8
+        capitulumSelector.layer.cornerRadius = 8
     }
 
     override func didReceiveMemoryWarning() {

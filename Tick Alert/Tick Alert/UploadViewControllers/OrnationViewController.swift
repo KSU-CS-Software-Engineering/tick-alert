@@ -18,18 +18,19 @@ class OrnationViewController: UIViewController {
     @IBOutlet var exampleImage: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var ornationSelector: UISegmentedControl!
+    @IBOutlet var roundedView: UIView!
     
     @IBAction func ornationSelected(_ sender: Any) {
         switch(ornationSelector.selectedSegmentIndex) {
             case 0:
                 ornationLabel.text = "ORNATE"
                 exampleImage.image = #imageLiteral(resourceName: "ornate_ticks.png")
-                descriptionLabel.text = "Ornate: colored markings present"
+                descriptionLabel.text = "Colored markings present"
                 break
             case 1:
                 ornationLabel.text = "INORNATE"
                 exampleImage.image = #imageLiteral(resourceName: "inornate_ticks.png")
-                descriptionLabel.text = "Inornate: no colored markings present"
+                descriptionLabel.text = "No colored markings present"
                 break
             default:
                 break
@@ -57,9 +58,12 @@ class OrnationViewController: UIViewController {
         
         ornationLabel.text = "ORNATE"
         exampleImage.image = #imageLiteral(resourceName: "ornate_ticks.png")
-        descriptionLabel.text = "Ornate: colored markings present"
+        descriptionLabel.text = "Colored markings present"
         
         tickImage.image = uploadImage
+        roundedView.layer.cornerRadius = 8
+        exampleImage.layer.cornerRadius = 8
+        ornationSelector.layer.cornerRadius = 8
     }
 
     override func didReceiveMemoryWarning() {
