@@ -18,9 +18,13 @@ class RecentCellViewController: UITableViewCell {
     
     var postId: UInt!
     
+    @IBOutlet weak var innerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        innerView.layer.cornerRadius = 8
+        innerView.layer.masksToBounds = true
+        recentTickImage.layer.cornerRadius = 8
+        recentTickImage.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
