@@ -58,6 +58,8 @@ class DescriptionViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))
         self.navigationItem.rightBarButtonItem = nextButton
+        
+        textField.layer.cornerRadius = 8
     }
 
     override func didReceiveMemoryWarning() {

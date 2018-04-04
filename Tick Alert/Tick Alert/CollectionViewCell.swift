@@ -14,6 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     //Defines aspects of the cells in profile views
     @IBOutlet var tickImage: UIImageView!
+    @IBOutlet var roundedView: UIView!
     
     var postId: Int!
     

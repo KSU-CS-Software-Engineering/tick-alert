@@ -32,6 +32,7 @@ class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBOutlet var preview: UIImageView!
     @IBOutlet var exampleImage: UIImageView!
+    @IBOutlet var roundedView: UIView!
     
     @IBAction func identificationTips(_ sender: Any) {
         let commonController = storyboard?.instantiateViewController(withIdentifier: "Common") as! CommonViewController
@@ -121,6 +122,9 @@ class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextButtonPressed))
         self.navigationItem.rightBarButtonItem = nextButton
+        
+        roundedView.layer.cornerRadius = 8
+        exampleImage.layer.cornerRadius = 8
     }
     
     @objc func nextButtonPressed() {
