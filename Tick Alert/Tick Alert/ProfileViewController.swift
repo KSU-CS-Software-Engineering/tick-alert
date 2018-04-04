@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userFirstAndLast: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var userBio: UILabel!
     @IBOutlet var googleSignInButton: UIButton!
     
     var posts = [NSDictionary]()
@@ -35,7 +34,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         googleSignInButton.isHidden = true
         collectionView.isHidden = false
         userFirstAndLast.isHidden = false
-        userBio.isHidden = false
         userProfileImage.isHidden = false
         userLocation.isHidden = false
         separatorLine.isHidden = false
@@ -75,7 +73,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             
             // Set the location to value in database
             self.userLocation.text = value?.value(forKey: "location") as? String
-            self.userBio.text = value?.value(forKey: "bio") as? String
             
             self.postIds = value?.value(forKey: "posts") as! [Any]
             self.numberOfPosts = self.postIds.count-1
@@ -153,7 +150,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         if(Auth.auth().currentUser == nil) {
             googleSignInButton.isHidden = false
             collectionView.isHidden = true
-            userBio.isHidden = true
             userProfileImage.isHidden = true
             userFirstAndLast.isHidden = true
             userLocation.isHidden = true
@@ -164,7 +160,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         googleSignInButton.isHidden = true
         collectionView.isHidden = false
         userFirstAndLast.isHidden = false
-        userBio.isHidden = false
         userProfileImage.isHidden = false
         userLocation.isHidden = false
         separatorLine.isHidden = false
@@ -179,8 +174,6 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
             
             // Set the location to value in database
             self.userLocation.text = value?.value(forKey: "location") as? String
-            self.userBio.text = value?.value(forKey: "bio") as? String
-            
             self.postIds = value?.value(forKey: "posts") as! [Any]
             self.numberOfPosts = self.postIds.count-1
     

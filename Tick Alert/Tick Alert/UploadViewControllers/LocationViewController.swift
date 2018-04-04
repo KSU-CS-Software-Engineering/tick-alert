@@ -38,7 +38,6 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        locationManager.stopUpdatingLocation()
         
         pin.title = tickType!
         
@@ -48,6 +47,8 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let uitgr = UITapGestureRecognizer(target: self, action: #selector(LocationViewController.action(_:)))
         map.addGestureRecognizer(uitgr)
         map.mapType = .hybrid
+        
+        locationManager.stopUpdatingLocation()
     }
     
     @objc func nextButtonPressed() {

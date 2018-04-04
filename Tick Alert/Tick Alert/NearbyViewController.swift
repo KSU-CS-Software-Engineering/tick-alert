@@ -53,7 +53,6 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        locationManager.stopUpdatingLocation()
         
         //get post information from database
         let ref = Database.database().reference()
@@ -92,6 +91,7 @@ class NearbyViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }) { (error) in
             print(error.localizedDescription)
         }
+        locationManager.stopUpdatingLocation()
     }
     
     //custom pins(annotations) for the map view with pictures
