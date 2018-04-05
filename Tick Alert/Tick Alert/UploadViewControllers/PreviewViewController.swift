@@ -152,6 +152,11 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         roundedView.layer.cornerRadius = 8
         tickImage.layer.cornerRadius = 8
         tickImage.layer.masksToBounds = true
+        
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.3
+        roundedView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        roundedView.layer.shadowRadius = 2
     }
     
     func updateLabelsAndIcon() {

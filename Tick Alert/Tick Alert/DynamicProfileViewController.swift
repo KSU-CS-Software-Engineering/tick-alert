@@ -61,8 +61,13 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
         }
         cell.roundedView.layer.cornerRadius = 8
         cell.tickImage.layer.cornerRadius = 8
-        cell.roundedView.layer.masksToBounds = true
         cell.tickImage.layer.masksToBounds = true
+        
+        cell.roundedView.layer.shadowColor = UIColor.black.cgColor
+        cell.roundedView.layer.shadowOpacity = 0.3
+        cell.roundedView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cell.roundedView.layer.shadowRadius = 1
+        
         return cell
     }
     
@@ -126,6 +131,11 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         roundedView.layer.cornerRadius = 8
+        
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.3
+        roundedView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        roundedView.layer.shadowRadius = 2
     }
     
     override func didReceiveMemoryWarning() {

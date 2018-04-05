@@ -123,7 +123,12 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         }
         cell.roundedView.layer.cornerRadius = 8
         cell.tickImage.layer.cornerRadius = 8
-        cell.roundedView.layer.masksToBounds = true
+        
+        cell.roundedView.layer.shadowColor = UIColor.black.cgColor
+        cell.roundedView.layer.shadowOpacity = 0.3
+        cell.roundedView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cell.roundedView.layer.shadowRadius = 1
+        
         cell.tickImage.layer.masksToBounds = true
         return cell
     }
@@ -215,6 +220,10 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         separatorLine.layer.cornerRadius = 8
+        separatorLine.layer.shadowColor = UIColor.black.cgColor
+        separatorLine.layer.shadowOpacity = 0.3
+        separatorLine.layer.shadowOffset = CGSize(width: 3, height: 3)
+        separatorLine.layer.shadowRadius = 2
     }
 
     override func didReceiveMemoryWarning() {

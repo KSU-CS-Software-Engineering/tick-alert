@@ -22,9 +22,13 @@ class RecentCellViewController: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         innerView.layer.cornerRadius = 8
-        innerView.layer.masksToBounds = true
         recentTickImage.layer.cornerRadius = 8
         recentTickImage.layer.masksToBounds = true
+        
+        innerView.layer.shadowColor = UIColor.black.cgColor
+        innerView.layer.shadowOpacity = 0.3
+        innerView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        innerView.layer.shadowRadius = 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
