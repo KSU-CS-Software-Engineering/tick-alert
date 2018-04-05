@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0E0AD775206AADAF002C8EA4 /* tickonwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E0AD774206AADAE002C8EA4 /* tickonwhite.png */; };
+		0E1346222075E86800B7F24D /* tickbite.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1346212075E86700B7F24D /* tickbite.png */; };
+		0E1346242075EBD700B7F24D /* tickborne_diseases.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1346232075EBD700B7F24D /* tickborne_diseases.png */; };
+		0E1346262075EC9100B7F24D /* tickdisease.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E1346252075EC9000B7F24D /* tickdisease.jpg */; };
 		0E183110205251FD00805AB8 /* SexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18310F205251FD00805AB8 /* SexViewController.swift */; };
 		0E18311620525C8800805AB8 /* OrnationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18311520525C8800805AB8 /* OrnationViewController.swift */; };
 		0E1831192052619A00805AB8 /* inornate_ticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E1831172052619900805AB8 /* inornate_ticks.png */; };
@@ -108,6 +111,9 @@
 
 /* Begin PBXFileReference section */
 		0E0AD774206AADAE002C8EA4 /* tickonwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tickonwhite.png; path = ../../../Resources/tickonwhite.png; sourceTree = "<group>"; };
+		0E1346212075E86700B7F24D /* tickbite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tickbite.png; sourceTree = "<group>"; };
+		0E1346232075EBD700B7F24D /* tickborne_diseases.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tickborne_diseases.png; sourceTree = "<group>"; };
+		0E1346252075EC9000B7F24D /* tickdisease.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tickdisease.jpg; sourceTree = "<group>"; };
 		0E18310F205251FD00805AB8 /* SexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexViewController.swift; sourceTree = "<group>"; };
 		0E18311520525C8800805AB8 /* OrnationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnationViewController.swift; sourceTree = "<group>"; };
 		0E1831172052619900805AB8 /* inornate_ticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inornate_ticks.png; sourceTree = "<group>"; };
@@ -297,6 +303,9 @@
 		0E40FE3920535A0D009694EA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0E1346252075EC9000B7F24D /* tickdisease.jpg */,
+				0E1346232075EBD700B7F24D /* tickborne_diseases.png */,
+				0E1346212075E86700B7F24D /* tickbite.png */,
 				0E0AD774206AADAE002C8EA4 /* tickonwhite.png */,
 				0EC6ECDF20665CFE00CAF618 /* KSU-College-of-Vet-Medicine.jpg */,
 				0EC6ECD02066585D00CAF618 /* distributions */,
@@ -535,15 +544,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E1346262075EC9100B7F24D /* tickdisease.jpg in Resources */,
 				0E2D40B11F8ADEAF00DD3F37 /* LaunchScreen.storyboard in Resources */,
 				0E40FE4920535A60009694EA /* female_browndog.png in Resources */,
 				0E40FE5020535A60009694EA /* male_rockymountainwood.png in Resources */,
 				0E9DDD322048ADC40084FB59 /* closeup.jpg in Resources */,
+				0E1346222075E86800B7F24D /* tickbite.png in Resources */,
 				0E40FE4F20535A60009694EA /* male_gulfcoast.png in Resources */,
 				0E40FE3320530BE4009694EA /* femaleTicks.png in Resources */,
 				0E40FE3820534D2C009694EA /* long_capitulum.png in Resources */,
 				0EC6ECD9206658AB00CAF618 /* americanDog.jpg in Resources */,
 				0E40FE5320535A60009694EA /* female_lonestar.png in Resources */,
+				0E1346242075EBD700B7F24D /* tickborne_diseases.png in Resources */,
 				0E40FE5620535A60009694EA /* male_westernblacklegged.png in Resources */,
 				0E9DDD2B20486C250084FB59 /* Rhipicephalus_sanguineus_all.jpg in Resources */,
 				0E40FE5120535A60009694EA /* female_gulfcoast.png in Resources */,

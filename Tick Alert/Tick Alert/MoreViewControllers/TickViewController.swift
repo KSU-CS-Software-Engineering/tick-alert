@@ -13,6 +13,7 @@ class TickViewController: UIViewController {
     @IBOutlet var tickImage: UIImageView!
     @IBOutlet var scienceName: UILabel!
     @IBOutlet var body: UITextView!
+    @IBOutlet var roundedView: UIView!
     
     var id: Int?
     
@@ -28,6 +29,11 @@ class TickViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundedView.layer.cornerRadius = 8
+        tickImage.layer.cornerRadius = 8
+        body.layer.cornerRadius = 8
+        roundedView.layer.masksToBounds = true
+        tickImage.layer.masksToBounds = true
         
         switch(id!) {
             case 0:
