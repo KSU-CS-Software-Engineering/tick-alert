@@ -32,8 +32,18 @@ class TickViewController: UIViewController {
         roundedView.layer.cornerRadius = 8
         tickImage.layer.cornerRadius = 8
         body.layer.cornerRadius = 8
-        roundedView.layer.masksToBounds = true
         tickImage.layer.masksToBounds = true
+        body.layer.masksToBounds = false
+        
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.3
+        roundedView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        roundedView.layer.shadowRadius = 2
+        
+        body.layer.shadowColor = UIColor.black.cgColor
+        body.layer.shadowOpacity = 0.3
+        body.layer.shadowOffset = CGSize(width: 3, height: 3)
+        body.layer.shadowRadius = 2
         
         switch(id!) {
             case 0:
