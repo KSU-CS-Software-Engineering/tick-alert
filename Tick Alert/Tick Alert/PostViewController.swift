@@ -58,6 +58,9 @@ class PostViewController: UIViewController {
         mapView.layer.cornerRadius = 8
         roundedView.layer.cornerRadius = 8
         tickImage.layer.cornerRadius = 8
+        mapView.layer.masksToBounds = true
+        roundedView.layer.masksToBounds = true
+        tickImage.layer.masksToBounds = true
         
         ref.child("post").child("\(postId)").observeSingleEvent(of: .value, with: { (snapshot) in
             

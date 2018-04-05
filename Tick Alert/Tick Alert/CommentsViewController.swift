@@ -86,6 +86,8 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         roundedView.layer.cornerRadius = 8
         tickImage.layer.cornerRadius = 8
+        roundedView.layer.masksToBounds = true
+        tickImage.layer.masksToBounds = true
         
         tickImage.image = image
         tickSpecie.text = specie
