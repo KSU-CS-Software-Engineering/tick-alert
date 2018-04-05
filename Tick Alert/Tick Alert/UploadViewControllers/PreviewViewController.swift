@@ -15,15 +15,16 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet var tickTypeLabel: UILabel!
     @IBOutlet var userLabel: UILabel!
     @IBOutlet var map: MKMapView!
-    @IBOutlet var locationLabel: UILabel!
     @IBOutlet var elevationLabel: UILabel!
     @IBOutlet var weatherImage: UIImageView!
     @IBOutlet var temperatureLabel: UILabel!
     @IBOutlet var sexLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var descriptionLabel: UITextView!
+    @IBOutlet var roundedView: UIView!
     
     var buttonPressed = false
+    var locationText = ""
     var tickType: String?
     var desc: String?
     var location: CLLocationCoordinate2D?
@@ -60,7 +61,7 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                             "imageUrl": String(describing: url!),
                             "lat": self.location!.latitude,
                             "lon": self.location!.longitude,
-                            "location": self.locationLabel.text as Any,
+                            "location": self.locationText as Any,
                             "poster": Auth.auth().currentUser!.uid,
                             "posterName": self.userLabel.text as Any,
                             "type": self.tickType!,
@@ -115,7 +116,7 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             if(error == nil) {
                 let city = placemarks?[0].locality
                 let state = placemarks?[0].administrativeArea
-                self.locationLabel.text = city! + ", " + state!
+                self.locationText = city! + ", " + state!
                 
                 //weather key: 92775877df4abb0e
                 let semaphore = DispatchSemaphore(value: 0)
@@ -146,6 +147,11 @@ class PreviewViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         sexLabel.text = sex
         dateLabel.text = date
+        
+        map.layer.cornerRadius = 8
+        roundedView.layer.cornerRadius = 8
+        tickImage.layer.cornerRadius = 8
+        tickImage.layer.masksToBounds = true
     }
     
     func updateLabelsAndIcon() {

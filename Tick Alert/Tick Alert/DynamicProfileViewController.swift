@@ -17,6 +17,7 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var roundedView: UIView!
     
     var numberOfPosts = 0
     
@@ -58,6 +59,10 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
         }) { (error) in
             print(error.localizedDescription)
         }
+        cell.roundedView.layer.cornerRadius = 8
+        cell.tickImage.layer.cornerRadius = 8
+        cell.roundedView.layer.masksToBounds = true
+        cell.tickImage.layer.masksToBounds = true
         return cell
     }
     
@@ -120,6 +125,7 @@ class DynamicProfileViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundedView.layer.cornerRadius = 8
     }
     
     override func didReceiveMemoryWarning() {

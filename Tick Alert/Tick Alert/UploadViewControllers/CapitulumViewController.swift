@@ -68,7 +68,6 @@ class CapitulumViewController: UIViewController {
         capitulumSelector.layer.cornerRadius = 8
         roundedView.layer.masksToBounds = true
         exampleImage.layer.masksToBounds = true
-        capitulumSelector.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

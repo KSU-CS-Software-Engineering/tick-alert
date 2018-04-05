@@ -67,7 +67,6 @@ class SexViewController: UIViewController {
         maleFemaleSelector.layer.cornerRadius = 8
         roundedView.layer.masksToBounds = true
         exampleImage.layer.masksToBounds = true
-        maleFemaleSelector.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
