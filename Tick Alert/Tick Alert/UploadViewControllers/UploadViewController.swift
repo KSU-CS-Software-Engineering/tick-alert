@@ -125,6 +125,8 @@ class UploadViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         roundedView.layer.cornerRadius = 8
         exampleImage.layer.cornerRadius = 8
+        roundedView.layer.masksToBounds = true
+        exampleImage.layer.masksToBounds = true
     }
     
     @objc func nextButtonPressed() {

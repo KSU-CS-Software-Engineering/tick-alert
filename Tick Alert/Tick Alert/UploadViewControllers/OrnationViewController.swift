@@ -64,6 +64,9 @@ class OrnationViewController: UIViewController {
         roundedView.layer.cornerRadius = 8
         exampleImage.layer.cornerRadius = 8
         ornationSelector.layer.cornerRadius = 8
+        roundedView.layer.masksToBounds = true
+        exampleImage.layer.masksToBounds = true
+        ornationSelector.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

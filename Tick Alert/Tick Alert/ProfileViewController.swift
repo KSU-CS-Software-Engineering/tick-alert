@@ -123,6 +123,8 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
         }
         cell.roundedView.layer.cornerRadius = 8
         cell.tickImage.layer.cornerRadius = 8
+        cell.roundedView.layer.masksToBounds = true
+        cell.tickImage.layer.masksToBounds = true
         return cell
     }
     
