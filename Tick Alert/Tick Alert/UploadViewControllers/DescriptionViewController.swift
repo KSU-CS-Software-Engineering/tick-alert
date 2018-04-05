@@ -60,6 +60,12 @@ class DescriptionViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.navigationItem.rightBarButtonItem = nextButton
         
         textField.layer.cornerRadius = 8
+        textField.layer.masksToBounds = false
+        
+        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowOpacity = 0.3
+        textField.layer.shadowOffset = CGSize(width: 3, height: 3)
+        textField.layer.shadowRadius = 2
     }
 
     override func didReceiveMemoryWarning() {

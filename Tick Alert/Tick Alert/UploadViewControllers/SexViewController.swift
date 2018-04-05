@@ -65,8 +65,12 @@ class SexViewController: UIViewController {
         roundedView.layer.cornerRadius = 8
         exampleImage.layer.cornerRadius = 8
         maleFemaleSelector.layer.cornerRadius = 8
-        roundedView.layer.masksToBounds = true
         exampleImage.layer.masksToBounds = true
+        
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.3
+        roundedView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        roundedView.layer.shadowRadius = 2
     }
 
     override func didReceiveMemoryWarning() {
