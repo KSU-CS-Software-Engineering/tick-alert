@@ -12,10 +12,15 @@ class CommonCell: UITableViewCell {
 
     @IBOutlet var tickType: UILabel!
     @IBOutlet var tickPicture: UIImageView!
+    @IBOutlet weak var roundedView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        roundedView.layer.cornerRadius = 8
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.6
+        roundedView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        roundedView.layer.shadowRadius = 4
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

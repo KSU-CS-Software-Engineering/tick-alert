@@ -84,9 +84,14 @@ class CommentsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.6
+        roundedView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        roundedView.layer.shadowRadius = 4
+        
         roundedView.layer.cornerRadius = 8
         tickImage.layer.cornerRadius = 8
-        roundedView.layer.masksToBounds = true
         tickImage.layer.masksToBounds = true
         
         tickImage.image = image

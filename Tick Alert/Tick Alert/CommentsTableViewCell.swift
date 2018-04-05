@@ -23,6 +23,11 @@ class CommentsTableViewCell: UITableViewCell {
         commenterImage.layer.borderColor = UIColor.black.cgColor
         commenterImage.layer.cornerRadius = commenterImage.frame.height/2
         commenterImage.clipsToBounds = true
+        
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.4
+        roundedView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        roundedView.layer.shadowRadius = 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
