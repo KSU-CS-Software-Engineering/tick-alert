@@ -58,6 +58,7 @@ class PostViewController: UIViewController {
         mapView.layer.cornerRadius = 8
         roundedView.layer.cornerRadius = 8
         tickImage.layer.cornerRadius = 8
+        tickDescription.layer.cornerRadius = 8
         mapView.layer.masksToBounds = true
         tickImage.layer.masksToBounds = true
         
@@ -119,9 +120,32 @@ class PostViewController: UIViewController {
             
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat, lon), CLLocationDistance(1000), CLLocationDistance(1000))
             self.mapView.setRegion(coordinateRegion, animated: true)
+            
+            if(self.posterId == Auth.auth().currentUser?.uid) {
+                let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editButtonPressed))
+                self.navigationItem.rightBarButtonItem = editButton
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    @objc func editButtonPressed() {
+        tickDescription.isEditable = true
+        tickDescription.backgroundColor = UIColor.white
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.saveButtonPressed))
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc func saveButtonPressed() {
+        tickDescription.isEditable = false
+        tickDescription.backgroundColor = UIColor.clear
+        
+        ref.child("post").child(postId).child("description").setValue(tickDescription.text)
+        
+        let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editButtonPressed))
+        self.navigationItem.rightBarButtonItem = editButton
     }
 
     override func didReceiveMemoryWarning() {
