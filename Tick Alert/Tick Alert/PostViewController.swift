@@ -24,6 +24,7 @@ class PostViewController: UIViewController {
     var previousController = ""
     var postId = ""
     let ref = Database.database().reference()
+    var oldDescription = ""
     
     @IBOutlet var roundedView: UIView!
     @IBOutlet var tickDescription: UITextView!
@@ -133,6 +134,7 @@ class PostViewController: UIViewController {
     @objc func editButtonPressed() {
         tickDescription.isEditable = true
         tickDescription.backgroundColor = UIColor.white
+        oldDescription = tickDescription.text
         
         let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.saveButtonPressed))
         self.navigationItem.rightBarButtonItem = saveButton
@@ -142,15 +144,12 @@ class PostViewController: UIViewController {
         tickDescription.isEditable = false
         tickDescription.backgroundColor = UIColor.clear
         
-        ref.child("post").child(postId).child("description").setValue(tickDescription.text)
+        if(tickDescription.text != oldDescription) {
+            ref.child("post").child(postId).child("description").setValue(tickDescription.text)
+        }
         
         let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editButtonPressed))
         self.navigationItem.rightBarButtonItem = editButton
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func documentsPathForFileName(name: String) -> String {

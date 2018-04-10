@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var googleSignInButton: UIButton!
+    @IBOutlet var editSaveButton: UIButton!
     
     var posts = [NSDictionary]()
     var imagePaths = [String:String]()
@@ -24,6 +25,16 @@ class ProfileViewController: UIViewController, GIDSignInUIDelegate, UICollection
     var numberOfPosts = 0
     var userId = ""
     @IBOutlet weak var separatorLine: UIView!
+    
+    @IBAction func editSaveButtonPressed(_ sender: Any) {
+        if (editSaveButton.titleLabel!.text == "Edit") {
+            editSaveButton.setTitle("Save", for: .normal)
+            
+        } else {
+            editSaveButton.setTitle("Edit", for: .normal)
+            
+        }
+    }
     
     @IBAction func googleSignInButtonPressed(_ sender: Any) {
         // Log user into Google

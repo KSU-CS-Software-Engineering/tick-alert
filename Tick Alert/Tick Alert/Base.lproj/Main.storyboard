@@ -109,6 +109,17 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DU-8i-Xst">
+                                        <rect key="frame" x="305" y="8" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lwE-n2-TdV"/>
+                                            <constraint firstAttribute="width" constant="46" id="qfb-03-dj1"/>
+                                        </constraints>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editSaveButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Lpv-e5-Qns"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -120,7 +131,9 @@
                                     <constraint firstAttribute="trailing" secondItem="7TH-Rs-c8v" secondAttribute="trailing" constant="8" id="coH-cY-N5w"/>
                                     <constraint firstItem="OY5-WT-7V3" firstAttribute="top" secondItem="ANb-U1-B4x" secondAttribute="bottom" constant="8" id="h0q-q1-Cw3"/>
                                     <constraint firstItem="ANb-U1-B4x" firstAttribute="centerX" secondItem="cr9-qn-IlY" secondAttribute="centerX" id="h5e-SA-YVK"/>
+                                    <constraint firstAttribute="trailing" secondItem="5DU-8i-Xst" secondAttribute="trailing" constant="8" id="jvZ-Lg-d7R"/>
                                     <constraint firstItem="7TH-Rs-c8v" firstAttribute="leading" secondItem="cr9-qn-IlY" secondAttribute="leading" constant="8" id="nNs-eE-Ld3"/>
+                                    <constraint firstItem="5DU-8i-Xst" firstAttribute="top" secondItem="cr9-qn-IlY" secondAttribute="top" constant="8" id="x3b-Xe-GAP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -146,6 +159,7 @@
                     <connections>
                         <outlet property="SeparatorLine" destination="cr9-qn-IlY" id="PN8-gz-7Cf"/>
                         <outlet property="collectionView" destination="7eg-Eu-SED" id="aoY-5i-Odu"/>
+                        <outlet property="editSaveButton" destination="5DU-8i-Xst" id="cYf-Xy-wyN"/>
                         <outlet property="googleSignInButton" destination="2i8-iP-5ev" id="ADg-oF-a0x"/>
                         <outlet property="separatorLine" destination="cr9-qn-IlY" id="sZN-xR-hhH"/>
                         <outlet property="userFirstAndLast" destination="OY5-WT-7V3" id="glm-fX-bJ2"/>
