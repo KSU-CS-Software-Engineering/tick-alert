@@ -77,6 +77,10 @@ class CameraViewController: UIViewController {
         captureButton.layer.zPosition = 1
         helpButton.layer.zPosition = 1
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        captureSession?.stopRunning()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,12 +100,8 @@ extension CameraViewController : AVCapturePhotoCaptureDelegate {
         // Initialise a UIImage with our image data
         let capturedImage = UIImage.init(data: imageData , scale: 1.0)
         if let image = capturedImage {
-            // Save our captured image to photos album
+            // Save captured image to photos album
             //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-            
-//            let uploadController = storyboard?.instantiateViewController(withIdentifier: "Upload") as! UploadViewController
-//            uploadController.uploadImage = image
-//            navigationController?.pushViewController(uploadController, animated: true)
             
             let sexController = storyboard?.instantiateViewController(withIdentifier: "sex") as! SexViewController
             sexController.uploadImage = image
